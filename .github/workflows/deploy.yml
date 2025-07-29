@@ -1,0 +1,114 @@
+name: Deploy to raw.githack.com
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      
+    - name: Validate index.html exists
+      run: |
+        if [ ! -f "index.html" ]; then
+          echo "Error: index.html not found!"
+          exit 1
+        fi
+        echo "✅ index.html found"
+        
+    - name: Validate HTML structure
+      run: |
+        # Check for basic HTML5 structure
+        if ! grep -q "<!DOCTYPE html>" index.html; then
+          echo "Warning: Missing HTML5 doctype"
+        fi
+        if ! grep -q "<header>" index.html; then
+          echo "Warning: Missing header tag"
+        fi
+        if ! grep -q "<nav>" index.html; then
+          echo "Warning: Missing nav tag"
+        fi
+        if ! grep -q "<main>" index.html; then
+          echo "Warning: Missing main tag"
+        fi
+        if ! grep -q "<footer>" index.html; then
+          echo "Warning: Missing footer tag"
+        fi
+        echo "✅ HTML structure validation complete"
+        
+    - name: Optional HTML Lint
+      run: |
+        # Install HTML5 validator (optional)
+        if command -v tidy &> /dev/null; then
+          echo "Running HTML validation with tidy..."
+          tidy -q -e index.html || echo "HTML validation completed with warnings"
+        else
+          echo "Tidy not available, skipping HTML validation"
+        fi
+        
+    - name: Optional CSS Lint
+      run: |
+        # Check if styles.css exists and basic validation
+        if [ -f "styles.css" ]; then
+          echo "✅ styles.css found"
+          # Basic CSS validation - check for obvious syntax errors
+          if grep -q "{" styles.css && grep -q "}" styles.css; then
+            echo "✅ Basic CSS structure looks valid"
+          else
+            echo "Warning: CSS file may have syntax issues"
+          fi
+        else
+          echo "Warning: styles.css not found"
+        fi
+        
+    - name: Comment PR with raw.githack URL
+      if: github.event_name == 'pull_request'
+      uses: actions/github-script@v7
+      with:
+        github-token: ${{ secrets.GITHUB_TOKEN }}
+        script: |
+          const username = context.repo.owner;
+          const repo = context.repo.repo;
+          const prNumber = context.issue.number;
+          const branch = context.payload.pull_request.head.ref;
+          
+          const rawGithackUrl = `https://raw.githack.com/${username}/${repo}/${branch}/index.html`;
+          
+          const comment = `🚀 **Preview your changes:**
+          
+          **Raw.githack URL:** [${rawGithackUrl}](${rawGithackUrl})
+          
+          This URL allows you to preview your static website without activating GitHub Pages.
+          
+          To customize this template:
+          1. Replace \`<USERNAME>\` with \`${username}\`
+          2. Replace \`<REPO>\` with \`${repo}\`
+          
+          The final URL template: \`https://raw.githack.com/<USERNAME>/<REPO>/main/index.html\``;
+          
+          github.rest.issues.createComment({
+            issue_number: prNumber,
+            owner: username,
+            repo: repo,
+            body: comment
+          });
+          
+    - name: Output deployment info
+      run: |
+        echo "🎉 Deployment validation complete!"
+        echo ""
+        echo "📄 Files validated:"
+        echo "  ✅ index.html exists and validated"
+        if [ -f "styles.css" ]; then echo "  ✅ styles.css found"; fi
+        if [ -f "script.js" ]; then echo "  ✅ script.js found"; fi
+        echo ""
+        echo "🌐 Raw.githack URLs:"
+        echo "  Main branch: https://raw.githack.com/<USERNAME>/<REPO>/main/index.html"
+        echo ""
+        echo "Replace <USERNAME> and <REPO> with your actual GitHub username and repository name."

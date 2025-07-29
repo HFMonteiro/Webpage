@@ -3,136 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Simple Webpage</title>
+    <title>Hugo's Prototype Site</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <!-- Header Section -->
     <header>
-        <div class="container">
-            <div class="logo">
-                <h1>My Website</h1>
-            </div>
-            <nav>
-                <ul>
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#services">Services</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-            </nav>
-        </div>
+        <h1>Hugo's Prototype Site</h1>
     </header>
 
-    <!-- Main Content Section -->
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#contact">Contact</a>
+    </nav>
+
     <main>
-        <!-- Home Section -->
-        <section id="home" class="hero">
-            <div class="container">
-                <div class="hero-content">
-                    <h2>Welcome to My Simple Website</h2>
-                    <p>This is a minimalist static webpage built with HTML, CSS, and JavaScript, hosted on GitHub Pages.</p>
-                    <button class="cta-button" onclick="scrollToSection('about')">Learn More</button>
-                </div>
-                <div class="hero-image">
-                    <img src="https://via.placeholder.com/400x300/4a90e2/ffffff?text=Welcome" alt="Welcome Image">
-                </div>
-            </div>
-        </section>
-
-        <!-- About Section -->
-        <section id="about" class="content-section">
-            <div class="container">
-                <h2>About</h2>
-                <p>This webpage demonstrates a simple, responsive design using modern web standards. It includes navigation, content sections, and interactive elements that work seamlessly across desktop and mobile devices.</p>
-                <div class="features">
-                    <div class="feature">
-                        <h3>Responsive Design</h3>
-                        <p>Adapts to any screen size for optimal viewing experience.</p>
-                    </div>
-                    <div class="feature">
-                        <h3>Clean Code</h3>
-                        <p>Well-structured HTML, CSS, and JavaScript following best practices.</p>
-                    </div>
-                    <div class="feature">
-                        <h3>GitHub Pages Ready</h3>
-                        <p>Automatically deployed and updated with every push to the repository.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Services Section -->
-        <section id="services" class="content-section alt-bg">
-            <div class="container">
-                <h2>Services</h2>
-                <p>This section showcases different services or projects. Perfect for portfolios or business websites.</p>
-                <div class="services-grid">
-                    <div class="service-item">
-                        <h3>Web Development</h3>
-                        <p>Creating modern, responsive websites with clean code.</p>
-                    </div>
-                    <div class="service-item">
-                        <h3>UI/UX Design</h3>
-                        <p>Designing user-friendly interfaces that look great and work well.</p>
-                    </div>
-                    <div class="service-item">
-                        <h3>Static Sites</h3>
-                        <p>Fast, secure, and easy-to-maintain static websites.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Contact Section -->
-        <section id="contact" class="content-section">
-            <div class="container">
-                <h2>Contact</h2>
-                <p>Get in touch through the following channels:</p>
-                <div class="contact-info">
-                    <div class="contact-item">
-                        <h3>Email</h3>
-                        <p>contact@example.com</p>
-                    </div>
-                    <div class="contact-item">
-                        <h3>Location</h3>
-                        <p>Portugal</p>
-                    </div>
-                </div>
-            </div>
-        </section>
+        <p>Welcome to Hugo's prototype site! This is a minimal static website deployed using raw.githack.com for quick prototyping and testing. Built for a Portuguese MD/MPH with focus on digital health transformation.</p>
+        
+        <img src="https://via.placeholder.com/400x250/4a90e2/ffffff?text=Prototype+Image" alt="Prototype placeholder image">
     </main>
 
-    <!-- Footer Section -->
     <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h3>My Website</h3>
-                    <p>A simple static webpage example.</p>
-                </div>
-                <div class="footer-section">
-                    <h3>Quick Links</h3>
-                    <ul>
-                        <li><a href="#home">Home</a></li>
-                        <li><a href="#about">About</a></li>
-                        <li><a href="#services">Services</a></li>
-                        <li><a href="#contact">Contact</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h3>Social Media</h3>
-                    <div class="social-links">
-                        <a href="https://github.com" target="_blank" aria-label="GitHub">GitHub</a>
-                        <a href="https://linkedin.com" target="_blank" aria-label="LinkedIn">LinkedIn</a>
-                        <a href="mailto:contact@example.com" aria-label="Email">Email</a>
-                    </div>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2024 My Website. All rights reserved.</p>
-            </div>
-        </div>
+        <p>&copy; <span id="current-year"></span> Hugo Monteiro. Available at: https://raw.githack.com/&lt;USERNAME&gt;/&lt;REPO&gt;/main/index.html</p>
     </footer>
 
     <script src="script.js"></script>
