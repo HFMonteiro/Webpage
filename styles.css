@@ -25,6 +25,14 @@ header {
 header h1 {
     font-size: 1.8rem;
     font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.subtitle {
+    font-size: 1rem;
+    font-weight: 300;
+    opacity: 0.9;
+    margin: 0;
 }
 
 /* Navigation Styles */
@@ -56,18 +64,101 @@ main {
     padding: 0 1rem;
 }
 
-main p {
-    font-size: 1.1rem;
-    margin-bottom: 2rem;
-    text-align: justify;
+main section {
+    margin-bottom: 3rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid #eee;
 }
 
-main img {
-    width: 100%;
-    height: auto;
-    border-radius: 8px;
+main section:last-child {
+    border-bottom: none;
+}
+
+main h2 {
+    color: #4a90e2;
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+    border-bottom: 2px solid #4a90e2;
+    padding-bottom: 0.5rem;
+}
+
+main h3 {
+    color: #357abd;
+    font-size: 1.3rem;
+    margin: 1.5rem 0 0.8rem 0;
+}
+
+main p {
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+    text-align: justify;
+    line-height: 1.7;
+}
+
+.profile-photo {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    margin-bottom: 2rem;
+    margin: 1rem auto;
+    display: block;
+}
+
+.skills-list {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 0.5rem;
+    margin: 1rem 0;
+}
+
+.skills-list li {
+    background-color: #f8f9fa;
+    padding: 0.5rem 1rem;
+    border-left: 3px solid #4a90e2;
+    font-weight: 500;
+}
+
+.experience-item, .education-item {
+    background-color: #f8f9fa;
+    padding: 1.5rem;
+    border-radius: 8px;
+    margin-bottom: 1.5rem;
+    border-left: 4px solid #4a90e2;
+}
+
+.role-details, .degree-details {
+    color: #666;
+    font-style: italic;
+    margin-bottom: 0.8rem;
+}
+
+.contact-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin: 1.5rem 0;
+}
+
+.contact-link {
+    background-color: #4a90e2;
+    color: white;
+    padding: 0.8rem 1.5rem;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: 500;
+    transition: background-color 0.3s ease;
+}
+
+.contact-link:hover {
+    background-color: #357abd;
+}
+
+.contact-note {
+    font-size: 0.9rem;
+    color: #666;
+    font-style: italic;
+    text-align: center;
 }
 
 /* Footer Styles */
@@ -102,12 +193,25 @@ footer p {
     }
     
     nav a {
-        margin: 0 1.5rem;
-        padding: 0.75rem 1.5rem;
+        margin: 0 1rem;
+        padding: 0.75rem 1.2rem;
+        font-size: 0.95rem;
     }
     
     main {
         padding: 0 2rem;
+    }
+    
+    main h2 {
+        font-size: 2rem;
+    }
+    
+    .skills-list {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .contact-links {
+        justify-content: center;
     }
     
     footer {
@@ -133,6 +237,11 @@ footer p {
         font-size: 2.5rem;
     }
     
+    nav a {
+        margin: 0 1.5rem;
+        padding: 0.75rem 1.5rem;
+    }
+    
     main {
         max-width: 1000px;
         padding: 0 2rem;
@@ -140,6 +249,19 @@ footer p {
     
     main p {
         font-size: 1.2rem;
+    }
+    
+    main h2 {
+        font-size: 2.2rem;
+    }
+    
+    .skills-list {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    
+    .profile-photo {
+        width: 250px;
+        height: 250px;
     }
     
     footer {
