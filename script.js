@@ -1,4 +1,4 @@
-// Minimal JavaScript functionality for Hugo's prototype site
+// Professional website functionality for Hugo Monteiro
 
 // Set footer copyright year dynamically on page load
 document.addEventListener('DOMContentLoaded', function() {
@@ -9,6 +9,23 @@ document.addEventListener('DOMContentLoaded', function() {
         yearElement.textContent = currentYear;
     }
     
-    // Console log friendly message
-    console.log('Apollo says hello, Hugo!');
+    // Add smooth scrolling for navigation links
+    const navLinks = document.querySelectorAll('nav a[href^="#"]');
+    navLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            const targetId = this.getAttribute('href').substring(1);
+            const targetElement = document.getElementById(targetId);
+            
+            if (targetElement) {
+                targetElement.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        });
+    });
+    
+    // Console log professional greeting
+    console.log('Welcome to Hugo Monteiro\'s professional portfolio!');
 });
