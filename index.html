@@ -3,7 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO Meta Tags -->
     <title>Hugo Monteiro - MD/MPH | Digital Health Specialist</title>
+    <meta name="description" content="Hugo Monteiro is a Portuguese MD/MPH dedicated to digital health transformation and improving healthcare delivery through innovative technology solutions.">
+    <meta name="keywords" content="digital health, healthcare technology, public health, medical doctor, health transformation, Portuguese physician">
+    <meta name="author" content="Hugo Monteiro">
+    <link rel="canonical" href="https://raw.githack.com/HFMonteiro/Webpage/main/index.html">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Hugo Monteiro - MD/MPH | Digital Health Specialist">
+    <meta property="og:description" content="Portuguese MD/MPH dedicated to digital health transformation and improving healthcare delivery through innovative technology solutions.">
+    <meta property="og:image" content="https://media.licdn.com/dms/image/v2/C4D03AQE3WslnoRzlvg/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1583070379960?e=1756944000&v=beta&t=2R9SWCNF9wlYCMFseNpThcfKowIDcyHFlU-JcTRH4x4">
+    <meta property="og:url" content="https://raw.githack.com/HFMonteiro/Webpage/main/index.html">
+    
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Hugo Monteiro - MD/MPH | Digital Health Specialist">
+    <meta name="twitter:description" content="Portuguese MD/MPH dedicated to digital health transformation and improving healthcare delivery through innovative technology solutions.">
+    <meta name="twitter:image" content="https://media.licdn.com/dms/image/v2/C4D03AQE3WslnoRzlvg/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1583070379960?e=1756944000&v=beta&t=2R9SWCNF9wlYCMFseNpThcfKowIDcyHFlU-JcTRH4x4">
+    
+    <!-- Security Headers -->
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta http-equiv="X-Frame-Options" content="DENY">
+    <meta http-equiv="X-XSS-Protection" content="1; mode=block">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🏥</text></svg>">
+    
+    <!-- Preload Critical Resources -->
+    <link rel="preload" href="styles.css" as="style">
+    <link rel="preload" href="script.js" as="script">
+    
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -12,28 +45,28 @@
         <p class="subtitle">MD/MPH | Digital Health Specialist</p>
     </header>
 
-    <nav>
-        <a href="#home">Home</a>
-        <a href="#about">About</a>
-        <a href="#experience">Experience</a>
-        <a href="#education">Education</a>
-        <a href="#contact">Contact</a>
+    <nav role="navigation" aria-label="Main navigation">
+        <a href="#home" aria-describedby="nav-home-desc">Home</a>
+        <a href="#about" aria-describedby="nav-about-desc">About</a>
+        <a href="#experience" aria-describedby="nav-exp-desc">Experience</a>
+        <a href="#education" aria-describedby="nav-edu-desc">Education</a>
+        <a href="#contact" aria-describedby="nav-contact-desc">Contact</a>
     </nav>
 
-    <main>
-        <section id="home">
-            <h2>Welcome</h2>
+    <main role="main" id="main">
+        <section id="home" aria-labelledby="welcome-heading">
+            <h2 id="welcome-heading">Welcome</h2>
             <p>Welcome to Hugo Monteiro's professional portfolio. I am a Portuguese MD/MPH dedicated to digital health transformation and improving healthcare delivery through innovative technology solutions.</p>
             
-            <img src="https://via.placeholder.com/300x300/4a90e2/ffffff?text=Hugo+Monteiro" alt="Hugo Monteiro - Professional Photo" class="profile-photo">
+            <img src="https://media.licdn.com/dms/image/v2/C4D03AQE3WslnoRzlvg/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1583070379960?e=1756944000&v=beta&t=2R9SWCNF9wlYCMFseNpThcfKowIDcyHFlU-JcTRH4x4" alt="Hugo Monteiro - MD/MPH Digital Health Specialist" class="profile-photo" loading="lazy">
         </section>
 
-        <section id="about">
-            <h2>About</h2>
+        <section id="about" aria-labelledby="about-heading">
+            <h2 id="about-heading">About</h2>
             <p>As a physician with a Master's in Public Health, I am passionate about leveraging digital technologies to transform healthcare systems and improve patient outcomes. My work focuses on bridging the gap between clinical practice and innovative health technologies.</p>
             
             <h3>Areas of Expertise</h3>
-            <ul class="skills-list">
+            <ul class="skills-list" role="list" aria-label="Professional expertise areas">
                 <li>Digital Health Transformation</li>
                 <li>Healthcare Technology Implementation</li>
                 <li>Public Health Strategy</li>
@@ -46,44 +79,44 @@
             <p>Beyond my professional pursuits, I enjoy playing piano, engaging in strategic board games, and spending quality time outdoors with children, fostering their curiosity about the world around them.</p>
         </section>
 
-        <section id="experience">
-            <h2>Professional Experience</h2>
-            <div class="experience-item">
+        <section id="experience" aria-labelledby="experience-heading">
+            <h2 id="experience-heading">Professional Experience</h2>
+            <article class="experience-item">
                 <h3>Digital Health Specialist</h3>
                 <p class="role-details"><strong>Healthcare Technology Sector</strong></p>
                 <p>Leading digital transformation initiatives in healthcare settings, focusing on integrating innovative technologies to enhance patient care and operational efficiency. Working with multidisciplinary teams to implement evidence-based digital health solutions.</p>
-            </div>
+            </article>
 
-            <div class="experience-item">
+            <article class="experience-item">
                 <h3>Medical Doctor</h3>
                 <p class="role-details"><strong>Clinical Practice</strong></p>
                 <p>Providing comprehensive medical care while identifying opportunities for technological improvements in clinical workflows. Contributing to the development of digital health strategies that bridge clinical needs with technological solutions.</p>
-            </div>
+            </article>
         </section>
 
-        <section id="education">
-            <h2>Education</h2>
-            <div class="education-item">
+        <section id="education" aria-labelledby="education-heading">
+            <h2 id="education-heading">Education</h2>
+            <article class="education-item">
                 <h3>Master of Public Health (MPH)</h3>
                 <p class="degree-details"><strong>Focus:</strong> Healthcare Systems and Digital Health</p>
                 <p>Advanced studies in public health methodologies, healthcare system optimization, and the integration of digital technologies in population health management.</p>
-            </div>
+            </article>
 
-            <div class="education-item">
+            <article class="education-item">
                 <h3>Doctor of Medicine (MD)</h3>
                 <p class="degree-details"><strong>Medical Degree</strong></p>
                 <p>Comprehensive medical education with a focus on clinical excellence and patient-centered care, providing the foundation for understanding healthcare delivery challenges and opportunities.</p>
-            </div>
+            </article>
         </section>
 
-        <section id="contact">
-            <h2>Contact & Connect</h2>
+        <section id="contact" aria-labelledby="contact-heading">
+            <h2 id="contact-heading">Contact & Connect</h2>
             <p>I'm always interested in connecting with fellow healthcare professionals, technology innovators, and those passionate about improving healthcare through digital transformation.</p>
             
-            <div class="contact-links">
-                <a href="https://www.linkedin.com/in/hugo-monteiro/" target="_blank" rel="noopener noreferrer" class="contact-link">LinkedIn Profile</a>
-                <a href="mailto:contact@hugomonteiro.com" class="contact-link">Email</a>
-                <a href="https://github.com/HFMonteiro" target="_blank" rel="noopener noreferrer" class="contact-link">GitHub</a>
+            <div class="contact-links" role="list" aria-label="Contact methods">
+                <a href="https://www.linkedin.com/in/hugo-monteiro/" target="_blank" rel="noopener noreferrer" class="contact-link" role="listitem">LinkedIn Profile</a>
+                <a href="mailto:contact@hugomonteiro.com" class="contact-link" role="listitem">Email</a>
+                <a href="https://github.com/HFMonteiro" target="_blank" rel="noopener noreferrer" class="contact-link" role="listitem">GitHub</a>
             </div>
             
             <p class="contact-note">This website serves as a digital portfolio and is continuously updated to reflect current projects and professional developments.</p>
