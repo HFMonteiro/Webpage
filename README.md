@@ -62,7 +62,7 @@ The included GitHub Actions workflow (`.github/workflows/deploy.yml`):
 - **Mobile-first responsive design** adapts to all screen sizes
 - **Clean, minimal structure** perfect for prototyping
 - **Dynamic footer year** automatically updates via JavaScript
-- **Console logging** for debugging ("Apollo says hello, Hugo!")
+- **Console logging** for debugging ("Welcome to Hugo Monteiro's professional portfolio!")
 - **Raw.githack deployment** for instant website access
 
 ## 💻 Technology Stack
