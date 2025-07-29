@@ -1,57 +1,90 @@
-# Simple Static Webpage
+# Hugo's Prototype Static Website
 
-A minimalist static webpage built with HTML, CSS, and JavaScript, ready for GitHub Pages deployment.
+A minimal static website designed for quick prototyping and deployment via raw.githack.com, created for Portuguese MD/MPH Hugo Monteiro with focus on digital health transformation.
 
-## 🌟 Features
-
-- **Responsive Design**: Adapts to any screen size (desktop, tablet, mobile)
-- **Clean Structure**: Semantic HTML with proper accessibility features
-- **Modern Styling**: CSS Grid and Flexbox layouts with smooth animations
-- **Interactive Elements**: Smooth scrolling navigation and hover effects
-- **GitHub Pages Ready**: Automatically deployable with zero configuration
-
-## 📁 Structure
+## 🏗️ File Structure
 
 ```
 /
-├── index.html      # Main HTML page with header, nav, content, and footer
-├── styles.css      # Responsive CSS styling
-├── script.js       # Interactive JavaScript functionality
-├── README.md       # This documentation
-└── LICENSE         # GNU GPL v3 License
+├── index.html                    # Main HTML page (HTML5 boilerplate)
+├── styles.css                    # Mobile-first responsive CSS
+├── script.js                     # Minimal JavaScript functionality
+├── .github/workflows/deploy.yml  # CI workflow for raw.githack deployment
+├── README.md                     # This documentation
+└── LICENSE                       # GNU GPL v3 License
 ```
 
-## 🚀 GitHub Pages Deployment
+## 🔧 Customization Instructions
 
-1. **Enable GitHub Pages**:
-   - Go to your repository Settings
-   - Navigate to "Pages" section
-   - Select "Deploy from a branch"
-   - Choose "main" branch and "/ (root)" folder
-   - Click "Save"
+**IMPORTANT:** This template uses placeholders that you must replace with your actual values:
 
-2. **Access Your Site**:
-   - Your webpage will be available at: `https://HFMonteiro.github.io/Webpage/`
-   - Updates automatically deploy when you push to the main branch
+### Step 1: Replace Placeholders
 
-## 🎨 Customization
+Search and replace the following placeholders throughout all files:
 
-- **Colors**: Edit CSS custom properties in `styles.css`
-- **Content**: Modify sections in `index.html`
-- **Functionality**: Extend features in `script.js`
+- `<USERNAME>` → Your GitHub username (e.g., `HFMonteiro`)
+- `<REPO>` → Your repository name (e.g., `Webpage`)
 
-## 📱 Responsive Breakpoints
+### Files to update:
+- `index.html` (footer with raw.githack URL)
+- `README.md` (this file, update the example URLs below)
 
-- **Desktop**: 1024px and above
-- **Tablet**: 768px - 1023px
-- **Mobile**: 320px - 767px
+### Step 2: Customize Content
 
-## ✨ Interactive Features
+Edit the content in `index.html`:
+- Update the site title in `<header>`
+- Modify the welcome paragraph in `<main>`
+- Change the author name in `<footer>`
 
-- Smooth scrolling navigation
-- Active section highlighting
-- Fade-in animations on scroll
-- Hover effects on buttons and cards
-- Mobile-friendly navigation menu
+## 🚀 Deployment with raw.githack.com
 
-Built with ❤️ using vanilla HTML, CSS, and JavaScript.
+**No GitHub Pages activation needed!** Simply push your code and access it via raw.githack.com.
+
+### Raw.githack URLs:
+
+- **Main branch:** `https://raw.githack.com/<USERNAME>/<REPO>/main/index.html`
+- **Development:** `https://raw.githack.com/<USERNAME>/<REPO>/<BRANCH>/index.html`
+
+### Example (after replacing placeholders):
+- `https://raw.githack.com/HFMonteiro/Webpage/main/index.html`
+
+## 🔄 CI Workflow
+
+The included GitHub Actions workflow (`.github/workflows/deploy.yml`):
+
+1. **Triggers:** On push to `main` branch and pull requests
+2. **Validation:** Checks that `index.html` exists and has proper structure
+3. **Linting:** Optional HTML and CSS validation
+4. **PR Comments:** Automatically comments on PRs with preview URLs
+
+## 📱 Features
+
+- **Mobile-first responsive design** adapts to all screen sizes
+- **Clean, minimal structure** perfect for prototyping
+- **Dynamic footer year** automatically updates via JavaScript
+- **Console logging** for debugging ("Apollo says hello, Hugo!")
+- **Raw.githack deployment** for instant website access
+
+## 💻 Technology Stack
+
+- **HTML5:** Semantic markup with proper structure
+- **CSS3:** Mobile-first responsive design with flexbox
+- **Vanilla JavaScript:** Minimal DOM manipulation
+- **GitHub Actions:** Automated CI/CD workflow
+
+## 🎯 Use Cases
+
+Perfect for:
+- Quick prototypes and mockups
+- Testing ideas before full development
+- Sharing concepts with stakeholders
+- Educational projects and demos
+- Portfolio landing pages
+
+## 🏥 About the Author
+
+This template was created for Hugo Monteiro, a Portuguese MD/MPH focused on digital health transformation, with hobbies including piano, board games, and outdoor activities with kids.
+
+---
+
+**Quick Start:** Push this code to your GitHub repository and immediately access it at the raw.githack URL above. No additional setup required!
