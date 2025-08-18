@@ -198,12 +198,8 @@
         // Enhance contact links with better accessibility
         const contactLinks = document.querySelectorAll('.contact-link');
         contactLinks.forEach(link => {
-            if (link.getAttribute('href').startsWith('mailto:')) {
-                link.setAttribute('aria-label', `Send email to ${link.textContent}`);
-            } else if (link.getAttribute('href').includes('linkedin')) {
+            if (link.getAttribute('href').includes('linkedin')) {
                 link.setAttribute('aria-label', `Visit Hugo Monteiro's LinkedIn profile (opens in new tab)`);
-            } else if (link.getAttribute('href').includes('github')) {
-                link.setAttribute('aria-label', `Visit Hugo Monteiro's GitHub profile (opens in new tab)`);
             }
         });
     }
