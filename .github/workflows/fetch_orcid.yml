@@ -1,0 +1,66 @@
+name: Fetch ORCID Publications
+
+on:
+  schedule:
+    - cron: "0 6 * * 1"   # Weekly, Mondays at 06:00 UTC
+  workflow_dispatch:      # Allow manual triggering
+
+jobs:
+  update-publications:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+      
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+      
+      - name: Install Python dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install requests
+      
+      - name: Fetch ORCID publications
+        run: |
+          python scripts/fetch_orcid.py
+        env:
+          PYTHONPATH: ${{ github.workspace }}
+      
+      - name: Check for changes
+        id: check_changes
+        run: |
+          if git diff --quiet publications/; then
+            echo "changes=false" >> $GITHUB_OUTPUT
+            echo "No changes detected in publications"
+          else
+            echo "changes=true" >> $GITHUB_OUTPUT
+            echo "Changes detected in publications"
+            git diff --stat publications/
+          fi
+      
+      - name: Commit and push changes
+        if: steps.check_changes.outputs.changes == 'true'
+        run: |
+          git config --local user.name "github-actions[bot]"
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git add publications/publications_*.md
+          git commit -m "chore: auto-update publications from ORCID"
+          git push
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      
+      - name: Create summary
+        run: |
+          echo "## ORCID Publications Update" >> $GITHUB_STEP_SUMMARY
+          echo "- **Status**: ${{ steps.check_changes.outputs.changes == 'true' && 'Updated' || 'No changes' }}" >> $GITHUB_STEP_SUMMARY
+          echo "- **Timestamp**: $(date -u)" >> $GITHUB_STEP_SUMMARY
+          echo "- **ORCID ID**: 0000-0002-6060-3335" >> $GITHUB_STEP_SUMMARY
+          
+          if [ "${{ steps.check_changes.outputs.changes }}" == "true" ]; then
+            echo "- **Files updated**: publications_en.md, publications_pt.md" >> $GITHUB_STEP_SUMMARY
+          fi
