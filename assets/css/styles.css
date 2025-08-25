@@ -923,7 +923,10 @@ footer p {
         grid-template-columns: repeat(2, 1fr);
     }
     
-    .contact-grid,
+    .contact-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
     .opportunities-grid {
         grid-template-columns: repeat(3, 1fr);
     }
