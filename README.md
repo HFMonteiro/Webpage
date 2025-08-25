@@ -53,7 +53,7 @@ A bilingual (EN/PT) professional website for Hugo Monteiro, MD/MPH, PhD candidat
 ├── scripts/                     # Automation
 │   └── fetch_orcid.py           # ORCID publications fetcher
 ├── .github/workflows/           # GitHub Actions
-│   ├── deploy.yml               # Deployment validation
+│   ├── site-validation.yml      # Site validation
 │   └── fetch_orcid.yml          # Weekly ORCID updates
 ├── sitemap.xml                  # SEO sitemap
 ├── robots.txt                   # Search engine directives
@@ -70,19 +70,19 @@ Publications are automatically updated weekly from ORCID profile `0000-0002-6060
 
 ## 🌐 Deployment
 
-**Primary:** GitHub Pages or any static hosting service  
+The site is designed for static hosting.
+
+- **Primary:** GitHub Pages or any static hosting service
 
 ## 🔄 GitHub Actions
 
 **ORCID Publications** (`.github/workflows/fetch_orcid.yml`):
-- Weekly automatic updates every Monday at 06:00 UTC
 - Fetches latest publications from ORCID API
 - Commits updated publication lists automatically
 
 ## 📊 Performance & SEO
 
 - **Lighthouse Target**: ≥90 for Performance/Accessibility/Best Practices/SEO
-- **Accessibility**: WCAG AA compliant
 - **SEO**: Complete metadata, hreflang, structured data
 - **Performance**: Optimized assets, lazy loading, deferred JS
 

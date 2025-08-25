@@ -1,4 +1,4 @@
-name: Deploy Validation
+name: Site Validation
 
 on:
   push:
@@ -7,7 +7,7 @@ on:
     branches: [ main ]
 
 jobs:
-  deploy:
+  validate:
     runs-on: ubuntu-latest
     
     steps:
@@ -67,9 +67,9 @@ jobs:
           echo "Warning: styles.css not found"
         fi
         
-    - name: Output deployment info
+    - name: Output validation info
       run: |
-        echo "🎉 Deployment validation complete!"
+        echo "🎉 Site validation complete!"
         echo ""
         echo "📄 Files validated:"
         echo "  ✅ index.html exists and validated"
