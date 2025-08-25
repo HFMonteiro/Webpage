@@ -1,90 +1,135 @@
-# Hugo's Prototype Static Website
+# Hugo Monteiro - Professional Website (v0.1)
 
-A minimal static website designed for quick prototyping and deployment via raw.githack.com, created for Portuguese MD/MPH Hugo Monteiro with focus on digital health transformation.
+A bilingual (EN/PT) professional website for Hugo Monteiro, MD/MPH, PhD candidate, featuring automatic ORCID publications integration and modern responsive design.
 
-## 🏗️ File Structure
+## 🌟 Features
+
+### Internationalization
+- **English** (default landing) and **Portuguese (pt-PT)** versions
+- Language switcher in navigation
+- Proper hreflang tags for SEO
+- Root redirect to `/en/` for English default
+
+### Content Management
+- **ORCID Integration**: Automatic weekly updates of publications from ORCID profile
+- **Bilingual Content**: Complete page translations for all sections
+- **Professional Sections**: About, Research, Experience, Publications, Contact
+- **CV Download**: Integrated curriculum vitae access
+
+### Technical Excellence
+- **SEO Optimized**: Complete metadata, sitemap.xml, robots.txt, JSON-LD structured data
+- **Performance**: Lazy loading, deferred JS, optimized assets
+- **Accessibility**: WCAG AA compliant, skip links, ARIA labels
+- **Responsive**: Mobile-first design with modern CSS Grid/Flexbox
+
+## 🏗️ Structure
 
 ```
 /
-├── index.html                    # Main HTML page (HTML5 boilerplate)
-├── styles.css                    # Mobile-first responsive CSS
-├── script.js                     # Minimal JavaScript functionality
-├── .github/workflows/deploy.yml  # CI workflow for raw.githack deployment
-├── README.md                     # This documentation
-└── LICENSE                       # GNU GPL v3 License
+├── index.html                    # Root redirect to /en/
+├── en/                          # English pages
+│   ├── index.html               # Homepage
+│   ├── about.html               # About/Biography
+│   ├── research.html            # Research interests
+│   ├── experience.html          # Professional experience
+│   ├── publications.html        # Publications (ORCID integrated)
+│   └── contact.html             # Contact information
+├── pt/                          # Portuguese pages (mirrored structure)
+│   ├── index.html               # Página inicial
+│   ├── sobre.html               # Sobre/Biografia
+│   ├── investigacao.html        # Interesses de investigação
+│   ├── experiencia.html         # Experiência profissional
+│   ├── publicacoes.html         # Publicações (ORCID integrado)
+│   └── contacto.html            # Informações de contacto
+├── assets/                      # Static assets
+│   ├── css/styles.css           # Main stylesheet
+│   ├── js/script.js             # Enhanced JavaScript
+│   └── img/                     # Images, favicons
+├── docs/                        # Documents
+│   └── Hugo_Monteiro_CV.pdf     # Curriculum Vitae
+├── publications/                # Auto-generated content
+│   ├── publications_en.md       # English publications
+│   └── publications_pt.md       # Portuguese publications
+├── scripts/                     # Automation
+│   └── fetch_orcid.py           # ORCID publications fetcher
+├── .github/workflows/           # GitHub Actions
+│   ├── deploy.yml               # Deployment validation
+│   └── fetch_orcid.yml          # Weekly ORCID updates
+├── sitemap.xml                  # SEO sitemap
+├── robots.txt                   # Search engine directives
+└── CHANGELOG.md                 # Version history
 ```
 
-## 🔧 Customization Instructions
+## 🚀 ORCID Integration
 
-**IMPORTANT:** This template uses placeholders that you must replace with your actual values:
+Publications are automatically updated weekly from ORCID profile `0000-0002-6060-3335`:
+- **Automated Fetch**: GitHub Action runs every Monday at 06:00 UTC
+- **Bilingual Output**: Generates both English and Portuguese publication lists
+- **Markdown Format**: Clean, structured publication data
+- **Error Handling**: Graceful fallbacks and retry logic
 
-### Step 1: Replace Placeholders
+## 🌐 Deployment
 
-Search and replace the following placeholders throughout all files:
+**Primary:** GitHub Pages or any static hosting service  
+**Development:** raw.githack.com for immediate preview
 
-- `<USERNAME>` → Your GitHub username (e.g., `HFMonteiro`)
-- `<REPO>` → Your repository name (e.g., `Webpage`)
+### Raw.githack URLs (Development):
+- **English:** `https://raw.githack.com/HFMonteiro/Webpage/v0.1/en/index.html`
+- **Portuguese:** `https://raw.githack.com/HFMonteiro/Webpage/v0.1/pt/index.html`
 
-### Files to update:
-- `index.html` (footer with raw.githack URL)
-- `README.md` (this file, update the example URLs below)
+## 🔄 GitHub Actions
 
-### Step 2: Customize Content
+**Deployment Validation** (`.github/workflows/deploy.yml`):
+- Triggers on push and pull requests
+- Validates HTML structure and basic integrity
+- Provides raw.githack preview URLs in PR comments
 
-Edit the content in `index.html`:
-- Update the site title in `<header>`
-- Modify the welcome paragraph in `<main>`
-- Change the author name in `<footer>`
+**ORCID Publications** (`.github/workflows/fetch_orcid.yml`):
+- Weekly automatic updates every Monday at 06:00 UTC
+- Fetches latest publications from ORCID API
+- Commits updated publication lists automatically
 
-## 🚀 Deployment with raw.githack.com
+## 📊 Performance & SEO
 
-**No GitHub Pages activation needed!** Simply push your code and access it via raw.githack.com.
+- **Lighthouse Target**: ≥90 for Performance/Accessibility/Best Practices/SEO
+- **Accessibility**: WCAG AA compliant
+- **SEO**: Complete metadata, hreflang, structured data
+- **Performance**: Optimized assets, lazy loading, deferred JS
 
-### Raw.githack URLs:
+## 🔧 Maintenance
 
-- **Main branch:** `https://raw.githack.com/<USERNAME>/<REPO>/main/index.html`
-- **Development:** `https://raw.githack.com/<USERNAME>/<REPO>/<BRANCH>/index.html`
+### Publications Update
+Publications are automatically updated via GitHub Action. Manual update:
+```bash
+python3 scripts/fetch_orcid.py
+```
 
-### Example (after replacing placeholders):
-- `https://raw.githack.com/HFMonteiro/Webpage/main/index.html`
+### Translation Maintenance
+- Keep English and Portuguese content synchronized
+- Update both language versions when making content changes
+- Ensure hreflang links remain accurate
 
-## 🔄 CI Workflow
+## 🎯 Version 0.1 Achievements
 
-The included GitHub Actions workflow (`.github/workflows/deploy.yml`):
+- ✅ Bilingual EN/PT structure with language switcher
+- ✅ Complete professional content (About, Research, Experience, Publications, Contact)
+- ✅ ORCID automatic publications integration
+- ✅ SEO optimization (sitemap, robots.txt, structured data)
+- ✅ Responsive, accessible design
+- ✅ Performance optimizations
+- ✅ GitHub Actions automation
 
-1. **Triggers:** On push to `main` branch and pull requests
-2. **Validation:** Checks that `index.html` exists and has proper structure
-3. **Linting:** Optional HTML and CSS validation
-4. **PR Comments:** Automatically comments on PRs with preview URLs
+## 🏥 About Hugo Monteiro
 
-## 📱 Features
+MD/MPH and PhD candidate in Health Data Science, focused on digital transformation of healthcare policy and operations. Current roles include:
+- Public Health Physician (ULS Gaia Espinho)
+- Programs Coordinator (Direção Executiva do SNS)  
+- External Consultant (WHO/Europe)
+- Industry Fellow & Lecturer
 
-- **Mobile-first responsive design** adapts to all screen sizes
-- **Clean, minimal structure** perfect for prototyping
-- **Dynamic footer year** automatically updates via JavaScript
-- **Console logging** for debugging ("Welcome to Hugo Monteiro's professional portfolio!")
-- **Raw.githack deployment** for instant website access
-
-## 💻 Technology Stack
-
-- **HTML5:** Semantic markup with proper structure
-- **CSS3:** Mobile-first responsive design with flexbox
-- **Vanilla JavaScript:** Minimal DOM manipulation
-- **GitHub Actions:** Automated CI/CD workflow
-
-## 🎯 Use Cases
-
-Perfect for:
-- Quick prototypes and mockups
-- Testing ideas before full development
-- Sharing concepts with stakeholders
-- Educational projects and demos
-- Portfolio landing pages
-
-## 🏥 About the Author
-
-This template was created for Hugo Monteiro, a Portuguese MD/MPH focused on digital health transformation, with hobbies including piano, board games, and outdoor activities with kids.
+**ORCID**: [0000-0002-6060-3335](https://orcid.org/0000-0002-6060-3335)  
+**LinkedIn**: [hugo-monteiro](https://www.linkedin.com/in/hugo-monteiro/)
 
 ---
 
-**Quick Start:** Push this code to your GitHub repository and immediately access it at the raw.githack URL above. No additional setup required!
+**v0.1** - Complete bilingual professional website with ORCID integration and modern responsive design.
