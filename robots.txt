@@ -4,24 +4,11 @@ Allow: /
 # Sitemap
 Sitemap: https://hfmonteiro.com/sitemap.xml
 
-# Allow indexing of all content
-Allow: /en/
-Allow: /pt/
-Allow: /assets/
-Allow: /docs/
-
 # Disallow indexing of development files
 Disallow: /index_backup.html
 Disallow: /*.tmp
 Disallow: /*.log
 
-# Allow specific assets
-Allow: /assets/css/
-Allow: /assets/js/
-Allow: /assets/img/
-
-# Published publications data
-Allow: /publications/
-
-# Crawl-delay (optional, for polite crawling)
+# Crawl-delay for polite crawling
 Crawl-delay: 1
+
