@@ -1,11 +1,11 @@
 /* CSS Custom Properties */
 :root {
-    --primary-color: #4a90e2;
-    --primary-dark: #357abd;
-    --secondary-color: #f8f9fa;
-    --text-dark: #333;
-    --text-light: #666;
-    --text-muted: #ccc;
+    --primary-color: #0d47a1;
+    --primary-dark: #002171;
+    --secondary-color: #f0f2f5;
+    --text-dark: #222222;
+    --text-light: #555555;
+    --text-muted: #6e6e6e;
     --white: #fff;
     --shadow-light: 0 2px 4px rgba(0, 0, 0, 0.1);
     --shadow-medium: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -43,7 +43,7 @@ body {
 
 /* Header Styles */
 header {
-    background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
+    background: var(--primary-color);
     color: var(--white);
     text-align: center;
     padding: var(--spacing-md) 0;
@@ -55,7 +55,7 @@ header h1 {
     font-size: 1.8rem;
     font-weight: 600;
     margin-bottom: var(--spacing-xs);
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    text-shadow: none;
 }
 
 .subtitle {
@@ -265,7 +265,7 @@ main p {
     left: 0;
     width: 0;
     height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(74, 144, 226, 0.1));
+    background: linear-gradient(90deg, transparent, rgba(13, 71, 161, 0.1));
     transition: width var(--transition-smooth);
 }
 
@@ -323,7 +323,7 @@ main p {
 .contact-link:hover,
 .contact-link:focus {
     transform: translateY(-2px);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    box-shadow: var(--shadow-medium);
     outline: 2px solid var(--primary-color);
     outline-offset: 2px;
 }
@@ -468,7 +468,7 @@ footer p {
     }
     
     .experience-item::before, .education-item::before {
-        background: linear-gradient(90deg, transparent, rgba(74, 144, 226, 0.2));
+        background: linear-gradient(90deg, transparent, rgba(13, 71, 161, 0.2));
     }
 }
 
@@ -516,7 +516,7 @@ footer p {
 .hero {
     text-align: center;
     padding: var(--spacing-xl) 0;
-    background: linear-gradient(135deg, rgba(74, 144, 226, 0.05) 0%, rgba(255, 255, 255, 0) 100%);
+    background: linear-gradient(135deg, rgba(13, 71, 161, 0.05) 0%, rgba(255, 255, 255, 0) 100%);
     border-radius: var(--border-radius);
     margin-bottom: var(--spacing-xl);
 }
@@ -718,7 +718,7 @@ footer p {
 
 .timeline-item.current .timeline-marker {
     background: var(--primary-dark);
-    box-shadow: 0 0 0 4px rgba(74, 144, 226, 0.2);
+    box-shadow: 0 0 0 4px rgba(13, 71, 161, 0.2);
 }
 
 .timeline-content h4 {
@@ -795,7 +795,7 @@ footer p {
 
 /* ORCID Badge */
 .orcid-info {
-    background: #f8f9fa;
+    background: var(--secondary-color);
     padding: var(--spacing-lg);
     border-radius: var(--border-radius);
     margin: var(--spacing-lg) 0;
