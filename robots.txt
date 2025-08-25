@@ -1,6 +1,4 @@
 User-agent: *
-Allow: /
-
 # Sitemap
 Sitemap: https://hfmonteiro.com/sitemap.xml
 
@@ -11,4 +9,3 @@ Disallow: /*.log
 
 # Crawl-delay for polite crawling
 Crawl-delay: 1
-
