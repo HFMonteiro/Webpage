@@ -14,7 +14,6 @@ A bilingual (EN/PT) professional website for Hugo Monteiro, MD/MPH, PhD candidat
 - **ORCID Integration**: Automatic weekly updates of publications from ORCID profile
 - **Bilingual Content**: Complete page translations for all sections
 - **Professional Sections**: About, Research, Experience, Publications, Contact
-- **CV Download**: Integrated curriculum vitae access
 
 ### Technical Excellence
 - **SEO Optimized**: Complete metadata, sitemap.xml, robots.txt, JSON-LD structured data
@@ -45,8 +44,6 @@ A bilingual (EN/PT) professional website for Hugo Monteiro, MD/MPH, PhD candidat
 │   ├── css/styles.css           # Main stylesheet
 │   ├── js/script.js             # Enhanced JavaScript
 │   └── img/                     # Images, favicons
-├── docs/                        # Documents
-│   └── Hugo_Monteiro_CV.pdf     # Curriculum Vitae
 ├── publications/                # Auto-generated content
 │   ├── publications_en.md       # English publications
 │   └── publications_pt.md       # Portuguese publications
