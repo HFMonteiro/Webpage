@@ -71,18 +71,8 @@ Publications are automatically updated weekly from ORCID profile `0000-0002-6060
 ## 🌐 Deployment
 
 **Primary:** GitHub Pages or any static hosting service  
-**Development:** raw.githack.com for immediate preview
-
-### Raw.githack URLs (Development):
-- **English:** `https://raw.githack.com/HFMonteiro/Webpage/v0.1/en/index.html`
-- **Portuguese:** `https://raw.githack.com/HFMonteiro/Webpage/v0.1/pt/index.html`
 
 ## 🔄 GitHub Actions
-
-**Deployment Validation** (`.github/workflows/deploy.yml`):
-- Triggers on push and pull requests
-- Validates HTML structure and basic integrity
-- Provides raw.githack preview URLs in PR comments
 
 **ORCID Publications** (`.github/workflows/fetch_orcid.yml`):
 - Weekly automatic updates every Monday at 06:00 UTC
