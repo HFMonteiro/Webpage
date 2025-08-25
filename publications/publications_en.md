@@ -1,11 +1,12 @@
 # Publications
 
-*Last updated: August 24, 2024*
+*Last updated: August 25, 2025*
 
-This list is automatically updated from the ORCID profile.
-
-- **Digital Health Implementation in Portuguese Healthcare Systems** (2024) *Journal of Digital Health* [DOI: 10.1000/example]
-- **Public Health Screening Programs: A Data-Driven Approach** (2023) *Public Health Reports* [DOI: 10.1000/example2]
-- **Health Information Systems Integration: Challenges and Solutions** (2023) *Health Informatics Journal* [DOI: 10.1000/example3]
-
-*Note: This is placeholder content. The actual publications will be automatically fetched from ORCID ID 0000-0002-6060-3335 when the system is deployed.*
+- **Characterization of an obese population: a retrospective longitudinal study from real-world data in northern Portugal** (2023) *BMC Primary Care* [Link](https://doi.org/10.1186/s12875-023-02023-7)
+- **Association of lifestyle and sociodemographic factors on multimorbidity: a cross-sectional study in Portugal** (2022) *BMC Public Health* [Link](https://doi.org/10.1186/s12889-022-14640-5)
+- **COVID-19 em Portugal: a estratégia** (2022) *Universidade do Minho* [Link](https://doi.org/10.21814/uminho.ed.71)
+- **AF-React study: atrial fibrillation management strategies in clinical practice—retrospective longitudinal study from real-world data in Northern Portugal** (2021) *BMJ Open* [Link](https://doi.org/10.1136/bmjopen-2020-040404)
+- **Colorectal Screening Program in Northern Portugal: First Findings.** (2021) *Acta medica portuguesa* [Link](https://doi.org/10.20344/amp.15904)
+- **Using Digital Technologies in Response to the COVID-19 Pandemic in Portugal** (2021) *Portuguese Journal of Public Health* [Link](https://doi.org/10.1159/000521015)
+- **Predictors of talc slurry pleurodesis success in patients with malignant pleural effusions** (2017) *Revista Portuguesa de Pneumologia (English Edition)* [Link](https://doi.org/10.1016/j.rppnen.2017.01.008)
+- **Measles: small steps for local authorities, a big step for global health** (2015) *European Journal of Public Health* [Link](https://doi.org/10.1093/eurpub/ckv176.014)
