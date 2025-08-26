@@ -56,6 +56,7 @@ header h1 {
     font-weight: 600;
     margin-bottom: var(--spacing-xs);
     text-shadow: none;
+    color: #ffffff; /* Force pure white for readability even in dark mode */
 }
 
 .subtitle {
@@ -63,6 +64,7 @@ header h1 {
     font-weight: 300;
     opacity: 0.9;
     margin: 0;
+    color: #ffffff; /* Force pure white independent of custom properties */
 }
 
 /* Navigation Styles */
@@ -469,6 +471,54 @@ footer p {
     
     .experience-item::before, .education-item::before {
         background: linear-gradient(90deg, transparent, rgba(13, 71, 161, 0.2));
+    }
+
+    /* Maintain high contrast for white cards/boxes in dark mode */
+    .card,
+    .research-item,
+    .expertise-item,
+    .resource-item,
+    .contact-item,
+    .opportunity-item,
+    .affiliation-item,
+    .credential-item,
+    .metric-item,
+    .project-item,
+    .timeline-content,
+    .orcid-info,
+    .experience-item,
+    .education-item {
+        background: #ffffff !important;
+        color: #222222 !important;
+    }
+    .card p,
+    .research-item p,
+    .expertise-item p,
+    .resource-item p,
+    .contact-item p,
+    .opportunity-item p,
+    .affiliation-item p,
+    .credential-item p,
+    .metric-item p,
+    .project-item p,
+    .orcid-info p,
+    .experience-item p,
+    .education-item p,
+    .card h3,
+    .research-item h4,
+    .expertise-item h4,
+    .resource-item h4,
+    .contact-item h4,
+    .opportunity-item h4,
+    .affiliation-item h4,
+    .credential-item h4,
+    .metric-item h4,
+    .project-item h4 {
+        color: #0d47a1 !important; /* keep headings consistent */
+    }
+    .card a.card-link,
+    .resource-item a.resource-link {
+        color: #0d47a1 !important;
     }
 }
 
