@@ -2,8 +2,8 @@ name: Fetch ORCID Publications
 
 on:
   schedule:
-    - cron: "0 6 * * 1"   # Weekly, Mondays at 06:00 UTC
-  workflow_dispatch:      # Allow manual triggering
+    - cron: "0 6 1 1,7 *"   # Twice yearly, January 1st and July 1st at 06:00 UTC
+  workflow_dispatch:        # Allow manual triggering
 
 jobs:
   update-publications:
