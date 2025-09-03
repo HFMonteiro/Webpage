@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+  <meta charset="UTF-8">
+  <title>Mock Encoding Test Page</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <link rel="stylesheet" href="/assets/css/styles.css">
+  <style>
+    body { padding: 2rem; }
+    .ok { color: #2e8b57; font-weight: 600; }
+    .sample { font-size: 1.1rem; margin: .5rem 0; }
+    pre { background:#111; color:#eee; padding:1rem; overflow:auto; }
+  </style>
+</head>
+<body>
+  <h1>Mock Test – Verificação de Codificação UTF-8</h1>
+  <p class="sample">Frase com acentos: Informação, Próximo, Saúde Pública, Investigação, Órgão, Útil, João, Português.</p>
+  <p class="sample">Símbolos especiais: € • “aspas” — travessão — ç ã õ à á â ê í ó ú.</p>
+  <p class="ok" id="status">Status: A verificar…</p>
+  <p>Links reais:</p>
+  <ul>
+    <li><a href="/pt/index.html">Página Inicial PT</a></li>
+    <li><a href="/pt/publicacoes.html">Publicações</a></li>
+    <li><a href="/pt/experiencia.html">Experiência</a></li>
+    <li><a href="/pt/investigacao.html">Investigação</a></li>
+    <li><a href="/pt/sobre.html">Sobre</a></li>
+  </ul>
+  <script>
+    (function(){
+      const probe = 'Informação Saúde Pública Investigação João ç ã õ à á â ê í ó ú';
+      const badPattern = /Ã|Â/; // typical mojibake markers
+      const statusEl = document.getElementById('status');
+      if(badPattern.test(document.body.innerHTML)) {
+        statusEl.textContent = 'Status: Problema de codificação detectado (mojibake encontrado)';
+        statusEl.style.color = '#c0392b';
+      } else {
+        statusEl.textContent = 'Status: Tudo OK – UTF-8 exibido corretamente';
+        statusEl.style.color = '#2e8b57';
+      }
+    })();
+  </script>
+</body>
+</html>
