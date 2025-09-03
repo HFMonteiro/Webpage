@@ -3,8 +3,8 @@
     --primary-color: #0d47a1;
     --primary-dark: #002171;
     --secondary-color: #f0f2f5;
-    --text-dark: #222222;
-    --text-light: #555555;
+    --text-dark: #111111; /* improved contrast */
+    --text-light: #444444; /* improved contrast */
     --text-muted: #6e6e6e;
     --white: #fff;
     --shadow-light: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -13,7 +13,9 @@
     --border-radius-small: 4px;
     --transition-smooth: 0.3s ease;
     --max-width: 800px;
-    --max-width-desktop: 1000px;
+    /* Widen desktop layout a bit for large screens */
+    --max-width-desktop: 1200px;
+    color-scheme: light dark;
     --spacing-xs: 0.5rem;
     --spacing-sm: 1rem;
     --spacing-md: 1.5rem;
@@ -33,12 +35,25 @@ html {
 }
 
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    line-height: 1.6;
+    font-family: 'Aptos', 'Segoe UI Variable', 'Segoe UI', Inter, system-ui, -apple-system, Roboto, 'Helvetica Neue', Arial, sans-serif;
+    /* Slightly larger and fluid across devices */
+    font-size: clamp(17px, 1rem + 0.6vw, 19px);
+    line-height: 1.7;
     color: var(--text-dark);
     background-color: var(--white);
     padding: 0 var(--spacing-sm);
-    font-display: swap;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* Accessible focus styles */
+:where(a, button, input, select, textarea, [tabindex]):focus {
+    outline: none;
+}
+
+:where(a, button, input, select, textarea, [tabindex]):focus-visible {
+    outline: 3px solid #ffbf47; /* high-contrast amber */
+    outline-offset: 2px;
 }
 
 /* Header Styles */
@@ -52,7 +67,8 @@ header {
 }
 
 header h1 {
-    font-size: 1.8rem;
+    /* Larger, fluid title for better readability */
+    font-size: clamp(2.2rem, 1.6rem + 3vw, 3.4rem);
     font-weight: 600;
     margin-bottom: var(--spacing-xs);
     text-shadow: none;
@@ -60,9 +76,11 @@ header h1 {
 }
 
 .subtitle {
-    font-size: 1rem;
+    /* Larger, fluid subtitle for top header */
+    font-size: clamp(1.2rem, 1.05rem + 0.9vw, 1.8rem);
     font-weight: 300;
-    opacity: 0.9;
+    line-height: 1.4;
+    opacity: 0.95;
     margin: 0;
     color: #ffffff; /* Force pure white independent of custom properties */
 }
@@ -71,18 +89,26 @@ header h1 {
 nav {
     background-color: var(--primary-dark);
     padding: var(--spacing-sm) 0;
-    text-align: center;
     margin: 0 calc(-1 * var(--spacing-sm));
     box-shadow: var(--shadow-light);
     position: sticky;
     top: 0;
     z-index: 100;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 0.25rem 0.5rem;
 }
 
 nav a {
-    color: var(--white);
+    color: #f7fbff;
     text-decoration: none;
-    font-weight: 500;
+    font-weight: 600;
+    /* Mobile-first size; keep readable but not oversized */
+    font-size: clamp(1.1rem, 1rem + 0.8vw, 1.35rem);
+    line-height: 1.4;
+    letter-spacing: 0.2px;
     margin: 0 var(--spacing-sm);
     padding: var(--spacing-xs) var(--spacing-sm);
     border-radius: var(--border-radius-small);
@@ -92,9 +118,16 @@ nav a {
 
 nav a:hover,
 nav a:focus {
+    background-color: rgba(255, 255, 255, 0.18);
+    transform: translateY(-1px);
+    outline: 2px solid rgba(255, 255, 255, 0.4);
+    outline-offset: 2px;
+}
+
+/* Prefer focus-visible for keyboard users on dark nav */
+nav a:focus-visible {
     background-color: rgba(255, 255, 255, 0.2);
-    transform: translateY(-2px);
-    outline: 2px solid rgba(255, 255, 255, 0.3);
+    outline: 3px solid rgba(255, 255, 255, 0.9);
     outline-offset: 2px;
 }
 
@@ -105,13 +138,14 @@ nav a[aria-current="page"] {
 
 /* Language Switcher */
 .lang-switcher {
-    float: right;
-    margin-top: -2rem;
-    margin-right: var(--spacing-sm);
+    margin-left: auto;
+    padding-right: var(--spacing-sm);
 }
 
 .lang-switcher a {
-    font-size: 0.9rem;
+    /* Double language switcher size for consistency */
+    font-size: 1.2rem;
+    line-height: 1.4;
     margin: 0 0.25rem;
     padding: 0.25rem 0.5rem;
 }
@@ -176,7 +210,8 @@ main section:last-child {
 
 main h2 {
     color: var(--primary-color);
-    font-size: 1.8rem;
+    /* Slightly larger section headings, still responsive */
+    font-size: clamp(1.8rem, 1.4rem + 1.8vw, 2.6rem);
     margin-bottom: var(--spacing-sm);
     border-bottom: 2px solid var(--primary-color);
     padding-bottom: var(--spacing-xs);
@@ -200,15 +235,15 @@ main h2:hover::after {
 
 main h3 {
     color: var(--primary-dark);
-    font-size: 1.3rem;
+    font-size: clamp(1.35rem, 1.1rem + 1.0vw, 1.9rem);
     margin: var(--spacing-md) 0 var(--spacing-xs) 0;
 }
 
 main p {
-    font-size: 1.1rem;
+    font-size: clamp(1.05rem, 1.0rem + 0.35vw, 1.2rem);
     margin-bottom: var(--spacing-sm);
     text-align: justify;
-    line-height: 1.7;
+    line-height: 1.8;
 }
 
 .profile-photo {
@@ -364,15 +399,18 @@ footer p {
         margin: 0 calc(-1 * var(--spacing-lg));
     }
     
+    /* Keep tablet size comfortably large */
     header h1 {
-        font-size: 2.2rem;
+        font-size: 2.8rem;
     }
     
     nav a {
         margin: 0 var(--spacing-sm);
         padding: 0.75rem 1.2rem;
-        font-size: 0.95rem;
+        /* Tablet navigation size */
+        font-size: 1.6rem;
     }
+    .lang-switcher a { font-size: 1.4rem; }
     
     main {
         padding: 0 var(--spacing-lg);
@@ -409,8 +447,9 @@ footer p {
         margin: 0;
     }
     
+    /* Ensure desktop header remains prominent */
     header h1 {
-        font-size: 2.5rem;
+        font-size: 3.2rem;
     }
     
     nav a {
@@ -468,7 +507,18 @@ footer p {
         --shadow-light: 0 2px 4px rgba(255, 255, 255, 0.1);
         --shadow-medium: 0 4px 8px rgba(255, 255, 255, 0.1);
     }
-    
+
+    /* Improve heading contrast in dark mode */
+    main h2 {
+        color: #cfe1ff; /* lightened accent for readability */
+        border-bottom-color: #95b8ff;
+    }
+
+    main h3 { color: #bcd1ff; }
+
+    /* Ensure project cards readable in dark mode */
+    .project-item { background: #ffffff !important; color: #222222 !important; }
+
     .experience-item::before, .education-item::before {
         background: linear-gradient(90deg, transparent, rgba(13, 71, 161, 0.2));
     }
@@ -572,7 +622,7 @@ footer p {
 }
 
 .hero-text {
-    font-size: 1.2rem;
+    font-size: clamp(1.1rem, 1rem + 0.6vw, 1.35rem);
     margin: var(--spacing-md) 0;
     color: var(--text-light);
     max-width: 600px;
@@ -645,7 +695,12 @@ footer p {
 .card,
 .research-item,
 .expertise-item,
-.resource-item {
+.resource-item,
+.credential-item,
+.opportunity-item,
+.affiliation-item,
+.metric-item,
+.timeline-content {
     background: white;
     border-radius: var(--border-radius);
     padding: var(--spacing-lg);
@@ -654,10 +709,36 @@ footer p {
     border: 1px solid #f0f0f0;
 }
 
+/* Projects list (Research page) */
+.projects-list {
+    display: grid;
+    gap: var(--spacing-md);
+    grid-template-columns: 1fr;
+}
+
+.project-item {
+    background: #ffffff;
+    border-radius: var(--border-radius);
+    padding: var(--spacing-lg);
+    box-shadow: var(--shadow-light);
+    border: 1px solid #f0f0f0;
+    transition: transform var(--transition-smooth), box-shadow var(--transition-smooth);
+}
+
+.project-item:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-medium);
+}
+
 .card:hover,
 .research-item:hover,
 .expertise-item:hover,
-.resource-item:hover {
+.resource-item:hover,
+.credential-item:hover,
+.opportunity-item:hover,
+.affiliation-item:hover,
+.metric-item:hover,
+.timeline-content:hover {
     transform: translateY(-4px);
     box-shadow: var(--shadow-medium);
 }
@@ -702,7 +783,7 @@ footer p {
 }
 
 .lead {
-    font-size: 1.2rem;
+    font-size: clamp(1.1rem, 1rem + 0.5vw, 1.3rem);
     color: var(--text-light);
     font-weight: 300;
     max-width: 600px;
@@ -778,7 +859,7 @@ footer p {
 
 .organization {
     font-weight: 600;
-    color: var(--text-dark);
+    color: var(--text-dark) !important;
     margin-bottom: 0.25rem;
 }
 
@@ -936,52 +1017,76 @@ footer p {
 
 /* Responsive Design Updates */
 @media (min-width: 768px) {
-    .cards-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-    
-    .bio-content {
-        grid-template-columns: 300px 1fr;
-        align-items: start;
-    }
-    
-    .bio-photo {
-        justify-self: start;
-    }
-    
-    .contact-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-    
-    .opportunities-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-    
-    .lang-switcher {
-        float: right;
-        margin-top: -3rem;
-    }
+    .cards-grid { grid-template-columns: repeat(2, 1fr); }
+    .bio-content { grid-template-columns: 300px 1fr; align-items: start; }
+    .bio-photo { justify-self: start; }
+    .contact-grid { grid-template-columns: repeat(2, 1fr); }
+    .opportunities-grid { grid-template-columns: repeat(2, 1fr); }
+    /* Keep lang-switcher in flex flow; avoid float/negative margins that can overlap nav links */
 }
 
 @media (min-width: 1024px) {
-    .cards-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-    
-    .research-grid,
-    .expertise-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-    
-    .contact-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    .opportunities-grid {
-        grid-template-columns: repeat(3, 1fr);
-    }
-    
-    .lang-switcher {
-        margin-top: -3.5rem;
-    }
+    .cards-grid { grid-template-columns: repeat(2, 1fr); }
+    .research-grid, .expertise-grid { grid-template-columns: repeat(2, 1fr); }
+    .contact-grid { grid-template-columns: repeat(2, 1fr); }
+    .opportunities-grid { grid-template-columns: repeat(3, 1fr); }
+    /* Keep lang-switcher aligned via flex, no negative offsets */
 }
+
+/* Wide Desktop */
+@media (min-width: 1280px) {
+    main { max-width: 1400px; }
+    .cards-grid { grid-template-columns: repeat(3, 1fr); }
+    .research-grid, .expertise-grid, .resources-grid { grid-template-columns: repeat(3, 1fr); }
+    .page-content { max-width: 1400px; margin: 0 auto; }
+}
+
+@media (min-width: 1536px) {
+    main { max-width: 1680px; }
+    .page-content { max-width: 1680px; }
+}
+
+@media (min-width: 1800px) {
+    main { max-width: 1800px; }
+    .page-content { max-width: 1800px; }
+    .cards-grid { grid-template-columns: repeat(4, 1fr); }
+}
+
+/* Enhancements: readable typography and hoverable boxes */
+.skills-list li:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 18px rgba(0,0,0,0.12);
+}
+
+.card,
+.credential-item,
+.resource-item,
+.contact-item,
+.timeline .timeline-item {
+    background: var(--secondary-color);
+    border: 1px solid rgba(0,0,0,0.06);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-light);
+}
+
+.card,
+.credential-item,
+.resource-item,
+.contact-item {
+    padding: var(--spacing-sm);
+    transition: transform var(--transition-smooth), box-shadow var(--transition-smooth), background-color var(--transition-smooth), border-color var(--transition-smooth);
+}
+
+.card:hover,
+.credential-item:hover,
+.resource-item:hover,
+.contact-item:hover,
+.timeline .timeline-item:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 18px rgba(0,0,0,0.12);
+    background: #ffffff;
+    border-color: rgba(13,71,161,0.18);
+}
+
+.card-link { color: var(--primary-dark); font-weight: 600; text-decoration: none; }
+.card-link:hover { text-decoration: underline; }

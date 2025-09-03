@@ -1,6 +1,8 @@
 # Publications
 
-*Last updated: August 25, 2025*
+*Last updated: September 03, 2025*
+
+This list is automatically updated from the ORCID profile.
 
 - **Characterization of an obese population: a retrospective longitudinal study from real-world data in northern Portugal** (2023) *BMC Primary Care* [Link](https://doi.org/10.1186/s12875-023-02023-7)
 - **Association of lifestyle and sociodemographic factors on multimorbidity: a cross-sectional study in Portugal** (2022) *BMC Public Health* [Link](https://doi.org/10.1186/s12889-022-14640-5)

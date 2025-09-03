@@ -11,17 +11,17 @@
     <meta name="author" content="Hugo Monteiro">
     
     <!-- Internationalization -->
-    <link rel="canonical" href="https://hfmonteiro.com/pt/">
-    <link rel="alternate" hreflang="en" href="https://hfmonteiro.com/en/">
-    <link rel="alternate" hreflang="pt-PT" href="https://hfmonteiro.com/pt/">
-    <link rel="alternate" hreflang="x-default" href="https://hfmonteiro.com/en/">
+    <link rel="canonical" href="https://www.hfmonteiro.com/pt/">
+    <link rel="alternate" hreflang="en" href="https://www.hfmonteiro.com/en/">
+    <link rel="alternate" hreflang="pt-PT" href="https://www.hfmonteiro.com/pt/">
+    <link rel="alternate" hreflang="x-default" href="https://www.hfmonteiro.com/en/">
     
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:title" content="Hugo Monteiro - MD/MPH | Especialista em Saúde Digital">
     <meta property="og:description" content="Médico português com MPH dedicado à transformação digital da saúde e ao melhoramento da prestação de cuidados através de soluções tecnológicas inovadoras.">
-    <meta property="og:image" content="https://hfmonteiro.com/assets/img/hugo-monteiro-og.jpg">
-    <meta property="og:url" content="https://hfmonteiro.com/pt/">
+    <meta property="og:image" content="https://www.hfmonteiro.com/assets/img/favicon.png">
+    <meta property="og:url" content="https://www.hfmonteiro.com/pt/">
     <meta property="og:locale" content="pt_PT">
     <meta property="og:locale:alternate" content="en_US">
     
@@ -29,12 +29,9 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Hugo Monteiro - MD/MPH | Especialista em Saúde Digital">
     <meta name="twitter:description" content="Médico português com MPH dedicado à transformação digital da saúde e ao melhoramento da prestação de cuidados através de soluções tecnológicas inovadoras.">
-    <meta name="twitter:image" content="https://hfmonteiro.com/assets/img/hugo-monteiro-og.jpg">
+    <meta name="twitter:image" content="https://www.hfmonteiro.com/assets/img/favicon.png">
     
-    <!-- Security Headers -->
-    <meta http-equiv="X-Content-Type-Options" content="nosniff">
-    <meta http-equiv="X-Frame-Options" content="DENY">
-    <meta http-equiv="X-XSS-Protection" content="1; mode=block">
+    <!-- Security headers should be sent via HTTP; keeping referrer policy here -->
     <meta name="referrer" content="strict-origin-when-cross-origin">
     
     <!-- Favicon -->
@@ -43,7 +40,6 @@
     
     <!-- Preload Critical Resources -->
     <link rel="preload" href="/assets/css/styles.css" as="style">
-    <link rel="preload" href="/assets/js/script.js" as="script">
     
     <link rel="stylesheet" href="/assets/css/styles.css">
     
@@ -57,30 +53,18 @@
         "familyName": "Monteiro",
         "jobTitle": ["Médico", "Médico de Saúde Pública", "Especialista em Saúde Digital"],
         "description": "MD/MPH dedicado à transformação digital da saúde e ao melhoramento da prestação de cuidados",
-        "url": "https://hfmonteiro.com",
+        "url": "https://www.hfmonteiro.com",
         "sameAs": [
             "https://www.linkedin.com/in/hugo-monteiro/",
             "https://orcid.org/0000-0002-6060-3335"
         ],
         "worksFor": [
-            {
-                "@type": "Organization",
-                "name": "ULS Gaia Espinho"
-            },
-            {
-                "@type": "Organization",
-                "name": "Direção Executiva do SNS"
-            },
-            {
-                "@type": "Organization",
-                "name": "WHO/Europe"
-            }
+            { "@type": "Organization", "name": "ULS Gaia Espinho" },
+            { "@type": "Organization", "name": "Direção Executiva do SNS" },
+            { "@type": "Organization", "name": "WHO/Europe" }
         ],
         "alumniOf": [
-            {
-                "@type": "EducationalOrganization",
-                "name": "Faculdade de Medicina"
-            }
+            { "@type": "EducationalOrganization", "name": "Faculdade de Medicina" }
         ],
         "knowsAbout": [
             "Saúde Digital",
@@ -106,19 +90,18 @@
         <a href="/pt/experiencia.html">Experiência</a>
         <a href="/pt/publicacoes.html">Publicações</a>
         <a href="/pt/contacto.html">Contacto</a>
-        <span class="lang-switcher">
+        <div class="lang-switcher" role="group" aria-label="Language switcher">
             <a href="/en/" rel="alternate" hreflang="en">EN</a> |
-            <a href="/pt/" rel="alternate" hreflang="pt-PT" class="lang-active">PT</a>
-        </span>
+            <a href="/pt/" rel="alternate" hreflang="pt-PT" class="lang-active" aria-current="true" aria-label="Selected language">PT</a>
+        </div>
     </nav>
 
     <main role="main" id="main">
         <section class="hero" aria-labelledby="welcome-heading">
             <h2 id="welcome-heading">Bem-vindo</h2>
-            <p class="hero-text">Médico português com MPH dedicado à transformação digital da saúde e ao melhoramento da prestação de cuidados através de soluções tecnológicas inovadoras.</p>
+            <p class="hero-text">Médico de Saúde Pública dedicado à transformação digital da saúde e à melhoria da prestação de cuidados.</p>
             
             <div class="hero-actions">
-                <!-- Link de CV removido -->
                 <a href="/pt/sobre.html" class="btn btn-secondary">Saber Mais</a>
             </div>
             

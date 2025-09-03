@@ -35,17 +35,6 @@
                 rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
                 rect.right <= (window.innerWidth || document.documentElement.clientWidth)
             );
-        },
-        
-        // Add ARIA live region for screen readers
-        createLiveRegion: function() {
-            const liveRegion = document.createElement('div');
-            liveRegion.setAttribute('aria-live', 'polite');
-            liveRegion.setAttribute('aria-atomic', 'true');
-            liveRegion.className = 'sr-only';
-            liveRegion.style.cssText = 'position: absolute; left: -10000px; width: 1px; height: 1px; overflow: hidden;';
-            document.body.appendChild(liveRegion);
-            return liveRegion;
         }
     };
     
@@ -161,33 +150,8 @@
     
     // Enhanced accessibility features
     function initializeAccessibility() {
-        // Add skip navigation link
-        const skipLink = document.createElement('a');
-        skipLink.href = '#main';
-        skipLink.textContent = 'Skip to main content';
-        skipLink.className = 'skip-link';
-        skipLink.style.cssText = `
-            position: absolute;
-            top: -40px;
-            left: 6px;
-            background: var(--primary-color);
-            color: white;
-            padding: 8px;
-            text-decoration: none;
-            border-radius: 4px;
-            z-index: 1000;
-            transition: top 0.3s;
-        `;
-        
-        skipLink.addEventListener('focus', () => {
-            skipLink.style.top = '6px';
-        });
-        
-        skipLink.addEventListener('blur', () => {
-            skipLink.style.top = '-40px';
-        });
-        
-        document.body.insertBefore(skipLink, document.body.firstChild);
+        // Respect existing skip link in markup (avoid duplicates)
+        // Ensure main landmark has an id for skip links
         
         // Add main landmark if not present
         const mainElement = document.querySelector('main');

@@ -7,21 +7,21 @@
     <!-- SEO Meta Tags -->
     <title>Publications - Hugo Monteiro | Digital Health Research Publications</title>
     <meta name="description" content="Browse Hugo Monteiro's research publications in digital health, public health systems, and health data science, automatically updated from ORCID.">
-    <meta name="keywords" content="Hugo Monteiro publications, digital health research, public health research, health data science papers, ORCID publications">
+    
     <meta name="author" content="Hugo Monteiro">
     
     <!-- Internationalization -->
-    <link rel="canonical" href="https://hfmonteiro.com/en/publications.html">
-    <link rel="alternate" hreflang="en" href="https://hfmonteiro.com/en/publications.html">
-    <link rel="alternate" hreflang="pt-PT" href="https://hfmonteiro.com/pt/publicacoes.html">
-    <link rel="alternate" hreflang="x-default" href="https://hfmonteiro.com/en/publications.html">
+    <link rel="canonical" href="https://www.hfmonteiro.com/en/publications.html">
+    <link rel="alternate" hreflang="en" href="https://www.hfmonteiro.com/en/publications.html">
+    <link rel="alternate" hreflang="pt-PT" href="https://www.hfmonteiro.com/pt/publicacoes.html">
+    <link rel="alternate" hreflang="x-default" href="https://www.hfmonteiro.com/en/publications.html">
     
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:title" content="Publications - Hugo Monteiro | Digital Health Research Publications">
     <meta property="og:description" content="Browse Hugo Monteiro's research publications in digital health, public health systems, and health data science, automatically updated from ORCID.">
-    <meta property="og:image" content="https://hfmonteiro.com/assets/img/hugo-monteiro-og.jpg">
-    <meta property="og:url" content="https://hfmonteiro.com/en/publications.html">
+    <meta property="og:image" content="https://www.hfmonteiro.com/assets/img/favicon.png">
+    <meta property="og:url" content="https://www.hfmonteiro.com/en/publications.html">
     <meta property="og:locale" content="en_US">
     <meta property="og:locale:alternate" content="pt_PT">
     
@@ -29,12 +29,9 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Publications - Hugo Monteiro | Digital Health Research Publications">
     <meta name="twitter:description" content="Browse Hugo Monteiro's research publications in digital health, public health systems, and health data science, automatically updated from ORCID.">
-    <meta name="twitter:image" content="https://hfmonteiro.com/assets/img/hugo-monteiro-og.jpg">
+    <meta name="twitter:image" content="https://www.hfmonteiro.com/assets/img/favicon.png">
     
-    <!-- Security Headers -->
-    <meta http-equiv="X-Content-Type-Options" content="nosniff">
-    <meta http-equiv="X-Frame-Options" content="DENY">
-    <meta http-equiv="X-XSS-Protection" content="1; mode=block">
+    <!-- Security headers should be sent by the server/CDN -->
     <meta name="referrer" content="strict-origin-when-cross-origin">
     
     <!-- Favicon -->
@@ -62,10 +59,10 @@
         <a href="/en/experience.html">Experience</a>
         <a href="/en/publications.html" aria-current="page">Publications</a>
         <a href="/en/contact.html">Contact</a>
-        <span class="lang-switcher">
-            <a href="/en/publications.html" rel="alternate" hreflang="en" class="lang-active">EN</a> |
+        <div class="lang-switcher" role="group" aria-label="Language switcher">
+            <a href="/en/publications.html" rel="alternate" hreflang="en" class="lang-active" aria-current="true" aria-label="Selected language">EN</a> |
             <a href="/pt/publicacoes.html" rel="alternate" hreflang="pt-PT">PT</a>
-        </span>
+        </div>
     </nav>
 
     <main role="main" id="main">
@@ -123,34 +120,14 @@
 
     <script src="/assets/js/script.js" defer></script>
     <script>
-        // Load publications content
+        // Load pre-rendered publications HTML
         document.addEventListener('DOMContentLoaded', function() {
-            fetch('/publications/publications_en.md')
-                .then(response => {
-                    if (!response.ok) {
-                        throw new Error('Failed to load publications');
-                    }
-                    return response.text();
-                })
-                .then(markdown => {
-                    // Simple markdown to HTML conversion for basic formatting
-                    let html = markdown
-                        .replace(/^# (.+)$/gm, '<h2>$1</h2>')
-                        .replace(/^\*(.+)\*$/gm, '<p class="meta"><em>$1</em></p>')
-                        .replace(/^- (.+)$/gm, '<li>$1</li>')
-                        .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
-                        .replace(/\*(.+?)\*/g, '<em>$1</em>')
-                        .replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" target="_blank" rel="noopener">$1</a>');
-                    
-                    // Wrap list items in ul
-                    html = html.replace(/(<li>.*<\/li>)/s, '<ul class="publications-list">$1</ul>');
-                    
-                    document.getElementById('publications-content').innerHTML = html;
-                })
-                .catch(error => {
-                    console.error('Error loading publications:', error);
-                    document.getElementById('publications-content').innerHTML = 
-                        '<p class="error-message">Unable to load publications at this time. Please visit my <a href="https://orcid.org/0000-0002-6060-3335" target="_blank" rel="noopener">ORCID profile</a> for the most current list.</p>';
+            fetch('/publications/publications_en.html')
+                .then(r => { if (!r.ok) throw new Error('Load failed'); return r.text(); })
+                .then(html => { document.getElementById('publications-content').innerHTML = html; })
+                .catch(() => {
+                    document.getElementById('publications-content').innerHTML =
+                        '<p class="error-message">Unable to load publications. Please visit my <a href="https://orcid.org/0000-0002-6060-3335" target="_blank" rel="noopener">ORCID profile</a>.</p>';
                 });
         });
     </script>

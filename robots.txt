@@ -1,6 +1,6 @@
 User-agent: *
 # Sitemap
-Sitemap: https://hfmonteiro.com/sitemap.xml
+Sitemap: https://www.hfmonteiro.com/sitemap.xml
 
 # Disallow indexing of development files
 Disallow: /index_backup.html

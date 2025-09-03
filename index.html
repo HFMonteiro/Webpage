@@ -1,12 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta http-equiv="refresh" content="0; url=/en/">
-<link rel="canonical" href="/en/">
-<title>Redirecting…</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Redirecting to English version</title>
+  
+  <link rel="canonical" href="/en/">
+  <link rel="alternate" hreflang="en" href="/en/">
+  <link rel="alternate" hreflang="pt-PT" href="/pt/">
+  <link rel="alternate" hreflang="x-default" href="/en/">
+
+  <!-- Progressive enhancement redirect (prefer 301 at server/CDN) -->
+  <script>
+    (function () {
+      var dest = '/en/';
+      if (location.pathname !== dest) {
+        window.location.replace(dest);
+      }
+    })();
+  </script>
+  <noscript>
+    <meta http-equiv="refresh" content="0; url=/en/">
+  </noscript>
 </head>
 <body>
-Redirecting to <a href="/en/">/en/</a>
+  <p>If you are not redirected, visit <a href="/en/">/en/</a>.</p>
 </body>
 </html>
