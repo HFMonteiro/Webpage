@@ -1,9 +1,14 @@
 # Publicações
 
-*Última atualização: 03/09/2025*
+*Última atualização: 10/09/2025*
 
 Esta lista é automaticamente atualizada a partir do perfil ORCID.
 
+- **Enhancing information for action: A strategic tool for strengthening public health emergency management systems** (2025) *International Journal of Medical Informatics* [Link](https://doi.org/10.1016/j.ijmedinf.2025.105791)
+- **AF-React study: Prevalence of thrombotic events in patients with atrial fibrillation receiving NOACs – real-world data analysis from northern Portugal primary healthcare** (2024) *Frontiers in Medicine* [Link](https://doi.org/10.3389/fmed.2024.1273304)
+- **Community Healthcare-Associated Infections: Enhancing Control with Software and Tailored Protocols** (2024) *European Journal of Public Health* [Link](https://doi.org/10.1093/eurpub/ckae144.504)
+- **ERIMS assessment Tool Enhances Emergency Response in WHO Europe Region** (2024) *European Journal of Public Health* [Link](https://doi.org/10.1093/eurpub/ckae144.2180)
+- **Optimizing Colorectal Screening in Portugal with Process Mining** (2024) *European Journal of Public Health* [Link](https://doi.org/10.1093/eurpub/ckae144.2110)
 - **Characterization of an obese population: a retrospective longitudinal study from real-world data in northern Portugal** (2023) *BMC Primary Care* [Link](https://doi.org/10.1186/s12875-023-02023-7)
 - **Association of lifestyle and sociodemographic factors on multimorbidity: a cross-sectional study in Portugal** (2022) *BMC Public Health* [Link](https://doi.org/10.1186/s12889-022-14640-5)
 - **COVID-19 em Portugal: a estratégia** (2022) *Universidade do Minho* [Link](https://doi.org/10.21814/uminho.ed.71)
