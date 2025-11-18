@@ -433,6 +433,28 @@ footer p {
     }
 }
 
+@media (min-width: 960px) {
+    main {
+        max-width: var(--max-width-desktop);
+        margin: var(--spacing-xl) auto;
+        padding: 0 var(--spacing-lg);
+    }
+
+    main section {
+        margin-bottom: var(--spacing-lg);
+        padding-bottom: var(--spacing-md);
+    }
+
+    .page-content {
+        max-width: var(--max-width-desktop);
+        padding: var(--spacing-xl);
+    }
+
+    .page-header {
+        margin-bottom: var(--spacing-lg);
+    }
+}
+
 /* Responsive Design - Desktop */
 @media (min-width: 1024px) {
     body {
@@ -451,17 +473,12 @@ footer p {
     header h1 {
         font-size: 3.2rem;
     }
-    
+
     nav a {
         margin: 0 var(--spacing-md);
         padding: 0.75rem var(--spacing-md);
     }
-    
-    main {
-        max-width: var(--max-width-desktop);
-        padding: 0 var(--spacing-lg);
-    }
-    
+
     main p {
         font-size: 1.2rem;
     }
@@ -1017,7 +1034,7 @@ footer p {
 
 /* Responsive Design Updates */
 @media (min-width: 768px) {
-    .cards-grid { grid-template-columns: repeat(2, 1fr); }
+    .cards-grid, .resources-grid, .research-grid, .expertise-grid { grid-template-columns: repeat(2, 1fr); }
     .bio-content { grid-template-columns: 300px 1fr; align-items: start; }
     .bio-photo { justify-self: start; }
     .contact-grid { grid-template-columns: repeat(2, 1fr); }
@@ -1026,8 +1043,8 @@ footer p {
 }
 
 @media (min-width: 1024px) {
-    .cards-grid { grid-template-columns: repeat(2, 1fr); }
-    .research-grid, .expertise-grid { grid-template-columns: repeat(2, 1fr); }
+    .cards-grid { grid-template-columns: repeat(3, 1fr); }
+    .research-grid, .expertise-grid, .resources-grid { grid-template-columns: repeat(3, 1fr); }
     .contact-grid { grid-template-columns: repeat(2, 1fr); }
     .opportunities-grid { grid-template-columns: repeat(3, 1fr); }
     /* Keep lang-switcher aligned via flex, no negative offsets */
@@ -1035,21 +1052,9 @@ footer p {
 
 /* Wide Desktop */
 @media (min-width: 1280px) {
-    main { max-width: 1400px; }
     .cards-grid { grid-template-columns: repeat(3, 1fr); }
     .research-grid, .expertise-grid, .resources-grid { grid-template-columns: repeat(3, 1fr); }
-    .page-content { max-width: 1400px; margin: 0 auto; }
-}
-
-@media (min-width: 1536px) {
-    main { max-width: 1680px; }
-    .page-content { max-width: 1680px; }
-}
-
-@media (min-width: 1800px) {
-    main { max-width: 1800px; }
-    .page-content { max-width: 1800px; }
-    .cards-grid { grid-template-columns: repeat(4, 1fr); }
+    .page-content { max-width: var(--max-width-desktop); margin: 0 auto; }
 }
 
 /* Enhancements: readable typography and hoverable boxes */
