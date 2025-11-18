@@ -23,7 +23,7 @@ All notable changes to this project will be documented in this file.
 
 **ORCID Integration**
 - Python script (`scripts/fetch_orcid.py`) for fetching publications from ORCID API
-- GitHub Action (`.github/workflows/fetch_orcid.yml`) for weekly automatic updates
+- GitHub Action (`.github/workflows/fetch_orcid.yml`) for monthly automatic updates
 - Publications automatically rendered from markdown files
 - Placeholder publications content for testing
 

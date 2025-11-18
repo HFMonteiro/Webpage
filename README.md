@@ -11,7 +11,7 @@ A bilingual (EN/PT) professional website for Hugo Monteiro, MD/MPH, PhD candidat
 - Root redirect to `/en/` for English default
 
 ### Content Management
-- **ORCID Integration**: Automatic twice-yearly updates of publications from ORCID profile
+- **ORCID Integration**: Automatic monthly updates of publications from ORCID profile
 - **Bilingual Content**: Complete page translations for all sections
 - **Professional Sections**: About, Research, Experience, Publications, Contact
 
@@ -51,7 +51,7 @@ A bilingual (EN/PT) professional website for Hugo Monteiro, MD/MPH, PhD candidat
 │   └── fetch_orcid.py           # ORCID publications fetcher
 ├── .github/workflows/           # GitHub Actions
 │   ├── site-validation.yml      # Site validation
-│   └── fetch_orcid.yml          # Twice-yearly ORCID updates
+│   └── fetch_orcid.yml          # Monthly ORCID updates
 ├── sitemap.xml                  # SEO sitemap
 ├── robots.txt                   # Search engine directives
 └── CHANGELOG.md                 # Version history
@@ -59,8 +59,8 @@ A bilingual (EN/PT) professional website for Hugo Monteiro, MD/MPH, PhD candidat
 
 ## 🚀 ORCID Integration
 
-Publications are automatically updated twice per year from ORCID profile `0000-0002-6060-3335`:
-- **Automated Fetch**: GitHub Action runs on January 1st and July 1st at 06:00 UTC
+Publications are automatically updated monthly from ORCID profile `0000-0002-6060-3335`:
+- **Automated Fetch**: GitHub Action runs on the 1st of every month at 06:00 UTC
 - **Bilingual Output**: Generates both English and Portuguese publication lists
 - **Markdown Format**: Clean, structured publication data
 - **Error Handling**: Graceful fallbacks and retry logic
