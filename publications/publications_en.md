@@ -1,6 +1,6 @@
 # Publications
 
-*Last updated: September 10, 2025*
+*Last updated: December 02, 2025*
 
 This list is automatically updated from the ORCID profile.
 
