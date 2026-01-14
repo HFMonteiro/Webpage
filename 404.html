@@ -1,26 +1,161 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Page Not Found</title>
-  <link rel="stylesheet" href="/assets/css/styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>404 - Page Not Found | Hugo Monteiro</title>
+    <meta name="description" content="The page you're looking for doesn't exist. Navigate to other sections of Hugo Monteiro's professional portfolio.">
+    <meta name="robots" content="noindex, follow">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/assets/img/favicon.svg">
+    <link rel="icon" type="image/png" href="/assets/img/favicon.png">
+
+    <link rel="stylesheet" href="/assets/css/styles.css">
+
+    <style>
+        .error-container {
+            text-align: center;
+            padding: var(--spacing-xl) 0;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .error-code {
+            font-size: clamp(4rem, 10vw, 8rem);
+            font-weight: 700;
+            color: var(--primary-color);
+            margin: 0;
+            line-height: 1;
+        }
+
+        .error-message {
+            font-size: clamp(1.2rem, 3vw, 1.8rem);
+            color: var(--text-light);
+            margin: var(--spacing-md) 0;
+        }
+
+        .error-description {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            margin-bottom: var(--spacing-xl);
+            line-height: 1.6;
+        }
+
+        .error-nav {
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-sm);
+            align-items: center;
+        }
+
+        .error-nav a {
+            background: var(--secondary-color);
+            color: var(--primary-color);
+            padding: var(--spacing-sm) var(--spacing-lg);
+            text-decoration: none;
+            border-radius: var(--border-radius);
+            font-weight: 600;
+            transition: all var(--transition-smooth);
+            display: inline-block;
+            min-width: 200px;
+            box-shadow: var(--shadow-light);
+        }
+
+        .error-nav a:hover {
+            background: var(--primary-color);
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-medium);
+        }
+
+        .error-icon {
+            width: 120px;
+            height: 120px;
+            margin: 0 auto var(--spacing-lg);
+            opacity: 0.5;
+        }
+
+        [data-theme="dark"] .error-nav a {
+            background: #252525;
+            color: #6ba3e8;
+        }
+
+        [data-theme="dark"] .error-nav a:hover {
+            background: #1e3a5f;
+            color: white;
+        }
+    </style>
 </head>
 <body>
-  <header>
-    <h1>Not Found</h1>
-    <p class="subtitle">The page you’re looking for doesn’t exist.</p>
-  </header>
-  <main class="page-content">
-    <p>Try one of the main sections:</p>
-    <nav>
-      <a href="/en/">Home</a>
-      <a href="/en/about.html">About</a>
-      <a href="/en/research.html">Research</a>
-      <a href="/en/experience.html">Experience</a>
-      <a href="/en/publications.html">Publications</a>
-      <a href="/en/contact.html">Contact</a>
+    <a href="#main" class="skip-link">Skip to main content</a>
+
+    <header>
+        <h1>Hugo Monteiro</h1>
+        <p class="subtitle">MD/MPH | Digital Health Specialist</p>
+    </header>
+
+    <nav role="navigation" aria-label="Main navigation">
+        <a href="/en/">Home</a>
+        <a href="/en/about.html">About</a>
+        <a href="/en/research.html">Research</a>
+        <a href="/en/experience.html">Experience</a>
+        <a href="/en/publications.html">Publications</a>
+        <a href="/en/contact.html">Contact</a>
+        <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark/light theme" title="Toggle theme">
+            <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <circle cx="12" cy="12" r="5"></circle>
+                <line x1="12" y1="1" x2="12" y2="3"></line>
+                <line x1="12" y1="21" x2="12" y2="23"></line>
+                <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                <line x1="1" y1="12" x2="3" y2="12"></line>
+                <line x1="21" y1="12" x2="23" y2="12"></line>
+                <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+            </svg>
+            <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+            </svg>
+        </button>
+        <div class="lang-switcher" role="group" aria-label="Language switcher">
+            <a href="/en/" rel="alternate" hreflang="en" class="lang-active" aria-current="true">EN</a> |
+            <a href="/pt/" rel="alternate" hreflang="pt-PT">PT</a>
+        </div>
     </nav>
-  </main>
+
+    <main role="main" id="main">
+        <div class="error-container">
+            <svg class="error-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"></circle>
+                <line x1="12" y1="8" x2="12" y2="12"></line>
+                <line x1="12" y1="16" x2="12.01" y2="16"></line>
+            </svg>
+
+            <h2 class="error-code">404</h2>
+            <p class="error-message">Page Not Found</p>
+            <p class="error-description">
+                The page you're looking for doesn't exist or may have been moved.
+                Use the navigation below to find what you're looking for.
+            </p>
+
+            <div class="error-nav">
+                <a href="/en/">← Back to Home</a>
+                <a href="/en/about.html">About Hugo Monteiro</a>
+                <a href="/en/contact.html">Get in Touch</a>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; <span id="current-year"></span> Hugo Monteiro.
+           <a href="https://orcid.org/0000-0002-6060-3335" target="_blank" rel="noopener" class="orcid-link">ORCID</a> |
+           <a href="https://www.linkedin.com/in/hugo-monteiro/" target="_blank" rel="noopener">LinkedIn</a> |
+           <a href="/en/legal.html">Legal</a>
+        </p>
+    </footer>
+
+    <script src="/assets/js/script.js" defer></script>
 </body>
 </html>

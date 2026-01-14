@@ -43,29 +43,35 @@
         try {
             // Set current year in footer
             setCurrentYear();
-            
+
+            // Initialize theme toggle
+            initializeThemeToggle();
+
             // Initialize smooth scrolling
             initializeSmoothScrolling();
-            
+
             // Initialize intersection observer for animations
             initializeScrollAnimations();
-            
+
             // Initialize accessibility features
             initializeAccessibility();
-            
+
             // Initialize image loading with error handling
             initializeImageLoading();
-            
+
             // Initialize contact form interactions
             initializeContactInteractions();
-            
+
+            // Initialize scroll to top button
+            initializeScrollToTop();
+
             // Performance monitoring
             monitorPerformance();
-            
+
             // Log success message
             console.log(CONFIG.greeting);
             console.log('Website initialized successfully with modern enhancements');
-            
+
         } catch (error) {
             console.error('Error initializing website:', error);
             // Fallback for critical functionality
@@ -73,6 +79,70 @@
         }
     }
     
+    // Initialize dark/light theme toggle
+    function initializeThemeToggle() {
+        const themeToggleBtn = document.getElementById('theme-toggle');
+
+        if (!themeToggleBtn) {
+            console.warn('Theme toggle button not found');
+            return;
+        }
+
+        // Check for saved theme preference or default to light mode
+        const currentTheme = localStorage.getItem('theme') || 'light';
+
+        // Apply the theme
+        document.documentElement.setAttribute('data-theme', currentTheme);
+
+        // Update button aria-label based on current theme
+        updateThemeButtonLabel(themeToggleBtn, currentTheme);
+
+        // Toggle theme on button click
+        themeToggleBtn.addEventListener('click', function() {
+            let theme = document.documentElement.getAttribute('data-theme');
+
+            // Toggle between light and dark
+            if (theme === 'light') {
+                theme = 'dark';
+            } else {
+                theme = 'light';
+            }
+
+            // Apply new theme
+            document.documentElement.setAttribute('data-theme', theme);
+
+            // Save preference
+            localStorage.setItem('theme', theme);
+
+            // Update button label
+            updateThemeButtonLabel(themeToggleBtn, theme);
+
+            // Log for debugging
+            console.log(`Theme switched to: ${theme}`);
+        });
+
+        // Keyboard accessibility
+        themeToggleBtn.addEventListener('keydown', function(e) {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                this.click();
+            }
+        });
+    }
+
+    // Update theme button aria-label
+    function updateThemeButtonLabel(button, theme) {
+        const label = theme === 'dark'
+            ? (document.documentElement.lang === 'pt-PT'
+                ? 'Alternar para modo claro'
+                : 'Switch to light mode')
+            : (document.documentElement.lang === 'pt-PT'
+                ? 'Alternar para modo escuro'
+                : 'Switch to dark mode');
+
+        button.setAttribute('aria-label', label);
+    }
+
     // Set footer copyright year dynamically
     function setCurrentYear() {
         const currentYear = new Date().getFullYear();
@@ -221,7 +291,51 @@
             });
         });
     }
-    
+
+    // Initialize scroll to top button
+    function initializeScrollToTop() {
+        const scrollToTopBtn = document.getElementById('scroll-to-top');
+
+        if (!scrollToTopBtn) {
+            console.warn('Scroll to top button not found');
+            return;
+        }
+
+        // Show/hide button based on scroll position
+        const toggleScrollButton = utils.debounce(function() {
+            if (window.pageYOffset > 300) {
+                scrollToTopBtn.classList.add('visible');
+            } else {
+                scrollToTopBtn.classList.remove('visible');
+            }
+        }, 100);
+
+        // Listen to scroll events
+        window.addEventListener('scroll', toggleScrollButton);
+
+        // Scroll to top when button is clicked
+        scrollToTopBtn.addEventListener('click', function() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+
+            // Focus on the top of the page for accessibility
+            const skipLink = document.querySelector('.skip-link');
+            if (skipLink) {
+                skipLink.focus();
+            }
+        });
+
+        // Keyboard accessibility
+        scrollToTopBtn.addEventListener('keydown', function(e) {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                this.click();
+            }
+        });
+    }
+
     // Performance monitoring
     function monitorPerformance() {
         if ('performance' in window) {

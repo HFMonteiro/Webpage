@@ -90,6 +90,22 @@
         <a href="/pt/experiencia.html">Experiência</a>
         <a href="/pt/publicacoes.html">Publicações</a>
         <a href="/pt/contacto.html">Contacto</a>
+        <button id="theme-toggle" class="theme-toggle" aria-label="Alternar tema escuro/claro" title="Alternar tema">
+            <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <circle cx="12" cy="12" r="5"></circle>
+                <line x1="12" y1="1" x2="12" y2="3"></line>
+                <line x1="12" y1="21" x2="12" y2="23"></line>
+                <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                <line x1="1" y1="12" x2="3" y2="12"></line>
+                <line x1="21" y1="12" x2="23" y2="12"></line>
+                <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+            </svg>
+            <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+            </svg>
+        </button>
         <div class="lang-switcher" role="group" aria-label="Language switcher">
             <a href="/en/" rel="alternate" hreflang="en">EN</a> |
             <a href="/pt/" rel="alternate" hreflang="pt-PT" class="lang-active" aria-current="true" aria-label="Selected language">PT</a>
@@ -118,24 +134,40 @@
             
             <div class="cards-grid">
                 <article class="card">
+                    <svg class="card-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                        <circle cx="12" cy="7" r="4"></circle>
+                    </svg>
                     <h3>Sobre</h3>
                     <p>Médico de Saúde Pública e Especialista em Saúde Digital focado na transformação dos cuidados de saúde e soluções baseadas em dados.</p>
                     <a href="/pt/sobre.html" class="card-link">Saber mais</a>
                 </article>
-                
+
                 <article class="card">
+                    <svg class="card-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
+                        <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
+                    </svg>
                     <h3>Investigação</h3>
                     <p>Sistemas de saúde digital, programas de rastreio, sistemas de informação em saúde e visualização de dados em saúde.</p>
                     <a href="/pt/investigacao.html" class="card-link">Ver investigação</a>
                 </article>
-                
+
                 <article class="card">
+                    <svg class="card-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+                        <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+                    </svg>
                     <h3>Experiência</h3>
                     <p>Funções atuais incluem Médico de Saúde Pública, Coordenador de Programas, Consultor WHO/Europe e Industry Fellow.</p>
                     <a href="/pt/experiencia.html" class="card-link">Ver experiência</a>
                 </article>
-                
+
                 <article class="card">
+                    <svg class="card-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+                        <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+                    </svg>
                     <h3>Publicações</h3>
                     <p>Publicações de investigação atualizadas automaticamente do perfil ORCID, cobrindo saúde digital e saúde pública.</p>
                     <a href="/pt/publicacoes.html" class="card-link">Ver publicações</a>
@@ -151,6 +183,12 @@
            <a href="/pt/legal.html">Aviso Legal</a>
         </p>
     </footer>
+    <!-- Scroll to Top Button -->
+    <button id="scroll-to-top" class="scroll-to-top" aria-label="Scroll to top" title="Back to top">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <polyline points="18 15 12 9 6 15"></polyline>
+        </svg>
+    </button>
 
     <script src="/assets/js/script.js" defer></script>
 </body>
