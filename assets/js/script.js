@@ -132,11 +132,14 @@
 
     // Update theme button aria-label
     function updateThemeButtonLabel(button, theme) {
+        const htmlLang = (document.documentElement.getAttribute('lang') || '').toLowerCase();
+        const isPortuguese = htmlLang.startsWith('pt');
+
         const label = theme === 'dark'
-            ? (document.documentElement.lang === 'pt-PT'
+            ? (isPortuguese
                 ? 'Alternar para modo claro'
                 : 'Switch to light mode')
-            : (document.documentElement.lang === 'pt-PT'
+            : (isPortuguese
                 ? 'Alternar para modo escuro'
                 : 'Switch to dark mode');
 
