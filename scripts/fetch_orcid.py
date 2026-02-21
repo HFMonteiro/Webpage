@@ -6,12 +6,18 @@ Fetches publications from ORCID API and generates Markdown and HTML files for th
 
 import datetime
 import html
+import json
 import pathlib
 import sys
 import time
+import urllib.error
+import urllib.request
 from typing import List, Optional
 
-import requests
+try:
+    import requests
+except ModuleNotFoundError:
+    requests = None
 
 ORCID = "0000-0002-6060-3335"
 API_BASE = f"https://pub.orcid.org/v3.0/{ORCID}"
@@ -24,10 +30,21 @@ RETRY_DELAY = 2
 def safe_request(url: str) -> Optional[dict]:
     for attempt in range(MAX_RETRIES):
         try:
-            r = requests.get(url, headers=HEADERS, timeout=TIMEOUT)
-            r.raise_for_status()
-            return r.json()
-        except requests.RequestException as e:
+            if requests is not None:
+                r = requests.get(url, headers=HEADERS, timeout=TIMEOUT)
+                r.raise_for_status()
+                return r.json()
+
+            req = urllib.request.Request(url, headers=HEADERS)
+            with urllib.request.urlopen(req, timeout=TIMEOUT) as response:
+                return json.loads(response.read().decode("utf-8"))
+        except (urllib.error.URLError, urllib.error.HTTPError, TimeoutError, ValueError) as e:
+            print(f"Request failed ({attempt + 1}/{MAX_RETRIES}): {e}")
+            if attempt < MAX_RETRIES - 1:
+                time.sleep(RETRY_DELAY)
+        except Exception as e:
+            if requests is None or not isinstance(e, requests.RequestException):
+                raise
             print(f"Request failed ({attempt + 1}/{MAX_RETRIES}): {e}")
             if attempt < MAX_RETRIES - 1:
                 time.sleep(RETRY_DELAY)
@@ -64,6 +81,8 @@ def extract_work_details(work_summary: dict) -> dict:
             doi = ext_value
             if not url and ext_url:
                 url = ext_url
+            if not url:
+                url = f"https://doi.org/{doi}"
         elif ext_type == "uri" and ext_url and not url:
             url = ext_url
 
