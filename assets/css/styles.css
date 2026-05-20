@@ -1401,3 +1401,54 @@ footer {
         text-align: left;
     }
 }
+/* Publications page: use wide desktop space and present entries as scan-friendly cards */
+.publications-page {
+    width: 100%;
+}
+
+.publications-page .publications-list {
+    display: grid;
+    gap: var(--spacing-sm);
+}
+
+.publications-page .publications-list li {
+    background: var(--secondary-color);
+    border: 1px solid rgba(13, 71, 161, 0.12);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-light);
+    padding: var(--spacing-sm);
+}
+
+@media (min-width: 960px) {
+    main:has(.publications-page),
+    .publications-page {
+        max-width: min(1480px, calc(100vw - 4rem));
+    }
+
+    .publications-page .orcid-info {
+        max-width: 960px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .publications-page .publications-list {
+        grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+        align-items: stretch;
+    }
+}
+
+@media (min-width: 1400px) {
+    main:has(.publications-page),
+    .publications-page {
+        max-width: min(1640px, calc(100vw - 5rem));
+    }
+
+    .publications-page .publications-list {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+}
+
+[data-theme="dark"] .publications-page .publications-list li {
+    background: #252525;
+    border-color: #3a3a3a;
+}
