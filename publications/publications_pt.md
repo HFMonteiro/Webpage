@@ -1,10 +1,12 @@
 # Publicações
 
-*Última atualização: 21/02/2026*
+*Última atualização: 20/05/2026*
 
 Esta lista é automaticamente atualizada a partir do perfil ORCID.
 
+- **Population-Based Cancer Screening analysis in Northern Portugal Using Process Mining** (2026) *Journal of Cancer Policy* [Link](https://doi.org/10.1016/j.jcpo.2026.100702)
 - **Enhancing information for action: A strategic tool for strengthening public health emergency management systems** (2025) *International Journal of Medical Informatics* [Link](https://doi.org/10.1016/j.ijmedinf.2025.105791)
+- **Managing Data in Screening Programs: Challenges and Solutions** (2025) *Acta Médica Portuguesa* [Link](https://doi.org/10.20344/amp.23363)
 - **AF-React study: Prevalence of thrombotic events in patients with atrial fibrillation receiving NOACs – real-world data analysis from northern Portugal primary healthcare** (2024) *Frontiers in Medicine* [Link](https://doi.org/10.3389/fmed.2024.1273304)
 - **Community Healthcare-Associated Infections: Enhancing Control with Software and Tailored Protocols** (2024) *European Journal of Public Health* [Link](https://doi.org/10.1093/eurpub/ckae144.504)
 - **ERIMS assessment Tool Enhances Emergency Response in WHO Europe Region** (2024) *European Journal of Public Health* [Link](https://doi.org/10.1093/eurpub/ckae144.2180)
