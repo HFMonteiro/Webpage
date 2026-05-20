@@ -5,6 +5,9 @@ on:
     - cron: "0 6 1 * *"     # Monthly on the 1st at 06:00 UTC
   workflow_dispatch:        # Allow manual triggering
 
+permissions:
+  contents: write
+
 jobs:
   update-publications:
     runs-on: ubuntu-latest
@@ -18,7 +21,7 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
-          python-version: "3.x"
+          python-version: "3.12"
       
       - name: Install Python dependencies
         run: |
@@ -48,7 +51,7 @@ jobs:
         run: |
           git config --local user.name "github-actions[bot]"
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
-          git add publications/publications_*.md
+          git add publications/publications_*.md publications/publications_*.html
           git commit -m "chore: auto-update publications from ORCID"
           git push
         env:
@@ -62,5 +65,5 @@ jobs:
           echo "- **ORCID ID**: 0000-0002-6060-3335" >> $GITHUB_STEP_SUMMARY
           
           if [ "${{ steps.check_changes.outputs.changes }}" == "true" ]; then
-            echo "- **Files updated**: publications_en.md, publications_pt.md" >> $GITHUB_STEP_SUMMARY
+            echo "- **Files updated**: publications_en.md, publications_pt.md, publications_en.html, publications_pt.html" >> $GITHUB_STEP_SUMMARY
           fi
