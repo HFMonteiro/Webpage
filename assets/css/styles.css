@@ -1452,3 +1452,78 @@ footer {
     background: #252525;
     border-color: #3a3a3a;
 }
+/* Explicit light mode overrides must come after dark-mode rules to preserve contrast when the OS prefers dark. */
+[data-theme="light"] {
+    --primary-color: #0d47a1;
+    --primary-dark: #002171;
+    --secondary-color: #f0f2f5;
+    --text-dark: #111111;
+    --text-light: #444444;
+    --text-muted: #6e6e6e;
+    --white: #ffffff;
+    --shadow-light: 0 2px 4px rgba(0, 0, 0, 0.1);
+    --shadow-medium: 0 4px 8px rgba(0, 0, 0, 0.1);
+    color-scheme: light;
+}
+
+[data-theme="light"] body {
+    background-color: #ffffff;
+    color: #111111;
+}
+
+[data-theme="light"] .page-content,
+[data-theme="light"] main,
+[data-theme="light"] main p,
+[data-theme="light"] main li {
+    color: #111111;
+}
+
+[data-theme="light"] .lead,
+[data-theme="light"] .research-keywords li,
+[data-theme="light"] .meta {
+    color: #444444;
+}
+
+[data-theme="light"] .card,
+[data-theme="light"] .research-item,
+[data-theme="light"] .expertise-item,
+[data-theme="light"] .resource-item,
+[data-theme="light"] .credential-item,
+[data-theme="light"] .opportunity-item,
+[data-theme="light"] .affiliation-item,
+[data-theme="light"] .metric-item,
+[data-theme="light"] .timeline-content,
+[data-theme="light"] .project-item,
+[data-theme="light"] .experience-item,
+[data-theme="light"] .education-item,
+[data-theme="light"] .orcid-info {
+    background: #ffffff;
+    color: #111111;
+    border-color: rgba(13, 71, 161, 0.14);
+}
+
+[data-theme="light"] .card:hover,
+[data-theme="light"] .research-item:hover,
+[data-theme="light"] .expertise-item:hover,
+[data-theme="light"] .resource-item:hover,
+[data-theme="light"] .credential-item:hover,
+[data-theme="light"] .opportunity-item:hover,
+[data-theme="light"] .affiliation-item:hover,
+[data-theme="light"] .metric-item:hover,
+[data-theme="light"] .timeline-content:hover,
+[data-theme="light"] .project-item:hover {
+    background: #ffffff;
+    color: #111111;
+    border-color: rgba(13, 71, 161, 0.22);
+}
+
+[data-theme="light"] .card h3,
+[data-theme="light"] .research-item h4,
+[data-theme="light"] .expertise-item h4,
+[data-theme="light"] .resource-item h4,
+[data-theme="light"] .project-item h4,
+[data-theme="light"] .timeline-content h4,
+[data-theme="light"] .page-header h2,
+[data-theme="light"] h2 {
+    color: #0d47a1;
+}
