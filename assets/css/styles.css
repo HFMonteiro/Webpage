@@ -528,8 +528,13 @@ footer p {
     }
 
     nav a {
-        margin: 0 var(--spacing-md);
-        padding: 0.75rem var(--spacing-md);
+        margin: 0 0.75rem;
+        padding: 0.65rem 1rem;
+        font-size: 1.35rem;
+    }
+
+    .lang-switcher a {
+        font-size: 1.2rem;
     }
 
     main p {
@@ -1163,6 +1168,24 @@ footer p {
 .card-link { color: var(--primary-dark); font-weight: 600; text-decoration: none; }
 .card-link:hover { text-decoration: underline; }
 
+/* Explicit light mode overrides user-agent dark preference when selected */
+[data-theme="light"] {
+    --primary-color: #0d47a1;
+    --primary-dark: #002171;
+    --secondary-color: #f0f2f5;
+    --text-dark: #111111;
+    --text-light: #444444;
+    --text-muted: #6e6e6e;
+    --white: #ffffff;
+    --shadow-light: 0 2px 4px rgba(0, 0, 0, 0.1);
+    --shadow-medium: 0 4px 8px rgba(0, 0, 0, 0.1);
+    color-scheme: light;
+}
+
+[data-theme="light"] body {
+    background-color: #ffffff;
+    color: #111111;
+}
 /* ============================================
    DARK MODE STYLES
    ============================================ */
@@ -1367,5 +1390,14 @@ footer {
     .scroll-to-top svg {
         width: 20px;
         height: 20px;
+    }
+}
+
+/* Mobile readability: avoid large word spacing from justified text */
+@media (max-width: 767px) {
+    main p,
+    .lead,
+    .page-content p {
+        text-align: left;
     }
 }
