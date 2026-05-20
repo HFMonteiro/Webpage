@@ -1420,7 +1420,7 @@ footer {
 }
 
 @media (min-width: 960px) {
-    main:has(.publications-page),
+    .publications-main,
     .publications-page {
         max-width: min(1480px, calc(100vw - 4rem));
     }
@@ -1438,7 +1438,7 @@ footer {
 }
 
 @media (min-width: 1400px) {
-    main:has(.publications-page),
+    .publications-main,
     .publications-page {
         max-width: min(1640px, calc(100vw - 5rem));
     }
