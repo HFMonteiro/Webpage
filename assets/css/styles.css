@@ -1527,3 +1527,90 @@ footer {
 [data-theme="light"] h2 {
     color: #0d47a1;
 }
+/* Publication filters */
+.publication-tools {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: var(--spacing-sm);
+    align-items: end;
+    margin: var(--spacing-md) 0 var(--spacing-lg);
+    padding: var(--spacing-sm);
+    background: var(--secondary-color);
+    border: 1px solid rgba(13, 71, 161, 0.12);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-light);
+}
+
+.publication-control {
+    display: grid;
+    gap: 0.25rem;
+    color: var(--text-dark);
+    font-weight: 600;
+}
+
+.publication-control input,
+.publication-control select {
+    width: 100%;
+    min-height: 42px;
+    padding: 0.55rem 0.7rem;
+    border: 1px solid rgba(13, 71, 161, 0.22);
+    border-radius: var(--border-radius-small);
+    background: var(--white);
+    color: var(--text-dark);
+    font: inherit;
+}
+
+.publication-reset {
+    min-height: 42px;
+    padding: 0.55rem 0.9rem;
+    border: 1px solid rgba(13, 71, 161, 0.28);
+    border-radius: var(--border-radius-small);
+    background: var(--white);
+    color: var(--primary-color);
+    cursor: pointer;
+    font: inherit;
+    font-weight: 600;
+}
+
+.publication-reset:hover,
+.publication-reset:focus {
+    background: var(--primary-color);
+    color: #ffffff;
+}
+
+.publication-filter-status {
+    grid-column: 1 / -1;
+    margin: 0;
+}
+
+.publication-no-results {
+    margin-top: var(--spacing-sm);
+}
+
+[data-theme="dark"] .publication-tools {
+    background: #252525;
+    border-color: #3a3a3a;
+}
+
+[data-theme="dark"] .publication-control,
+[data-theme="dark"] .publication-control input,
+[data-theme="dark"] .publication-control select {
+    color: #e8e8e8;
+}
+
+[data-theme="dark"] .publication-control input,
+[data-theme="dark"] .publication-control select,
+[data-theme="dark"] .publication-reset {
+    background: #1a1a1a;
+    border-color: #4a5f7f;
+}
+
+[data-theme="dark"] .publication-reset {
+    color: #6ba3e8;
+}
+
+[data-theme="dark"] .publication-reset:hover,
+[data-theme="dark"] .publication-reset:focus {
+    background: #1e3a5f;
+    color: #ffffff;
+}
