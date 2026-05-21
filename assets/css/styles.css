@@ -571,9 +571,9 @@ footer p {
     }
 }
 
-/* Dark mode support */
+/* System dark fallback before the explicit theme toggle initializes */
 @media (prefers-color-scheme: dark) {
-    :root {
+    :root:not([data-theme]) {
         --white: #1a1a1a;
         --text-dark: #e0e0e0;
         --text-light: #b0b0b0;
@@ -584,66 +584,67 @@ footer p {
     }
 
     /* Improve heading contrast in dark mode */
-    main h2 {
+    :root:not([data-theme]) main h2 {
         color: #cfe1ff; /* lightened accent for readability */
         border-bottom-color: #95b8ff;
     }
 
-    main h3 { color: #bcd1ff; }
+    :root:not([data-theme]) main h3 { color: #bcd1ff; }
 
     /* Ensure project cards readable in dark mode */
-    .project-item { background: #ffffff !important; color: #222222 !important; }
+    :root:not([data-theme]) .project-item { background: #ffffff; color: #222222; }
 
-    .experience-item::before, .education-item::before {
+    :root:not([data-theme]) .experience-item::before,
+    :root:not([data-theme]) .education-item::before {
         background: linear-gradient(90deg, transparent, rgba(13, 71, 161, 0.2));
     }
 
     /* Maintain high contrast for white cards/boxes in dark mode */
-    .card,
-    .research-item,
-    .expertise-item,
-    .resource-item,
-    .contact-item,
-    .opportunity-item,
-    .affiliation-item,
-    .credential-item,
-    .metric-item,
-    .project-item,
-    .timeline-content,
-    .orcid-info,
-    .experience-item,
-    .education-item {
-        background: #ffffff !important;
-        color: #222222 !important;
+    :root:not([data-theme]) .card,
+    :root:not([data-theme]) .research-item,
+    :root:not([data-theme]) .expertise-item,
+    :root:not([data-theme]) .resource-item,
+    :root:not([data-theme]) .contact-item,
+    :root:not([data-theme]) .opportunity-item,
+    :root:not([data-theme]) .affiliation-item,
+    :root:not([data-theme]) .credential-item,
+    :root:not([data-theme]) .metric-item,
+    :root:not([data-theme]) .project-item,
+    :root:not([data-theme]) .timeline-content,
+    :root:not([data-theme]) .orcid-info,
+    :root:not([data-theme]) .experience-item,
+    :root:not([data-theme]) .education-item {
+        background: #ffffff;
+        color: #222222;
     }
-    .card p,
-    .research-item p,
-    .expertise-item p,
-    .resource-item p,
-    .contact-item p,
-    .opportunity-item p,
-    .affiliation-item p,
-    .credential-item p,
-    .metric-item p,
-    .project-item p,
-    .orcid-info p,
-    .experience-item p,
-    .education-item p,
-    .card h3,
-    .research-item h4,
-    .expertise-item h4,
-    .resource-item h4,
-    .contact-item h4,
-    .opportunity-item h4,
-    .affiliation-item h4,
-    .credential-item h4,
-    .metric-item h4,
-    .project-item h4 {
-        color: #0d47a1 !important; /* keep headings consistent */
+    :root:not([data-theme]) .card p,
+    :root:not([data-theme]) .research-item p,
+    :root:not([data-theme]) .expertise-item p,
+    :root:not([data-theme]) .resource-item p,
+    :root:not([data-theme]) .contact-item p,
+    :root:not([data-theme]) .opportunity-item p,
+    :root:not([data-theme]) .affiliation-item p,
+    :root:not([data-theme]) .credential-item p,
+    :root:not([data-theme]) .metric-item p,
+    :root:not([data-theme]) .project-item p,
+    :root:not([data-theme]) .orcid-info p,
+    :root:not([data-theme]) .experience-item p,
+    :root:not([data-theme]) .education-item p,
+    :root:not([data-theme]) .card h3,
+    :root:not([data-theme]) .research-item h4,
+    :root:not([data-theme]) .expertise-item h4,
+    :root:not([data-theme]) .resource-item h4,
+    :root:not([data-theme]) .contact-item h4,
+    :root:not([data-theme]) .opportunity-item h4,
+    :root:not([data-theme]) .affiliation-item h4,
+    :root:not([data-theme]) .credential-item h4,
+    :root:not([data-theme]) .metric-item h4,
+    :root:not([data-theme]) .project-item h4 {
+        color: #0d47a1; /* keep headings consistent */
     }
-    .card a.card-link,
-    .resource-item a.resource-link {
-        color: #0d47a1 !important;
+    :root:not([data-theme]) .card a.card-link,
+    :root:not([data-theme]) .resource-item a.resource-link {
+        color: #0d47a1;
     }
 }
 
@@ -1690,7 +1691,74 @@ section h3 {
   gap: 0.65rem;
 }
 
-.overview-cards,
+.experience-timeline .timeline {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--v2-gap);
+  padding-left: 0;
+}
+
+.experience-timeline .timeline::before,
+.experience-timeline .timeline-marker {
+  display: none;
+}
+
+.experience-timeline .timeline-item {
+  display: flex;
+  min-width: 0;
+  margin: 0;
+  background: transparent;
+  border: 0;
+  box-shadow: none;
+}
+
+.experience-timeline .timeline-content {
+  display: grid;
+  grid-template-columns: minmax(220px, 0.34fr) minmax(0, 1fr);
+  align-items: start;
+  column-gap: clamp(1rem, 2vw, 2rem);
+  width: 100%;
+  height: 100%;
+  margin-left: 0;
+  padding: var(--v2-card-pad);
+  border: 1px solid #cbd9e6;
+  border-left: 4px solid var(--secondary-color);
+  border-radius: 8px;
+  background: #ffffff;
+  box-shadow: none;
+}
+
+.experience-timeline .timeline-content h4,
+.experience-timeline .timeline-content .organization,
+.experience-timeline .timeline-content .period {
+  grid-column: 1;
+}
+
+.experience-timeline .timeline-content .description {
+  grid-column: 2;
+  grid-row: 1 / span 4;
+}
+
+.experience-timeline .timeline-content:hover {
+  transform: none;
+  box-shadow: 0 2px 8px rgba(15, 76, 129, 0.08);
+}
+
+.experience-timeline .organization,
+.experience-timeline .period {
+  margin-bottom: 0.35rem;
+}
+
+.experience-timeline .description {
+  display: grid;
+  gap: 0.65rem;
+}
+
+.experience-timeline .achievements {
+  margin-top: 0;
+  padding-left: 1.05rem;
+}
+
 .research-grid,
 .expertise-grid,
 .resources-grid,
@@ -1706,6 +1774,17 @@ section h3 {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
   gap: var(--v2-gap);
+}
+
+.overview-cards {
+  display: block;
+}
+
+.overview-cards .cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr));
+  gap: var(--v2-gap);
+  width: 100%;
 }
 
 .card,
@@ -1950,6 +2029,16 @@ section h3 {
   background: #1b2633;
 }
 
+[data-theme="dark"] .experience-timeline .timeline-content {
+  background: #252525;
+  border-color: #385066;
+  border-left-color: #6ba3e8;
+}
+
+[data-theme="dark"] .experience-timeline .timeline-content h4 {
+  color: #9fc5ff;
+}
+
 @media (min-width: 1180px) {
   body > header .container,
   nav .container,
@@ -1971,10 +2060,7 @@ section h3 {
   }
 
   .experience-timeline .timeline {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
-    gap: var(--v2-gap);
-    padding-left: 0;
+    grid-template-columns: 1fr;
   }
 
   .timeline::before,
@@ -1995,9 +2081,12 @@ section h3 {
   .expertise-grid,
   .resources-grid,
   .contact-grid,
-  .opportunities-grid,
-  .overview-cards {
+  .opportunities-grid {
     grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
+  }
+
+  .overview-cards .cards-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
   }
 
   .projects-list,
@@ -2017,16 +2106,18 @@ section h3 {
   .research-grid,
   .expertise-grid,
   .resources-grid,
-  .overview-cards,
   .contact-grid,
   .opportunities-grid {
     grid-template-columns: repeat(4, minmax(0, 1fr));
   }
 
-  .experience-timeline .timeline,
   .publications-page .publications-list,
   .project-index {
     grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .experience-timeline .timeline {
+    grid-template-columns: 1fr;
   }
 }
 
@@ -2060,6 +2151,15 @@ section h3 {
   .project-card .project-meta {
     margin-top: 0.15rem;
     text-align: left;
+  }
+
+  .experience-timeline .timeline-content {
+    grid-template-columns: 1fr;
+  }
+
+  .experience-timeline .timeline-content .description {
+    grid-column: 1;
+    grid-row: auto;
   }
 }
 

@@ -129,12 +129,12 @@ def generate_markdown(publications: List[dict], lang: str) -> str:
     if lang == "pt":
         header = "# Publicações"
         last_updated = f"*Última atualização: {datetime.datetime.now().strftime('%d/%m/%Y')}*"
-        note = "Esta lista é automaticamente atualizada a partir do perfil ORCID."
+        note = "Esta lista é atualizada regularmente a partir do perfil ORCID."
         none_msg = "Nenhuma publicação encontrada."
     else:
         header = "# Publications"
         last_updated = f"*Last updated: {datetime.datetime.now().strftime('%B %d, %Y')}*"
-        note = "This list is automatically updated from the ORCID profile."
+        note = "This list is regularly updated from the ORCID profile."
         none_msg = "No publications found."
 
     content = [header, "", last_updated, "", note, ""]
@@ -150,12 +150,12 @@ def generate_html(publications: List[dict], lang: str) -> str:
     if lang == "pt":
         header = "Publicações"
         last_updated = f"Última atualização: {datetime.datetime.now().strftime('%d/%m/%Y')}"
-        note = "Esta lista é automaticamente atualizada a partir do perfil ORCID."
+        note = "Esta lista é atualizada regularmente a partir do perfil ORCID."
         none_msg = "Nenhuma publicação encontrada."
     else:
         header = "Publications"
         last_updated = f"Last updated: {datetime.datetime.now().strftime('%B %d, %Y')}"
-        note = "This list is automatically updated from the ORCID profile."
+        note = "This list is regularly updated from the ORCID profile."
         none_msg = "No publications found."
 
     parts = [
