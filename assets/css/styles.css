@@ -1822,3 +1822,33 @@ section h3 { font-size: clamp(1.25rem, 1rem + 0.62vw, 1.65rem); margin-bottom: c
     justify-content: flex-start;
   }
 }
+
+
+/* V2 projects contrast polish */
+.project-card {
+  background: linear-gradient(180deg, rgba(15, 76, 129, 0.025), rgba(255, 255, 255, 0) 42%), var(--card-background);
+  border-color: #cbd9e6;
+}
+
+.project-card .project-meta {
+  color: #0f4c81;
+}
+
+.project-themes span {
+  color: #2f4052;
+  background: #f6f9fc;
+}
+
+[data-theme="dark"] .project-card {
+  background: linear-gradient(180deg, rgba(122, 184, 0, 0.06), rgba(18, 18, 18, 0) 42%), var(--card-background);
+  border-color: #385066;
+}
+
+[data-theme="dark"] .project-card .project-meta {
+  color: #9ccc35;
+}
+
+[data-theme="dark"] .project-themes span {
+  color: #d6e5f2;
+  background: #1b2633;
+}
