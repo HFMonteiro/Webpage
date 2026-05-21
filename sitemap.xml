@@ -5,7 +5,7 @@
   <!-- Root redirect -->
   <url>
     <loc>https://www.hfmonteiro.com/</loc>
-    <lastmod>2024-08-24</lastmod>
+    <lastmod>2026-05-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.hfmonteiro.com/en/" />
@@ -15,7 +15,7 @@
   <!-- English pages -->
   <url>
     <loc>https://www.hfmonteiro.com/en/</loc>
-    <lastmod>2024-08-24</lastmod>
+    <lastmod>2026-05-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.hfmonteiro.com/en/" />
@@ -24,7 +24,7 @@
   
   <url>
     <loc>https://www.hfmonteiro.com/en/about.html</loc>
-    <lastmod>2024-08-24</lastmod>
+    <lastmod>2026-05-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.hfmonteiro.com/en/about.html" />
@@ -33,7 +33,7 @@
   
   <url>
     <loc>https://www.hfmonteiro.com/en/research.html</loc>
-    <lastmod>2024-08-24</lastmod>
+    <lastmod>2026-05-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.hfmonteiro.com/en/research.html" />
@@ -42,7 +42,7 @@
   
   <url>
     <loc>https://www.hfmonteiro.com/en/experience.html</loc>
-    <lastmod>2024-08-24</lastmod>
+    <lastmod>2026-05-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.hfmonteiro.com/en/experience.html" />
@@ -51,7 +51,7 @@
   
   <url>
     <loc>https://www.hfmonteiro.com/en/publications.html</loc>
-    <lastmod>2024-08-24</lastmod>
+    <lastmod>2026-05-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.hfmonteiro.com/en/publications.html" />
@@ -60,7 +60,7 @@
   
   <url>
     <loc>https://www.hfmonteiro.com/en/contact.html</loc>
-    <lastmod>2024-08-24</lastmod>
+    <lastmod>2026-05-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.hfmonteiro.com/en/contact.html" />
@@ -70,7 +70,7 @@
   <!-- Portuguese pages -->
   <url>
     <loc>https://www.hfmonteiro.com/pt/</loc>
-    <lastmod>2024-08-24</lastmod>
+    <lastmod>2026-05-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.hfmonteiro.com/en/" />
@@ -79,7 +79,7 @@
   
   <url>
     <loc>https://www.hfmonteiro.com/pt/sobre.html</loc>
-    <lastmod>2024-08-24</lastmod>
+    <lastmod>2026-05-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.hfmonteiro.com/en/about.html" />
@@ -88,7 +88,7 @@
   
   <url>
     <loc>https://www.hfmonteiro.com/pt/investigacao.html</loc>
-    <lastmod>2024-08-24</lastmod>
+    <lastmod>2026-05-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.hfmonteiro.com/en/research.html" />
@@ -97,7 +97,7 @@
   
   <url>
     <loc>https://www.hfmonteiro.com/pt/experiencia.html</loc>
-    <lastmod>2024-08-24</lastmod>
+    <lastmod>2026-05-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.hfmonteiro.com/en/experience.html" />
@@ -106,7 +106,7 @@
   
   <url>
     <loc>https://www.hfmonteiro.com/pt/publicacoes.html</loc>
-    <lastmod>2024-08-24</lastmod>
+    <lastmod>2026-05-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.hfmonteiro.com/en/publications.html" />
@@ -115,7 +115,7 @@
   
   <url>
     <loc>https://www.hfmonteiro.com/pt/contacto.html</loc>
-    <lastmod>2024-08-24</lastmod>
+    <lastmod>2026-05-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.hfmonteiro.com/en/contact.html" />

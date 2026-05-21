@@ -64,8 +64,8 @@ for (const page of pages) {
   check(html.includes('hreflang="en"'), `${page.file} has English hreflang`);
   check(html.includes('hreflang="pt-PT"'), `${page.file} has Portuguese hreflang`);
   check(html.includes(`href="${page.alternate}"`) || html.includes(`href="https://www.hfmonteiro.com${page.alternate}"`), `${page.file} links to alternate language page`);
-  check(html.includes('href="/assets/css/styles.css'), `${page.file} links global stylesheet`);
-  check(html.includes('src="/assets/js/script.js"'), `${page.file} loads global script`);
+  check(/href="\/assets\/css\/styles\.css(?:\?v=[^"]+)?"/.test(html), `${page.file} links global stylesheet`);
+  check(/src="\/assets\/js\/script\.js(?:\?v=[^"]+)?"/.test(html), `${page.file} loads global script`);
   check(html.includes('id="theme-toggle"'), `${page.file} has theme toggle`);
   check(html.includes('class="skip-link"'), `${page.file} has skip link`);
   check(html.includes('id="main"'), `${page.file} has main landmark target`);
