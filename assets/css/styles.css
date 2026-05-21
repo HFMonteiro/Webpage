@@ -1834,7 +1834,7 @@ section h3 {
   padding: clamp(1rem, 1.2vw, 1.25rem);
   border: 1px solid #cbd9e6;
   border-left: 4px solid var(--secondary-color);
-  background: var(--card-background);
+  background: #ffffff;
   box-shadow: none;
 }
 
@@ -1926,7 +1926,7 @@ section h3 {
 }
 
 [data-theme="dark"] .project-card {
-  background: var(--card-background);
+  background: #252525;
   border-color: #385066;
   border-left-color: var(--secondary-color);
 }
@@ -2090,4 +2090,3 @@ section h3 {
     min-height: 128px;
   }
 }
-
