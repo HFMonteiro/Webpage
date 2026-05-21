@@ -359,6 +359,125 @@
         }
     }
     
+
+    // Publication search and filters for asynchronously loaded ORCID output
+    function initializePublicationFilters(options) {
+        const defaults = {
+            searchLabel: 'Search publications',
+            searchPlaceholder: 'Search by title, journal, year, or DOI',
+            yearLabel: 'Year',
+            allYearsLabel: 'All years',
+            typeLabel: 'Type',
+            allTypesLabel: 'All types',
+            journalLabel: 'Journal articles',
+            otherLabel: 'Other outputs',
+            resetLabel: 'Reset',
+            resultLabel: 'publication shown',
+            resultsLabel: 'publications shown',
+            noResultsLabel: 'No publications match the current filters.'
+        };
+        const labels = Object.assign({}, defaults, options || {});
+        const container = document.getElementById('publications-content');
+        if (!container || container.querySelector('.publication-tools')) return;
+
+        const list = container.querySelector('.publications-list');
+        if (!list) return;
+
+        const items = Array.from(list.querySelectorAll('li'));
+        if (items.length === 0) return;
+
+        const years = new Set();
+        items.forEach((item) => {
+            const text = item.textContent || '';
+            const yearMatch = text.match(/\((20\d{2}|19\d{2})\)/);
+            const year = yearMatch ? yearMatch[1] : '';
+            const type = /conference|proceedings|poster|abstract|report/i.test(text) ? 'other' : 'journal';
+            item.dataset.publicationYear = year;
+            item.dataset.publicationType = type;
+            item.dataset.publicationText = text.toLowerCase();
+            if (year) years.add(year);
+        });
+
+        const tools = document.createElement('div');
+        tools.className = 'publication-tools';
+        tools.innerHTML = `
+            <label class="publication-control">
+                <span>${labels.searchLabel}</span>
+                <input type="search" class="publication-search" placeholder="${labels.searchPlaceholder}" autocomplete="off">
+            </label>
+            <label class="publication-control">
+                <span>${labels.yearLabel}</span>
+                <select class="publication-year">
+                    <option value="">${labels.allYearsLabel}</option>
+                </select>
+            </label>
+            <label class="publication-control">
+                <span>${labels.typeLabel}</span>
+                <select class="publication-type">
+                    <option value="">${labels.allTypesLabel}</option>
+                    <option value="journal">${labels.journalLabel}</option>
+                    <option value="other">${labels.otherLabel}</option>
+                </select>
+            </label>
+            <button type="button" class="publication-reset">${labels.resetLabel}</button>
+            <p class="publication-filter-status meta" aria-live="polite"></p>
+        `;
+
+        const yearSelect = tools.querySelector('.publication-year');
+        Array.from(years).sort((a, b) => Number(b) - Number(a)).forEach((year) => {
+            const option = document.createElement('option');
+            option.value = year;
+            option.textContent = year;
+            yearSelect.appendChild(option);
+        });
+
+        const noResults = document.createElement('p');
+        noResults.className = 'publication-no-results error-message';
+        noResults.textContent = labels.noResultsLabel;
+        noResults.hidden = true;
+
+        list.parentNode.insertBefore(tools, list);
+        list.parentNode.insertBefore(noResults, list.nextSibling);
+
+        const searchInput = tools.querySelector('.publication-search');
+        const typeSelect = tools.querySelector('.publication-type');
+        const resetButton = tools.querySelector('.publication-reset');
+        const status = tools.querySelector('.publication-filter-status');
+
+        function applyFilters() {
+            const query = searchInput.value.trim().toLowerCase();
+            const selectedYear = yearSelect.value;
+            const selectedType = typeSelect.value;
+            let visibleCount = 0;
+
+            items.forEach((item) => {
+                const matchesQuery = !query || item.dataset.publicationText.includes(query);
+                const matchesYear = !selectedYear || item.dataset.publicationYear === selectedYear;
+                const matchesType = !selectedType || item.dataset.publicationType === selectedType;
+                const visible = matchesQuery && matchesYear && matchesType;
+                item.hidden = !visible;
+                if (visible) visibleCount += 1;
+            });
+
+            noResults.hidden = visibleCount !== 0;
+            status.textContent = `${visibleCount} ${visibleCount === 1 ? labels.resultLabel : labels.resultsLabel}`;
+        }
+
+        searchInput.addEventListener('input', applyFilters);
+        yearSelect.addEventListener('change', applyFilters);
+        typeSelect.addEventListener('change', applyFilters);
+        resetButton.addEventListener('click', () => {
+            searchInput.value = '';
+            yearSelect.value = '';
+            typeSelect.value = '';
+            applyFilters();
+            searchInput.focus();
+        });
+
+        applyFilters();
+    }
+    window.initializePublicationFilters = initializePublicationFilters;
+
     // Fallback initialization for older browsers
     function fallbackInitialization() {
         console.log('Running fallback initialization');
