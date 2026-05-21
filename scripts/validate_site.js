@@ -69,6 +69,7 @@ for (const page of pages) {
   check(html.includes('id="theme-toggle"'), `${page.file} has theme toggle`);
   check(html.includes('class="skip-link"'), `${page.file} has skip link`);
   check(html.includes('id="main"'), `${page.file} has main landmark target`);
+  check(!/<meta\s+http-equiv="X-Frame-Options"/i.test(html), `${page.file} does not set X-Frame-Options via meta`);
   check(sitemap.includes(`https://www.hfmonteiro.com/${page.file.replace('index.html', '')}`), `sitemap includes ${page.file}`);
 }
 
