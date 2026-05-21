@@ -1642,3 +1642,12 @@ main .page-header .lead {
 [data-theme="dark"] main .page-header .lead {
     color: #c4c4c4;
 }
+[data-theme="light"] main .page-header {
+    background: transparent;
+    color: #111111;
+    box-shadow: none;
+}
+
+[data-theme="light"] main .page-header .lead {
+    color: #444444;
+}
