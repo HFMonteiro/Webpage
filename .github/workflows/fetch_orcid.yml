@@ -8,6 +8,10 @@ on:
 permissions:
   contents: write
 
+concurrency:
+  group: fetch-orcid-publications
+  cancel-in-progress: false
+
 jobs:
   update-publications:
     runs-on: ubuntu-latest
