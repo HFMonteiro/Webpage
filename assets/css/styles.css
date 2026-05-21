@@ -1716,3 +1716,109 @@ section h3 { font-size: clamp(1.25rem, 1rem + 0.62vw, 1.65rem); margin-bottom: c
 }
 @media (max-width: 900px) { .hero, .publication-tools { grid-template-columns: 1fr; } nav { justify-content: flex-start; overflow-x: auto; scrollbar-width: thin; } nav a { flex: 0 0 auto; } }
 @media (max-width: 640px) { main { max-width: 100%; margin: 0.85rem auto; padding: 0 0.8rem; } .page-content { padding: 0.95rem; } body > header { padding: 0.8rem; } nav { padding: 0.4rem 0.8rem; } nav a { padding: 0.42rem 0.62rem; } .projects-hero { min-height: 180px; } .project-card__top { display: block; } .project-meta { display: block; max-width: none; margin-top: 0.2rem; text-align: left; } }
+
+
+/* V2 projects editorial refinement */
+.projects-hero {
+  min-height: 118px;
+  align-items: center;
+  background-position: right 42%;
+}
+
+.projects-hero .eyebrow {
+  margin-bottom: 0.2rem;
+}
+
+.projects-intro {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: start;
+  gap: var(--v2-gap);
+}
+
+.project-themes {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 0.4rem;
+  max-width: 520px;
+}
+
+.project-themes span {
+  border: 1px solid var(--border-color);
+  border-radius: 999px;
+  padding: 0.28rem 0.62rem;
+  font-size: 0.8rem;
+  color: var(--text-light);
+  background: var(--background-alt);
+}
+
+.project-card {
+  display: flex;
+  flex-direction: column;
+  min-height: 310px;
+}
+
+.project-card .project-meta {
+  max-width: none;
+  margin-bottom: 0.55rem;
+  text-align: left;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--secondary-color);
+}
+
+.project-summary {
+  color: var(--text-color);
+  font-size: 0.98rem;
+}
+
+.project-evidence {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.55rem;
+  margin: 0.8rem 0;
+}
+
+.project-evidence div {
+  border-left: 2px solid var(--secondary-color);
+  padding-left: 0.65rem;
+}
+
+.project-evidence span {
+  display: block;
+  margin-bottom: 0.12rem;
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--text-light);
+}
+
+.project-evidence p {
+  margin: 0;
+  font-size: 0.9rem;
+  line-height: 1.45;
+}
+
+.project-tags {
+  margin-top: auto;
+}
+
+@media (min-width: 1500px) {
+  .project-card {
+    min-height: 292px;
+  }
+}
+
+@media (max-width: 900px) {
+  .projects-intro {
+    grid-template-columns: 1fr;
+  }
+
+  .project-themes {
+    justify-content: flex-start;
+  }
+}
