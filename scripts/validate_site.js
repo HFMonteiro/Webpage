@@ -56,7 +56,7 @@ check(js.includes('initializeThemeToggle'), 'theme toggle initializer exists');
 for (const page of pages) {
   check(exists(page.file), `${page.file} exists`);
   const html = read(page.file);
-  check(/^<!DOCTYPE html>/i.test(html), `${page.file} has HTML5 doctype`);
+  check(/^\uFEFF?\s*<!DOCTYPE html>/i.test(html), `${page.file} has HTML5 doctype`);
   check(html.includes(`lang="${page.lang}"`), `${page.file} has expected lang`);
   check(/<title>[^<]{10,}<\/title>/.test(html), `${page.file} has descriptive title`);
   check(/<meta name="description" content="[^"]{50,}">/.test(html), `${page.file} has meta description`);
