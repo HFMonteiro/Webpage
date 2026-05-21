@@ -1651,3 +1651,68 @@ main .page-header .lead {
 [data-theme="light"] main .page-header .lead {
     color: #444444;
 }
+
+/* V2 projects compact system */
+:root {
+  --max-width: 1120px;
+  --max-width-desktop: 1560px;
+  --v2-shell: min(1560px, calc(100vw - 2rem));
+  --v2-content-pad: clamp(1rem, 1.8vw, 2rem);
+  --v2-card-pad: clamp(0.95rem, 1.25vw, 1.25rem);
+  --v2-gap: clamp(0.85rem, 1.2vw, 1.25rem);
+  --v2-shadow: 0 1px 3px var(--shadow-light);
+}
+
+body > header { padding: clamp(0.75rem, 1.2vw, 1.15rem) var(--v2-content-pad); }
+body > header h1 { font-size: clamp(1.75rem, 1.2rem + 1.45vw, 2.65rem); line-height: 1.08; margin-bottom: 0.25rem; }
+.subtitle { font-size: clamp(0.98rem, 0.88rem + 0.32vw, 1.18rem); line-height: 1.35; max-width: var(--v2-shell); margin-inline: auto; }
+nav { gap: 0.25rem; padding: 0.45rem var(--v2-content-pad); }
+nav a { font-size: clamp(0.9rem, 0.84rem + 0.18vw, 1.04rem); margin: 0; padding: 0.45rem 0.66rem; }
+.lang-switcher { margin-left: clamp(0.25rem, 1vw, 0.85rem); }
+main { width: 100%; max-width: var(--v2-shell); margin: clamp(1rem, 1.8vw, 1.75rem) auto; padding: 0 var(--v2-content-pad); }
+.page-content { max-width: none; padding: clamp(1rem, 1.75vw, 2rem); border-radius: 8px; }
+main .page-header { text-align: left; margin-bottom: clamp(1.1rem, 1.8vw, 1.75rem); padding-bottom: clamp(0.85rem, 1.2vw, 1.25rem); }
+main .page-header h2, main .page-header h1 { font-size: clamp(1.7rem, 1.2rem + 1.35vw, 2.45rem); line-height: 1.12; }
+main .lead { max-width: 980px; margin: 0; font-size: clamp(1rem, 0.94rem + 0.2vw, 1.16rem); line-height: 1.58; }
+main p { text-align: left; line-height: 1.62; }
+.page-content > p, .bio-text > p, .research-overview > p, .research-methodology > p, .publications-preview > p, .collaboration > p, .cta-section > p, .projects-intro > p { max-width: 920px; }
+main section { margin-bottom: clamp(1.3rem, 2vw, 2.4rem); padding-bottom: clamp(0.95rem, 1.6vw, 1.6rem); }
+section h3 { font-size: clamp(1.25rem, 1rem + 0.62vw, 1.65rem); margin-bottom: clamp(0.7rem, 1vw, 1rem); }
+.hero { display: grid; grid-template-columns: minmax(0, 1.35fr) minmax(300px, 0.65fr); align-items: start; gap: clamp(1rem, 2vw, 2rem); padding: clamp(1rem, 2vw, 2rem) 0; min-height: 0; }
+.hero h2 { font-size: clamp(2rem, 1.35rem + 1.8vw, 3.15rem); line-height: 1.08; }
+.hero p { max-width: 820px; font-size: clamp(1rem, 0.95rem + 0.18vw, 1.12rem); }
+.hero-actions, .cta-buttons { gap: 0.65rem; }
+.overview-cards, .research-grid, .expertise-grid, .resources-grid, .contact-grid, .opportunities-grid, .affiliations-list, .metrics-grid, .highlights-grid, .projects-list, .publications-page .publications-list, .project-index, .method-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr)); gap: var(--v2-gap); }
+.card, .overview-card, .research-item, .expertise-item, .resource-item, .project-item, .contact-item, .opportunity-item, .affiliation-item, .metric-item, .experience-item, .education-item, .timeline-content, .publication-card, .project-card, .method-grid > div { border-radius: 8px; padding: var(--v2-card-pad); box-shadow: var(--v2-shadow); }
+.card:hover, .overview-card:hover, .research-item:hover, .expertise-item:hover, .resource-item:hover, .project-item:hover, .contact-item:hover, .opportunity-item:hover, .publication-card:hover, .project-card:hover { transform: translateY(-1px); box-shadow: 0 3px 8px var(--shadow-light); }
+.timeline-content h3, .research-item h4, .expertise-item h4, .resource-item h4, .project-item h4, .contact-item h4, .opportunity-item h4, .publication-card h3, .project-card h4, .method-grid h4 { margin-bottom: 0.35rem; line-height: 1.25; }
+.achievements li, .methodology-list li, .collaboration-list li, .project-card li { margin-bottom: 0.38rem; }
+.publication-tools { grid-template-columns: minmax(260px, 2fr) minmax(150px, 0.6fr) minmax(160px, 0.75fr) auto; gap: 0.65rem; padding: 0.75rem; }
+.projects-hero { display: grid; align-items: end; min-height: 220px; padding: clamp(1.25rem, 3vw, 2.4rem); border: 1px solid var(--border-color); border-radius: 8px; background: linear-gradient(90deg, rgba(255,255,255,0.96), rgba(255,255,255,0.82)), url('/assets/img/projects-header.svg') right center / cover no-repeat; }
+[data-theme="dark"] .projects-hero { background: linear-gradient(90deg, rgba(18,18,18,0.96), rgba(18,18,18,0.82)), url('/assets/img/projects-header.svg') right center / cover no-repeat; }
+.eyebrow { margin: 0 0 0.35rem; font-size: 0.78rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--secondary-color); }
+.projects-intro { padding-bottom: 0; border-bottom: 0; }
+.project-card, .method-grid > div { background: var(--card-background); border: 1px solid var(--border-color); }
+.project-card__top { display: flex; align-items: flex-start; justify-content: space-between; gap: 0.75rem; margin-bottom: 0.5rem; }
+.project-meta { flex: 0 0 auto; max-width: 45%; font-size: 0.78rem; line-height: 1.25; color: var(--text-light); text-align: right; }
+.project-card ul { margin: 0.65rem 0 0.85rem 1.1rem; padding: 0; }
+.project-tags { display: flex; flex-wrap: wrap; gap: 0.35rem; }
+.project-tags span { border: 1px solid var(--border-color); border-radius: 999px; padding: 0.18rem 0.5rem; font-size: 0.78rem; color: var(--text-light); background: var(--background-alt); }
+@media (min-width: 1180px) {
+  body > header .container, nav .container, footer .container { max-width: var(--v2-shell); }
+  .page-content > section:not(.publications-section) { max-width: none; }
+  .bio-content, .research-overview, .research-methodology, .publications-preview, .collaboration, .cta-section { max-width: none; }
+  .experience-timeline .timeline { display: grid; grid-template-columns: repeat(auto-fit, minmax(360px, 1fr)); gap: var(--v2-gap); padding-left: 0; }
+  .timeline::before, .timeline-marker { display: none; }
+  .timeline-item { margin-bottom: 0; }
+  .timeline-content { height: 100%; margin-left: 0; }
+  .research-grid, .expertise-grid, .resources-grid, .contact-grid, .opportunities-grid, .overview-cards { grid-template-columns: repeat(auto-fit, minmax(310px, 1fr)); }
+  .projects-list, .publications-page .publications-list, .project-index { grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); }
+  .experience-summary .expertise-grid, .metrics-grid, .method-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+@media (min-width: 1500px) {
+  .research-grid, .expertise-grid, .resources-grid, .overview-cards, .contact-grid, .opportunities-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  .experience-timeline .timeline, .publications-page .publications-list, .project-index { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+@media (max-width: 900px) { .hero, .publication-tools { grid-template-columns: 1fr; } nav { justify-content: flex-start; overflow-x: auto; scrollbar-width: thin; } nav a { flex: 0 0 auto; } }
+@media (max-width: 640px) { main { max-width: 100%; margin: 0.85rem auto; padding: 0 0.8rem; } .page-content { padding: 0.95rem; } body > header { padding: 0.8rem; } nav { padding: 0.4rem 0.8rem; } nav a { padding: 0.42rem 0.62rem; } .projects-hero { min-height: 180px; } .project-card__top { display: block; } .project-meta { display: block; max-width: none; margin-top: 0.2rem; text-align: left; } }

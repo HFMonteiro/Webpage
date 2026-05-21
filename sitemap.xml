@@ -48,6 +48,12 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://www.hfmonteiro.com/en/experience.html" />
     <xhtml:link rel="alternate" hreflang="pt-PT" href="https://www.hfmonteiro.com/pt/experiencia.html" />
   </url>
+    <url>
+        <loc>https://www.hfmonteiro.com/en/projects.html</loc>
+        <lastmod>2026-05-21</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
   
   <url>
     <loc>https://www.hfmonteiro.com/en/publications.html</loc>
@@ -103,6 +109,12 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://www.hfmonteiro.com/en/experience.html" />
     <xhtml:link rel="alternate" hreflang="pt-PT" href="https://www.hfmonteiro.com/pt/experiencia.html" />
   </url>
+    <url>
+        <loc>https://www.hfmonteiro.com/pt/projetos.html</loc>
+        <lastmod>2026-05-21</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
   
   <url>
     <loc>https://www.hfmonteiro.com/pt/publicacoes.html</loc>

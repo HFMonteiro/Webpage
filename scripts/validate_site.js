@@ -26,12 +26,14 @@ const pages = [
   { file: 'en/about.html', lang: 'en', alternate: '/pt/sobre.html' },
   { file: 'en/research.html', lang: 'en', alternate: '/pt/investigacao.html' },
   { file: 'en/experience.html', lang: 'en', alternate: '/pt/experiencia.html' },
+  { file: 'en/projects.html', lang: 'en', alternate: '/pt/projetos.html' },
   { file: 'en/publications.html', lang: 'en', alternate: '/pt/publicacoes.html' },
   { file: 'en/contact.html', lang: 'en', alternate: '/pt/contacto.html' },
   { file: 'pt/index.html', lang: 'pt-PT', alternate: '/en/' },
   { file: 'pt/sobre.html', lang: 'pt-PT', alternate: '/en/about.html' },
   { file: 'pt/investigacao.html', lang: 'pt-PT', alternate: '/en/research.html' },
   { file: 'pt/experiencia.html', lang: 'pt-PT', alternate: '/en/experience.html' },
+  { file: 'pt/projetos.html', lang: 'pt-PT', alternate: '/en/projects.html' },
   { file: 'pt/publicacoes.html', lang: 'pt-PT', alternate: '/en/publications.html' },
   { file: 'pt/contacto.html', lang: 'pt-PT', alternate: '/en/contact.html' }
 ];
@@ -39,6 +41,7 @@ const pages = [
 check(exists('index.html'), 'root redirect page exists');
 check(exists('assets/css/styles.css'), 'global stylesheet exists');
 check(exists('assets/js/script.js'), 'global script exists');
+check(exists('assets/img/projects-header.svg'), 'projects header asset exists');
 check(exists('sitemap.xml'), 'sitemap exists');
 check(exists('publications/publications_en.html'), 'generated English publications HTML exists');
 check(exists('publications/publications_pt.html'), 'generated Portuguese publications HTML exists');
