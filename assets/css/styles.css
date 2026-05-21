@@ -1614,3 +1614,31 @@ footer {
     background: #1e3a5f;
     color: #ffffff;
 }
+/* Keep in-page headers readable; the blue masthead styling is only for the site header. */
+main .page-header {
+    background: transparent;
+    color: var(--text-dark);
+    box-shadow: none;
+    margin: 0 0 var(--spacing-xl);
+    padding: 0;
+}
+
+main .page-header h2 {
+    color: var(--primary-color);
+}
+
+main .page-header .lead {
+    color: var(--text-light);
+}
+
+[data-theme="dark"] main .page-header {
+    color: #e8e8e8;
+}
+
+[data-theme="dark"] main .page-header h2 {
+    color: #6ba3e8;
+}
+
+[data-theme="dark"] main .page-header .lead {
+    color: #c4c4c4;
+}
