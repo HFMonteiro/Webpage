@@ -1999,3 +1999,19 @@ section h3 { font-size: clamp(1.25rem, 1rem + 0.62vw, 1.65rem); margin-bottom: c
     text-align: left;
   }
 }
+
+
+/* V2 projects label contrast fix */
+.project-number,
+.project-facts dt {
+  color: #0f4c81;
+}
+
+.project-card__head .project-number {
+  opacity: 1;
+}
+
+[data-theme="dark"] .project-number,
+[data-theme="dark"] .project-facts dt {
+  color: #9ccc35;
+}
