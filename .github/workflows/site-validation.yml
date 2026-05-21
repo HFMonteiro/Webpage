@@ -9,70 +9,15 @@ on:
 jobs:
   validate:
     runs-on: ubuntu-latest
-    
+
     steps:
     - name: Checkout code
       uses: actions/checkout@v4
-      
-    - name: Validate index.html exists
-      run: |
-        if [ ! -f "index.html" ]; then
-          echo "Error: index.html not found!"
-          exit 1
-        fi
-        echo "✅ index.html found"
-        
-    - name: Validate HTML structure
-      run: |
-        # Check for basic HTML5 structure
-        if ! grep -q "<!DOCTYPE html>" index.html; then
-          echo "Warning: Missing HTML5 doctype"
-        fi
-        if ! grep -q "<header>" index.html; then
-          echo "Warning: Missing header tag"
-        fi
-        if ! grep -q "<nav>" index.html; then
-          echo "Warning: Missing nav tag"
-        fi
-        if ! grep -q "<main>" index.html; then
-          echo "Warning: Missing main tag"
-        fi
-        if ! grep -q "<footer>" index.html; then
-          echo "Warning: Missing footer tag"
-        fi
-        echo "✅ HTML structure validation complete"
-        
-    - name: Optional HTML Lint
-      run: |
-        # Install HTML5 validator (optional)
-        if command -v tidy &> /dev/null; then
-          echo "Running HTML validation with tidy..."
-          tidy -q -e index.html || echo "HTML validation completed with warnings"
-        else
-          echo "Tidy not available, skipping HTML validation"
-        fi
-        
-    - name: Optional CSS Lint
-      run: |
-        # Check if styles.css exists and basic validation
-        if [ -f "styles.css" ]; then
-          echo "✅ styles.css found"
-          # Basic CSS validation - check for obvious syntax errors
-          if grep -q "{" styles.css && grep -q "}" styles.css; then
-            echo "✅ Basic CSS structure looks valid"
-          else
-            echo "Warning: CSS file may have syntax issues"
-          fi
-        else
-          echo "Warning: styles.css not found"
-        fi
-        
-    - name: Output validation info
-      run: |
-        echo "🎉 Site validation complete!"
-        echo ""
-        echo "📄 Files validated:"
-        echo "  ✅ index.html exists and validated"
-        if [ -f "styles.css" ]; then echo "  ✅ styles.css found"; fi
-        if [ -f "script.js" ]; then echo "  ✅ script.js found"; fi
-        echo ""
+
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '20'
+
+    - name: Validate static site
+      run: node scripts/validate_site.js
