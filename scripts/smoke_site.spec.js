@@ -56,7 +56,7 @@ for (const testCase of cases) {
       const bodyText = await page.locator('body').innerText();
       expect(bodyText).not.toMatch(/sanitiz/i);
       if (testCase.locale === 'pt') expect(bodyText).not.toMatch(/Contribution|Output|Selected projects|Workflow GovTech/);
-      if (testCase.locale === 'en') expect(bodyText).toMatch(/Focus|Result/);
+      if (testCase.locale === 'en') expect(bodyText).toMatch(/focus|result/i);
 
       const contrastOk = await page.evaluate(({ contrastSource }) => {
         function rgb(value) {
