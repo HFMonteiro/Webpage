@@ -48,6 +48,7 @@ const pages = [
   { file: 'en/research.html', lang: 'en', alternate: '/pt/investigacao.html' },
   { file: 'en/experience.html', lang: 'en', alternate: '/pt/experiencia.html' },
   { file: 'en/projects.html', lang: 'en', alternate: '/pt/projetos.html' },
+  { file: 'en/speaking-training.html', lang: 'en', alternate: '/pt/formacao-palestras.html' },
   { file: 'en/publications.html', lang: 'en', alternate: '/pt/publicacoes.html' },
   { file: 'en/contact.html', lang: 'en', alternate: '/pt/contacto.html' },
   { file: 'pt/index.html', lang: 'pt-PT', alternate: '/en/' },
@@ -55,6 +56,7 @@ const pages = [
   { file: 'pt/investigacao.html', lang: 'pt-PT', alternate: '/en/research.html' },
   { file: 'pt/experiencia.html', lang: 'pt-PT', alternate: '/en/experience.html' },
   { file: 'pt/projetos.html', lang: 'pt-PT', alternate: '/en/projects.html' },
+  { file: 'pt/formacao-palestras.html', lang: 'pt-PT', alternate: '/en/speaking-training.html' },
   { file: 'pt/publicacoes.html', lang: 'pt-PT', alternate: '/en/publications.html' },
   { file: 'pt/contacto.html', lang: 'pt-PT', alternate: '/en/contact.html' },
   { file: '404.html', lang: 'en', canonical: false, hreflang: false, sitemap: false }
