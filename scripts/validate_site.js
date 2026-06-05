@@ -49,7 +49,6 @@ const pages = [
   { file: 'en/research.html', lang: 'en', alternate: '/pt/investigacao.html' },
   { file: 'en/experience.html', lang: 'en', alternate: '/pt/experiencia.html' },
   { file: 'en/projects.html', lang: 'en', alternate: '/pt/projetos.html' },
-  { file: 'en/speaking-training.html', lang: 'en', alternate: '/pt/formacao-palestras.html' },
   { file: 'en/publications.html', lang: 'en', alternate: '/pt/publicacoes.html' },
   { file: 'en/contact.html', lang: 'en', alternate: '/pt/contacto.html' },
   { file: 'pt/index.html', lang: 'pt-PT', alternate: '/en/' },
@@ -57,7 +56,6 @@ const pages = [
   { file: 'pt/investigacao.html', lang: 'pt-PT', alternate: '/en/research.html' },
   { file: 'pt/experiencia.html', lang: 'pt-PT', alternate: '/en/experience.html' },
   { file: 'pt/projetos.html', lang: 'pt-PT', alternate: '/en/projects.html' },
-  { file: 'pt/formacao-palestras.html', lang: 'pt-PT', alternate: '/en/speaking-training.html' },
   { file: 'pt/publicacoes.html', lang: 'pt-PT', alternate: '/en/publications.html' },
   { file: 'pt/contacto.html', lang: 'pt-PT', alternate: '/en/contact.html' },
   { file: '404.html', lang: 'en', canonical: false, hreflang: false, sitemap: false }
@@ -85,6 +83,11 @@ check(!js.includes('initializePublicationFilters'), 'publication filter initiali
 check(!css.includes('.publication-tools'), 'publication filter CSS has been removed');
 check(!css.includes('project-card__top'), 'stale project-card__top selector is absent');
 check(!css.includes('project-evidence'), 'stale project-evidence selector is absent');
+check(!css.includes('.featured-project-card'), 'heavy featured project card CSS is absent');
+check(!css.includes('.supporting-project-card'), 'heavy supporting project card CSS is absent');
+check(!css.includes('.request-checklist'), 'heavy request checklist CSS is absent');
+check(!sitemap.includes('/en/speaking-training.html'), 'sitemap excludes English speaking/training page');
+check(!sitemap.includes('/pt/formacao-palestras.html'), 'sitemap excludes Portuguese speaking/training page');
 
 for (const page of pages) {
   check(exists(page.file), `${page.file} exists`);
@@ -125,47 +128,50 @@ for (const file of ['en/projects.html', 'pt/projetos.html']) {
 
 const enHome = read('en/index.html');
 const ptHome = read('pt/index.html');
-check(enHome.includes('I help health systems turn fragmented data into governed, actionable intelligence'), 'English homepage includes public health intelligence thesis');
-check(ptHome.includes('Ajudo sistemas de saúde a transformar dados fragmentados em inteligência governada'), 'Portuguese homepage includes public health intelligence thesis');
-for (const term of ['EpiSignal', 'ULS PLS Digital / Municipal', 'Screening Programme Intelligence']) {
-  check(enHome.includes(term), `English homepage includes flagship card: ${term}`);
+check(enHome.includes('Public Health and Digital Health'), 'English homepage uses clean v2 hero');
+check(ptHome.includes('Saúde Pública e Saúde Digital'), 'Portuguese homepage uses clean v2 hero');
+for (const term of ['About', 'Research', 'Experience', 'Publications']) {
+  check(enHome.includes(`<h3>${term}</h3>`), `English homepage includes simple card: ${term}`);
 }
-for (const term of ['Vigilância e Deteção de Sinais — EpiSignal', 'Planeamento Territorial em Saúde Pública', 'Inteligência para Programas de Rastreio']) {
-  check(ptHome.includes(term), `Portuguese homepage includes translated flagship card: ${term}`);
+for (const term of ['Sobre', 'Investigação', 'Experiência', 'Publicações']) {
+  check(ptHome.includes(`<h3>${term}</h3>`), `Portuguese homepage includes simple card: ${term}`);
 }
+check((enHome.match(/class="card-icon"/g) || []).length >= 4, 'English homepage simple cards include decorative icons');
+check((ptHome.match(/class="card-icon"/g) || []).length >= 4, 'Portuguese homepage simple cards include decorative icons');
+check(!enHome.includes('/en/speaking-training.html'), 'English homepage nav excludes speaking/training');
+check(!ptHome.includes('/pt/formacao-palestras.html'), 'Portuguese homepage nav excludes speaking/training');
 
 const projectExpectations = [
   {
     file: 'en/projects.html',
-    featured: 'Featured Work',
-    additional: 'Additional Applied Work',
-    flagship: ['EpiSignal — Surveillance and Signal Detection', 'ULS PLS Digital / Municipal Health Planning', 'Screening Dashboards — Programme Intelligence'],
-    supporting: ['Digital Surveillance Bulletins', 'Sanitary Pool Records', 'ICTUSnet and Pathway Coordination', 'AI, NLP and GIS Prototypes']
+    intro: 'A selection of applied work across public health, data and digital transformation',
+    projects: ['Health Situation Diagnosis and Municipal Health Planning', 'Screening Programme Dashboards', 'Digital Surveillance Bulletins', 'Sanitary Pool Records', 'ICTUSnet and Pathway Coordination', 'AI, NLP and GIS Prototypes']
   },
   {
     file: 'pt/projetos.html',
-    featured: 'Trabalho em Destaque',
-    additional: 'Trabalho Aplicado Adicional',
-    flagship: ['EpiSignal — Vigilância e Deteção de Sinais', 'ULS PLS Digital / Planeamento Municipal em Saúde', 'Dashboards de Rastreio — Inteligência de Programa'],
-    supporting: ['Boletins de Vigilância Digitais', 'Registos Sanitários de Piscinas', 'ICTUSnet e Coordenação de Percursos', 'Protótipos com IA, NLP e GIS']
+    intro: 'Uma seleção de trabalho aplicado em saúde pública, dados e transformação digital',
+    projects: ['Diagnóstico de Situação de Saúde e Planeamento Municipal', 'Dashboards de Programas de Rastreio', 'Boletins de Vigilância Digitais', 'Registos Sanitários de Piscinas', 'ICTUSnet e Coordenação de Percursos', 'Protótipos com IA, NLP e GIS']
   }
 ];
 
 for (const expectation of projectExpectations) {
   const html = read(expectation.file);
-  check(html.includes(expectation.featured), `${expectation.file} has featured work section`);
-  check(html.includes(expectation.additional), `${expectation.file} has additional applied work section`);
-  check(html.includes('class="project-card featured-project-card"'), `${expectation.file} visually prioritises flagship projects`);
-  check(html.includes('class="project-card supporting-project-card"'), `${expectation.file} visually deprioritises supporting projects`);
-  check(html.includes('id="episignal"'), `${expectation.file} has EpiSignal anchor`);
-  for (const term of expectation.flagship) check(html.includes(term), `${expectation.file} includes flagship project: ${term}`);
-  for (const term of expectation.supporting) check(html.includes(term), `${expectation.file} preserves supporting project: ${term}`);
+  check(html.includes(expectation.intro), `${expectation.file} keeps clean v2 projects intro`);
+  check(html.includes('class="project-index"'), `${expectation.file} uses simple project index`);
+  check((html.match(/class="project-card"/g) || []).length === 6, `${expectation.file} has six simple project cards`);
+  check(!html.includes('featured-project-card'), `${expectation.file} has no heavy featured cards`);
+  check(!html.includes('supporting-project-card'), `${expectation.file} has no heavy supporting cards`);
+  check(!html.includes('case-study-grid'), `${expectation.file} has no long case-study grid`);
+  check(!html.includes('Featured Work') && !html.includes('Trabalho em Destaque'), `${expectation.file} has no heavy featured section heading`);
+  check(!html.includes('/en/speaking-training.html') && !html.includes('/pt/formacao-palestras.html'), `${expectation.file} nav excludes speaking/training`);
+  for (const term of expectation.projects) check(html.includes(term), `${expectation.file} includes simple project: ${term}`);
 }
 
-check(read('en/contact.html').includes('What to include in a request'), 'English contact page has request guidance');
-check(read('pt/contacto.html').includes('O que incluir num pedido'), 'Portuguese contact page has request guidance');
-check(read('en/publications.html').includes('<noscript>') && read('en/publications.html').includes('Selected publications supporting this work'), 'English publications page has static/no-JS fallback');
-check(read('pt/publicacoes.html').includes('<noscript>') && read('pt/publicacoes.html').includes('Publicações selecionadas que apoiam este trabalho'), 'Portuguese publications page has static/no-JS fallback');
+const ptProjects = read('pt/projetos.html');
+check(!ptProjects.includes('Start with who decides'), 'Portuguese projects methodology has no English decision clarity text');
+check(!ptProjects.includes('Prefer solutions teams can update'), 'Portuguese projects methodology has no English maintenance text');
+check(!ptProjects.includes('Treat privacy, traceability'), 'Portuguese projects methodology has no English governance text');
+
 check(!/console\.log\s*\(/.test(js), 'production script has no console.log calls');
 
 for (const file of ['publications/publications_en.html', 'publications/publications_pt.html']) {
