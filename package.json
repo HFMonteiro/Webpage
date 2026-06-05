@@ -1,0 +1,15 @@
+{
+  "name": "hfmonteiro-webpage",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Static bilingual professional portfolio website for Hugo Monteiro.",
+  "scripts": {
+    "validate": "node scripts/validate_site.js",
+    "serve": "python3 -m http.server 4173",
+    "smoke": "playwright test scripts/smoke_site.spec.js --reporter=list",
+    "test": "npm run validate"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.60.0"
+  }
+}

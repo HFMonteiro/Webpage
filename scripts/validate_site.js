@@ -27,6 +27,7 @@ function check(condition, message) {
 
 function walk(dir, result = []) {
   for (const entry of fs.readdirSync(path.join(root, dir), { withFileTypes: true })) {
+    if (entry.name === 'node_modules' || entry.name === 'test-results') continue;
     const rel = path.join(dir, entry.name).replace(/\\/g, '/');
     if (entry.isDirectory()) walk(rel, result);
     else result.push(rel);
@@ -120,6 +121,52 @@ for (const file of ['en/projects.html', 'pt/projetos.html']) {
   check(html.includes('property="og:image:width" content="1200"'), `${file} declares OG image width`);
   check(html.includes('property="og:image:height" content="630"'), `${file} declares OG image height`);
 }
+
+
+const enHome = read('en/index.html');
+const ptHome = read('pt/index.html');
+check(enHome.includes('I help health systems turn fragmented data into governed, actionable intelligence'), 'English homepage includes public health intelligence thesis');
+check(ptHome.includes('Ajudo sistemas de saúde a transformar dados fragmentados em inteligência governada'), 'Portuguese homepage includes public health intelligence thesis');
+for (const term of ['EpiSignal', 'ULS PLS Digital / Municipal', 'Screening Programme Intelligence']) {
+  check(enHome.includes(term), `English homepage includes flagship card: ${term}`);
+}
+for (const term of ['Vigilância e Deteção de Sinais — EpiSignal', 'Planeamento Territorial em Saúde Pública', 'Inteligência para Programas de Rastreio']) {
+  check(ptHome.includes(term), `Portuguese homepage includes translated flagship card: ${term}`);
+}
+
+const projectExpectations = [
+  {
+    file: 'en/projects.html',
+    featured: 'Featured Work',
+    additional: 'Additional Applied Work',
+    flagship: ['EpiSignal — Surveillance and Signal Detection', 'ULS PLS Digital / Municipal Health Planning', 'Screening Dashboards — Programme Intelligence'],
+    supporting: ['Digital Surveillance Bulletins', 'Sanitary Pool Records', 'ICTUSnet and Pathway Coordination', 'AI, NLP and GIS Prototypes']
+  },
+  {
+    file: 'pt/projetos.html',
+    featured: 'Trabalho em Destaque',
+    additional: 'Trabalho Aplicado Adicional',
+    flagship: ['EpiSignal — Vigilância e Deteção de Sinais', 'ULS PLS Digital / Planeamento Municipal em Saúde', 'Dashboards de Rastreio — Inteligência de Programa'],
+    supporting: ['Boletins de Vigilância Digitais', 'Registos Sanitários de Piscinas', 'ICTUSnet e Coordenação de Percursos', 'Protótipos com IA, NLP e GIS']
+  }
+];
+
+for (const expectation of projectExpectations) {
+  const html = read(expectation.file);
+  check(html.includes(expectation.featured), `${expectation.file} has featured work section`);
+  check(html.includes(expectation.additional), `${expectation.file} has additional applied work section`);
+  check(html.includes('class="project-card featured-project-card"'), `${expectation.file} visually prioritises flagship projects`);
+  check(html.includes('class="project-card supporting-project-card"'), `${expectation.file} visually deprioritises supporting projects`);
+  check(html.includes('id="episignal"'), `${expectation.file} has EpiSignal anchor`);
+  for (const term of expectation.flagship) check(html.includes(term), `${expectation.file} includes flagship project: ${term}`);
+  for (const term of expectation.supporting) check(html.includes(term), `${expectation.file} preserves supporting project: ${term}`);
+}
+
+check(read('en/contact.html').includes('What to include in a request'), 'English contact page has request guidance');
+check(read('pt/contacto.html').includes('O que incluir num pedido'), 'Portuguese contact page has request guidance');
+check(read('en/publications.html').includes('<noscript>') && read('en/publications.html').includes('Selected publications supporting this work'), 'English publications page has static/no-JS fallback');
+check(read('pt/publicacoes.html').includes('<noscript>') && read('pt/publicacoes.html').includes('Publicações selecionadas que apoiam este trabalho'), 'Portuguese publications page has static/no-JS fallback');
+check(!/console\.log\s*\(/.test(js), 'production script has no console.log calls');
 
 for (const file of ['publications/publications_en.html', 'publications/publications_pt.html']) {
   const html = read(file);

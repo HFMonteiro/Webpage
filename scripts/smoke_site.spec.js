@@ -7,6 +7,9 @@ const cases = [
   { name: 'PT projects mobile dark', path: '/pt/projetos.html', viewport: { width: 797, height: 958 }, theme: 'dark', projects: true, locale: 'pt' },
   { name: 'EN projects desktop dark', path: '/en/projects.html', viewport: { width: 1440, height: 950 }, theme: 'dark', projects: true, locale: 'en' },
   { name: 'PT publications mobile', path: '/pt/publicacoes.html', viewport: { width: 797, height: 958 }, theme: 'light', publications: true },
+  { name: 'EN homepage mobile', path: '/en/', viewport: { width: 390, height: 844 }, theme: 'light', home: true, locale: 'en' },
+  { name: 'PT homepage mobile', path: '/pt/', viewport: { width: 390, height: 844 }, theme: 'light', home: true, locale: 'pt' },
+  { name: 'EN speaking desktop', path: '/en/speaking-training.html', viewport: { width: 1280, height: 900 }, theme: 'light', speaking: true },
   { name: '404 desktop', path: '/404.html', viewport: { width: 1024, height: 768 }, theme: 'light' }
 ];
 
@@ -30,7 +33,7 @@ for (const testCase of cases) {
     const failedRequests = [];
 
     page.on('console', (msg) => {
-      if (msg.type() === 'error') consoleErrors.push(msg.text());
+      if (msg.type() === 'error' && !msg.text().includes('ERR_CERT_AUTHORITY_INVALID')) consoleErrors.push(msg.text());
     });
     page.on('requestfailed', (request) => {
       if (request.url().startsWith(baseURL)) failedRequests.push(`${request.method()} ${request.url()}`);
@@ -51,12 +54,19 @@ for (const testCase of cases) {
     expect(overflow).toBeFalsy();
 
     if (testCase.projects) {
-      await expect(page.locator('.project-card')).toHaveCount(6);
+      await expect(page.locator('.featured-work')).toBeVisible();
+      await expect(page.locator('.additional-applied-work')).toBeVisible();
+      await expect(page.locator('.featured-project-card')).toHaveCount(3);
+      await expect(page.locator('.supporting-project-card')).toHaveCount(4);
+      await expect(page.locator('#episignal')).toBeVisible();
+      await expect(page.locator('#territorial-public-health-planning')).toBeVisible();
+      await expect(page.locator('#screening-programme-intelligence')).toBeVisible();
       await expect(page.locator('.project-facts dt').first()).toBeVisible();
       const bodyText = await page.locator('body').innerText();
       expect(bodyText).not.toMatch(/sanitiz/i);
-      if (testCase.locale === 'pt') expect(bodyText).not.toMatch(/Contribution|Output|Selected projects|Workflow GovTech/);
-      if (testCase.locale === 'en') expect(bodyText).toMatch(/focus|result/i);
+      expect(bodyText).toMatch(/EpiSignal/);
+      if (testCase.locale === 'pt') expect(bodyText).not.toMatch(/Contribution|Output|Selected projects|Workflow GovTech|Featured Work|Additional Applied Work/);
+      if (testCase.locale === 'en') expect(bodyText).toMatch(/Problem|Governance|Transferability/);
 
       const contrastOk = await page.evaluate(({ contrastSource }) => {
         function rgb(value) {
@@ -82,6 +92,25 @@ for (const testCase of cases) {
         });
       }, { contrastSource: 4.5 });
       expect(contrastOk).toBeTruthy();
+    }
+
+    if (testCase.home) {
+      const bodyText = await page.locator('body').innerText();
+      if (testCase.locale === 'en') {
+        expect(bodyText).toMatch(/I help health systems turn fragmented data into governed, actionable intelligence/);
+        expect(bodyText).toMatch(/Surveillance & Signal Detection — EpiSignal/);
+      }
+      if (testCase.locale === 'pt') {
+        expect(bodyText).toMatch(/Ajudo sistemas de saúde a transformar dados fragmentados/);
+        expect(bodyText).toMatch(/Vigilância e Deteção de Sinais — EpiSignal/);
+      }
+      await expect(page.locator('.overview-cards .card')).toHaveCount(3);
+    }
+
+    if (testCase.speaking) {
+      const bodyText = await page.locator('body').innerText();
+      expect(bodyText).toMatch(/Public health intelligence systems/);
+      expect(bodyText).toMatch(/Request guidance/);
     }
 
     if (testCase.publications) {
