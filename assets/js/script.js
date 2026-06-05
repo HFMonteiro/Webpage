@@ -7,8 +7,7 @@
     // Configuration
     const CONFIG = {
         animationDelay: 100,
-        scrollOffset: 80,
-        greeting: 'Welcome to Hugo Monteiro\'s professional portfolio!'
+        scrollOffset: 80
     };
     
     // Utility functions
@@ -65,13 +64,6 @@
             // Initialize scroll to top button
             initializeScrollToTop();
 
-            // Performance monitoring
-            monitorPerformance();
-
-            // Log success message
-            console.log(CONFIG.greeting);
-            console.log('Website initialized successfully with modern enhancements');
-
         } catch (error) {
             console.error('Error initializing website:', error);
             // Fallback for critical functionality
@@ -117,8 +109,6 @@
             // Update button label
             updateThemeButtonLabel(themeToggleBtn, theme);
 
-            // Log for debugging
-            console.log(`Theme switched to: ${theme}`);
         });
 
         // Keyboard accessibility
@@ -252,7 +242,6 @@
             img.onload = function() {
                 profileImage.style.opacity = '1';
                 profileImage.setAttribute('aria-label', 'Hugo Monteiro professional headshot');
-                console.log('Profile image loaded successfully');
             };
             
             img.onerror = function() {
@@ -282,8 +271,7 @@
             // Add analytics tracking (if needed)
             link.addEventListener('click', function() {
                 const linkType = this.textContent.toLowerCase().trim();
-                console.log(`Contact link clicked: ${linkType}`);
-                
+
                 // Could integrate with analytics here
                 if (typeof gtag !== 'undefined') {
                     gtag('event', 'contact_click', {
@@ -339,30 +327,8 @@
         });
     }
 
-    // Performance monitoring
-    function monitorPerformance() {
-        if ('performance' in window) {
-            window.addEventListener('load', () => {
-                setTimeout(() => {
-                    const perfData = performance.getEntriesByType('navigation')[0];
-                    if (perfData) {
-                        console.log(`Page load time: ${Math.round(perfData.loadEventEnd - perfData.fetchStart)}ms`);
-                    }
-                    
-                    // Monitor core web vitals if available
-                    if ('web-vitals' in window) {
-                        // This would require importing web-vitals library
-                        console.log('Web Vitals monitoring available');
-                    }
-                }, 0);
-            });
-        }
-    }
-
     // Fallback initialization for older browsers
     function fallbackInitialization() {
-        console.log('Running fallback initialization');
-        
         // Basic year setting
         const yearElement = document.getElementById('current-year');
         if (yearElement) {
