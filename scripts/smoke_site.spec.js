@@ -51,7 +51,10 @@ for (const testCase of cases) {
     expect(overflow).toBeFalsy();
 
     if (testCase.projects) {
-      await expect(page.locator('.project-card')).toHaveCount(6);
+      await expect(page.locator('.featured-projects')).toBeVisible();
+      await expect(page.locator('.supporting-projects')).toBeVisible();
+      await expect(page.locator('.featured-projects .project-card')).toHaveCount(3);
+      await expect(page.locator('.supporting-projects .project-card').first()).toBeVisible();
       await expect(page.locator('.project-facts dt').first()).toBeVisible();
       const bodyText = await page.locator('body').innerText();
       expect(bodyText).not.toMatch(/sanitiz/i);

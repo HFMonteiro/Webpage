@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <!-- SEO Meta Tags -->
-    <title>Hugo Monteiro - MD/MPH | Digital Health Specialist</title>
-    <meta name="description" content="Hugo Monteiro is a Portuguese MD/MPH dedicated to digital health transformation and improving healthcare delivery through innovative technology solutions.">
+    <title>Hugo Monteiro | Public Health Intelligence, Digital Health and Health Data Science</title>
+    <meta name="description" content="Hugo Monteiro works across public health intelligence, digital health, health data science, screening analytics, surveillance, municipal health planning, health information systems, emergency information management, and BI in healthcare.">
     
     <meta name="author" content="Hugo Monteiro">
     
@@ -18,8 +18,8 @@
     
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
-    <meta property="og:title" content="Hugo Monteiro - MD/MPH | Digital Health Specialist">
-    <meta property="og:description" content="Portuguese MD/MPH dedicated to digital health transformation and improving healthcare delivery through innovative technology solutions.">
+    <meta property="og:title" content="Hugo Monteiro | Public Health Intelligence, Digital Health and Health Data Science">
+    <meta property="og:description" content="Hugo Monteiro works across public health intelligence, digital health, health data science, screening analytics, surveillance, municipal health planning, health information systems, emergency information management, and BI in healthcare.">
     <meta property="og:image" content="https://www.hfmonteiro.com/assets/img/favicon.png">
     <meta property="og:url" content="https://www.hfmonteiro.com/en/">
     <meta property="og:locale" content="en_US">
@@ -27,8 +27,8 @@
     
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Hugo Monteiro - MD/MPH | Digital Health Specialist">
-    <meta name="twitter:description" content="Portuguese MD/MPH dedicated to digital health transformation and improving healthcare delivery through innovative technology solutions.">
+    <meta name="twitter:title" content="Hugo Monteiro | Public Health Intelligence, Digital Health and Health Data Science">
+    <meta name="twitter:description" content="Hugo Monteiro works across public health intelligence, digital health, health data science, screening analytics, surveillance, municipal health planning, health information systems, emergency information management, and BI in healthcare.">
     <meta name="twitter:image" content="https://www.hfmonteiro.com/assets/img/favicon.png">
     
     <!-- Security headers should be sent via HTTP; keeping referrer policy here -->
@@ -47,42 +47,72 @@
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
-        "@type": "Person",
-        "name": "Hugo Monteiro",
-        "givenName": "Hugo",
-        "familyName": "Monteiro",
-        "jobTitle": ["Medical Doctor", "Public Health Physician", "Digital Health Specialist"],
-        "description": "MD/MPH dedicated to digital health transformation and improving healthcare delivery",
-        "url": "https://www.hfmonteiro.com",
-        "sameAs": [
-            "https://www.linkedin.com/in/hugo-monteiro/",
-            "https://orcid.org/0000-0002-6060-3335"
-        ],
-        "worksFor": [
+        "@graph": [
             {
-                "@type": "Organization",
-                "name": "ULS Gaia Espinho"
+                "@type": "Person",
+                "@id": "https://www.hfmonteiro.com/#person",
+                "name": "Hugo Monteiro",
+                "givenName": "Hugo",
+                "familyName": "Monteiro",
+                "jobTitle": [
+                    "Medical Doctor",
+                    "Public Health Physician",
+                    "Digital Health Specialist",
+                    "Public Health Intelligence Specialist",
+                    "Health Data Science Researcher",
+                    "BI in Healthcare Practitioner"
+                ],
+                "description": "MD/MPH working at the intersection of public health intelligence, digital health, health data science, screening analytics, surveillance, health information systems and healthcare BI. Public profile information is intentionally limited to documented roles and public identifiers.",
+                "url": "https://www.hfmonteiro.com",
+                "sameAs": [
+                    "https://www.linkedin.com/in/hugo-monteiro/",
+                    "https://orcid.org/0000-0002-6060-3335"
+                ],
+                "worksFor": [
+                    {
+                        "@type": "Organization",
+                        "name": "ULS Gaia Espinho"
+                    },
+                    {
+                        "@type": "Organization",
+                        "name": "Direção Executiva do SNS"
+                    },
+                    {
+                        "@type": "Organization",
+                        "name": "WHO/Europe"
+                    }
+                ],
+                "alumniOf": [
+                    {
+                        "@type": "EducationalOrganization",
+                        "name": "Medical School"
+                    }
+                ],
+                "knowsAbout": [
+                    "Public Health Intelligence",
+                    "Digital Health",
+                    "Health Data Science",
+                    "Screening Analytics",
+                    "Surveillance and Signal Detection",
+                    "Municipal Health Planning",
+                    "Health Information Systems",
+                    "Emergency Information Management",
+                    "BI in Healthcare",
+                    "Healthcare Technology",
+                    "Public Health"
+                ]
             },
             {
-                "@type": "Organization",
-                "name": "Direção Executiva do SNS"
-            },
-            {
-                "@type": "Organization",
-                "name": "WHO/Europe"
+                "@type": "ProfilePage",
+                "@id": "https://www.hfmonteiro.com/en/#profile",
+                "url": "https://www.hfmonteiro.com/en/",
+                "name": "Hugo Monteiro - Public Health Intelligence and Digital Health Profile",
+                "description": "Profile page for Hugo Monteiro, focused on public health intelligence, digital health and health data science.",
+                "inLanguage": "en",
+                "mainEntity": {
+                    "@id": "https://www.hfmonteiro.com/#person"
+                }
             }
-        ],
-        "alumniOf": [
-            {
-                "@type": "EducationalOrganization",
-                "name": "Medical School"
-            }
-        ],
-        "knowsAbout": [
-            "Digital Health",
-            "Public Health",
-            "Healthcare Technology",
-            "Health Data Science"
         ]
     }
     </script>
@@ -102,6 +132,7 @@
         <a href="/en/experience.html">Experience</a>
                 <a href="/en/projects.html">Projects</a>
         <a href="/en/publications.html">Publications</a>
+        <a href="/en/speaking-training.html">Speaking & Training</a>
         <a href="/en/contact.html">Contact</a>        <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark/light theme" title="Toggle theme">
             <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                 <circle cx="12" cy="12" r="5"></circle>
@@ -128,7 +159,7 @@
     <main role="main" id="main">
         <section class="hero" aria-labelledby="welcome-heading">
             <h2 id="welcome-heading">Public Health and Digital Health</h2>
-            <p class="hero-text">Professional work at the intersection of public health, digital transformation, data, and health governance.</p>
+            <p class="hero-text">Public health intelligence for digital health decisions: connecting health data science, screening analytics, surveillance and signal detection, municipal health planning, health information systems, emergency information management, and BI in healthcare.</p>
             
             <div class="hero-actions">
                 <!-- CV link removed -->
@@ -141,6 +172,29 @@
                  loading="lazy"
                  width="200" 
                  height="200">
+        </section>
+
+
+
+        <section class="overview-cards flagship-anchors" aria-labelledby="flagship-heading">
+            <h2 id="flagship-heading">Flagship focus areas</h2>
+            <div class="cards-grid">
+                <article class="card flagship-card">
+                    <h3>Municipal Health Planning</h3>
+                    <p>Population-health intelligence for local priorities, indicators and decision cycles.</p>
+                    <a href="/en/projects.html#municipal-health-planning" class="card-link">See planning work</a>
+                </article>
+                <article class="card flagship-card">
+                    <h3>Screening Analytics</h3>
+                    <p>Dashboards and measures that clarify access, coverage, follow-up and programme performance.</p>
+                    <a href="/en/projects.html#screening-analytics" class="card-link">See screening work</a>
+                </article>
+                <article class="card flagship-card">
+                    <h3>Surveillance and Signal Detection</h3>
+                    <p>Repeatable reporting workflows for timely public-health signals and operational awareness.</p>
+                    <a href="/en/projects.html#surveillance-signal-detection" class="card-link">See surveillance work</a>
+                </article>
+            </div>
         </section>
 
         <section class="overview-cards" aria-labelledby="overview-heading">

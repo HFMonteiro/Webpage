@@ -1,137 +1,140 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:xhtml="http://www.w3.org/1999/xhtml">
-  
-  <!-- Root redirect -->
   <url>
     <loc>https://www.hfmonteiro.com/</loc>
-    <lastmod>2026-05-21</lastmod>
+    <lastmod>2026-06-05</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.hfmonteiro.com/en/" />
     <xhtml:link rel="alternate" hreflang="pt-PT" href="https://www.hfmonteiro.com/pt/" />
   </url>
-
-  <!-- English pages -->
   <url>
     <loc>https://www.hfmonteiro.com/en/</loc>
-    <lastmod>2026-05-21</lastmod>
+    <lastmod>2026-06-05</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.hfmonteiro.com/en/" />
     <xhtml:link rel="alternate" hreflang="pt-PT" href="https://www.hfmonteiro.com/pt/" />
   </url>
-  
   <url>
     <loc>https://www.hfmonteiro.com/en/about.html</loc>
-    <lastmod>2026-05-21</lastmod>
+    <lastmod>2026-06-05</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.hfmonteiro.com/en/about.html" />
     <xhtml:link rel="alternate" hreflang="pt-PT" href="https://www.hfmonteiro.com/pt/sobre.html" />
   </url>
-  
   <url>
     <loc>https://www.hfmonteiro.com/en/research.html</loc>
-    <lastmod>2026-05-21</lastmod>
+    <lastmod>2026-06-05</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.hfmonteiro.com/en/research.html" />
     <xhtml:link rel="alternate" hreflang="pt-PT" href="https://www.hfmonteiro.com/pt/investigacao.html" />
   </url>
-  
   <url>
     <loc>https://www.hfmonteiro.com/en/experience.html</loc>
-    <lastmod>2026-05-21</lastmod>
+    <lastmod>2026-06-05</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.hfmonteiro.com/en/experience.html" />
     <xhtml:link rel="alternate" hreflang="pt-PT" href="https://www.hfmonteiro.com/pt/experiencia.html" />
   </url>
-    <url>
-        <loc>https://www.hfmonteiro.com/en/projects.html</loc>
-        <lastmod>2026-05-21</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.8</priority>
-    </url>
-  
+  <url>
+    <loc>https://www.hfmonteiro.com/en/projects.html</loc>
+    <lastmod>2026-06-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.hfmonteiro.com/en/projects.html" />
+    <xhtml:link rel="alternate" hreflang="pt-PT" href="https://www.hfmonteiro.com/pt/projetos.html" />
+  </url>
   <url>
     <loc>https://www.hfmonteiro.com/en/publications.html</loc>
-    <lastmod>2026-05-21</lastmod>
+    <lastmod>2026-06-05</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.hfmonteiro.com/en/publications.html" />
     <xhtml:link rel="alternate" hreflang="pt-PT" href="https://www.hfmonteiro.com/pt/publicacoes.html" />
   </url>
-  
+  <url>
+    <loc>https://www.hfmonteiro.com/en/speaking-training.html</loc>
+    <lastmod>2026-06-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.hfmonteiro.com/en/speaking-training.html" />
+    <xhtml:link rel="alternate" hreflang="pt-PT" href="https://www.hfmonteiro.com/pt/formacao-palestras.html" />
+  </url>
   <url>
     <loc>https://www.hfmonteiro.com/en/contact.html</loc>
-    <lastmod>2026-05-21</lastmod>
+    <lastmod>2026-06-05</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.hfmonteiro.com/en/contact.html" />
     <xhtml:link rel="alternate" hreflang="pt-PT" href="https://www.hfmonteiro.com/pt/contacto.html" />
   </url>
-
-  <!-- Portuguese pages -->
   <url>
     <loc>https://www.hfmonteiro.com/pt/</loc>
-    <lastmod>2026-05-21</lastmod>
+    <lastmod>2026-06-05</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.hfmonteiro.com/en/" />
     <xhtml:link rel="alternate" hreflang="pt-PT" href="https://www.hfmonteiro.com/pt/" />
   </url>
-  
   <url>
     <loc>https://www.hfmonteiro.com/pt/sobre.html</loc>
-    <lastmod>2026-05-21</lastmod>
+    <lastmod>2026-06-05</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.hfmonteiro.com/en/about.html" />
     <xhtml:link rel="alternate" hreflang="pt-PT" href="https://www.hfmonteiro.com/pt/sobre.html" />
   </url>
-  
   <url>
     <loc>https://www.hfmonteiro.com/pt/investigacao.html</loc>
-    <lastmod>2026-05-21</lastmod>
+    <lastmod>2026-06-05</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.hfmonteiro.com/en/research.html" />
     <xhtml:link rel="alternate" hreflang="pt-PT" href="https://www.hfmonteiro.com/pt/investigacao.html" />
   </url>
-  
   <url>
     <loc>https://www.hfmonteiro.com/pt/experiencia.html</loc>
-    <lastmod>2026-05-21</lastmod>
+    <lastmod>2026-06-05</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.hfmonteiro.com/en/experience.html" />
     <xhtml:link rel="alternate" hreflang="pt-PT" href="https://www.hfmonteiro.com/pt/experiencia.html" />
   </url>
-    <url>
-        <loc>https://www.hfmonteiro.com/pt/projetos.html</loc>
-        <lastmod>2026-05-21</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.8</priority>
-    </url>
-  
+  <url>
+    <loc>https://www.hfmonteiro.com/pt/projetos.html</loc>
+    <lastmod>2026-06-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.hfmonteiro.com/en/projects.html" />
+    <xhtml:link rel="alternate" hreflang="pt-PT" href="https://www.hfmonteiro.com/pt/projetos.html" />
+  </url>
   <url>
     <loc>https://www.hfmonteiro.com/pt/publicacoes.html</loc>
-    <lastmod>2026-05-21</lastmod>
+    <lastmod>2026-06-05</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.hfmonteiro.com/en/publications.html" />
     <xhtml:link rel="alternate" hreflang="pt-PT" href="https://www.hfmonteiro.com/pt/publicacoes.html" />
   </url>
-  
+  <url>
+    <loc>https://www.hfmonteiro.com/pt/formacao-palestras.html</loc>
+    <lastmod>2026-06-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.hfmonteiro.com/en/speaking-training.html" />
+    <xhtml:link rel="alternate" hreflang="pt-PT" href="https://www.hfmonteiro.com/pt/formacao-palestras.html" />
+  </url>
   <url>
     <loc>https://www.hfmonteiro.com/pt/contacto.html</loc>
-    <lastmod>2026-05-21</lastmod>
+    <lastmod>2026-06-05</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.hfmonteiro.com/en/contact.html" />
     <xhtml:link rel="alternate" hreflang="pt-PT" href="https://www.hfmonteiro.com/pt/contacto.html" />
   </url>
-
 </urlset>

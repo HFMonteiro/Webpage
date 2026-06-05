@@ -34,6 +34,13 @@ function walk(dir, result = []) {
   return result;
 }
 
+
+function extractHref(html, rel, hreflang) {
+  const pattern = new RegExp(`<link\\s+rel="${rel}"(?:\\s+hreflang="${hreflang}")?\\s+href="([^"]+)"`, 'i');
+  const match = html.match(pattern);
+  return match ? match[1] : '';
+}
+
 function localTargetExists(url) {
   const clean = url.split('#')[0].split('?')[0];
   if (!clean || clean === '/') return exists('index.html');
@@ -49,6 +56,7 @@ const pages = [
   { file: 'en/experience.html', lang: 'en', alternate: '/pt/experiencia.html' },
   { file: 'en/projects.html', lang: 'en', alternate: '/pt/projetos.html' },
   { file: 'en/publications.html', lang: 'en', alternate: '/pt/publicacoes.html' },
+  { file: 'en/speaking-training.html', lang: 'en', alternate: '/pt/formacao-palestras.html' },
   { file: 'en/contact.html', lang: 'en', alternate: '/pt/contacto.html' },
   { file: 'pt/index.html', lang: 'pt-PT', alternate: '/en/' },
   { file: 'pt/sobre.html', lang: 'pt-PT', alternate: '/en/about.html' },
@@ -56,6 +64,7 @@ const pages = [
   { file: 'pt/experiencia.html', lang: 'pt-PT', alternate: '/en/experience.html' },
   { file: 'pt/projetos.html', lang: 'pt-PT', alternate: '/en/projects.html' },
   { file: 'pt/publicacoes.html', lang: 'pt-PT', alternate: '/en/publications.html' },
+  { file: 'pt/formacao-palestras.html', lang: 'pt-PT', alternate: '/en/speaking-training.html' },
   { file: 'pt/contacto.html', lang: 'pt-PT', alternate: '/en/contact.html' },
   { file: '404.html', lang: 'en', canonical: false, hreflang: false, sitemap: false }
 ];
@@ -83,6 +92,45 @@ check(!css.includes('.publication-tools'), 'publication filter CSS has been remo
 check(!css.includes('project-card__top'), 'stale project-card__top selector is absent');
 check(!css.includes('project-evidence'), 'stale project-evidence selector is absent');
 
+
+const homepageChecks = [
+  {
+    file: 'en/index.html',
+    thesis: 'Public health intelligence for digital health decisions',
+    flagship: ['Municipal Health Planning', 'Screening Analytics', 'Surveillance and Signal Detection']
+  },
+  {
+    file: 'pt/index.html',
+    thesis: 'Inteligência em saúde pública para decisões em saúde digital',
+    flagship: ['Planeamento Municipal em Saúde', 'Análise de Rastreios', 'Vigilância e Deteção de Sinais']
+  }
+];
+
+for (const { file, thesis, flagship } of homepageChecks) {
+  const html = read(file);
+  check(html.includes(thesis), `${file} includes homepage thesis`);
+  check((html.match(/class="card flagship-card"/g) || []).length === 3, `${file} has three flagship cards`);
+  for (const label of flagship) check(html.includes(label), `${file} includes flagship anchor/card: ${label}`);
+}
+
+const projectExpectations = [
+  { file: 'en/projects.html', featured: ['Health Situation Diagnosis and Municipal Health Planning', 'Screening Programme Dashboards', 'Digital Surveillance Bulletins'], supporting: ['Sanitary Pool Records', 'ICTUSnet and Pathway Coordination', 'AI, NLP and GIS Prototypes'] },
+  { file: 'pt/projetos.html', featured: ['Diagnóstico de Situação de Saúde e Planeamento Municipal', 'Dashboards de Programas de Rastreio', 'Boletins de Vigilância Digitais'], supporting: ['Registos Sanitários de Piscinas', 'ICTUSnet e Coordenação de Percursos', 'Protótipos com IA, NLP e GIS'] }
+];
+
+for (const { file, featured, supporting } of projectExpectations) {
+  const html = read(file);
+  check(html.includes('featured-projects'), `${file} has featured projects section`);
+  check(html.includes('supporting-projects'), `${file} has supporting projects section`);
+  for (const name of featured) check(html.includes(name), `${file} keeps featured project: ${name}`);
+  for (const name of supporting) check(html.includes(name), `${file} keeps supporting project: ${name}`);
+}
+
+for (const file of ['en/publications.html', 'pt/publicacoes.html']) {
+  const html = read(file);
+  check(html.includes('static-publications-fallback'), `${file} has static publications fallback link`);
+}
+
 for (const page of pages) {
   check(exists(page.file), `${page.file} exists`);
   const html = read(page.file);
@@ -91,11 +139,16 @@ for (const page of pages) {
   check(/<title>[^<]{10,}<\/title>/.test(html), `${page.file} has descriptive title`);
   check(/<meta name="description" content="[^"]{50,}">/.test(html), `${page.file} has meta description`);
   if (page.canonical !== false) {
-    check(/<link rel="canonical" href="https:\/\/www\.hfmonteiro\.com\//.test(html), `${page.file} has absolute canonical`);
+    const expectedCanonical = `https://www.hfmonteiro.com/${page.file.replace('index.html', '')}`;
+    check(html.includes(`<link rel="canonical" href="${expectedCanonical}">`), `${page.file} has expected absolute canonical`);
   }
   if (page.hreflang !== false) {
     check(html.includes('hreflang="en"'), `${page.file} has English hreflang`);
     check(html.includes('hreflang="pt-PT"'), `${page.file} has Portuguese hreflang`);
+    const expectedEnglish = page.lang === 'en' ? `https://www.hfmonteiro.com/${page.file.replace('index.html', '')}` : `https://www.hfmonteiro.com${page.alternate}`;
+    const expectedPortuguese = page.lang === 'pt-PT' ? `https://www.hfmonteiro.com/${page.file.replace('index.html', '')}` : `https://www.hfmonteiro.com${page.alternate}`;
+    check(html.includes(`<link rel="alternate" hreflang="en" href="${expectedEnglish}">`), `${page.file} has expected English hreflang URL`);
+    check(html.includes(`<link rel="alternate" hreflang="pt-PT" href="${expectedPortuguese}">`), `${page.file} has expected Portuguese hreflang URL`);
   }
   if (page.alternate) {
     check(html.includes(`href="${page.alternate}"`) || html.includes(`href="https://www.hfmonteiro.com${page.alternate}"`), `${page.file} links to alternate language page`);
