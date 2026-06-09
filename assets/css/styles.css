@@ -1770,6 +1770,7 @@ section h3 {
 .projects-list,
 .publications-page .publications-list,
 .project-index,
+.featured-projects-grid,
 .method-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
@@ -1906,6 +1907,80 @@ section h3 {
   align-items: stretch;
 }
 
+.section-heading {
+  max-width: 940px;
+  margin-bottom: 1rem;
+}
+
+.section-heading p:not(.eyebrow) {
+  margin: 0;
+  color: var(--text-color);
+}
+
+.featured-work,
+.additional-work {
+  border-bottom: 0;
+}
+
+.featured-projects-grid {
+  align-items: stretch;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 360px), 1fr));
+}
+
+.project-card.featured-project-card {
+  position: relative;
+  padding: clamp(1.2rem, 1.8vw, 1.65rem);
+  border-left-width: 6px;
+  background: linear-gradient(180deg, #ffffff 0%, #f8fbfe 100%);
+  box-shadow: 0 8px 24px rgba(15, 76, 129, 0.08);
+}
+
+.project-card.featured-project-card h4 {
+  font-size: clamp(1.28rem, 1.04rem + 0.55vw, 1.62rem);
+}
+
+.project-card.featured-project-card .project-summary {
+  font-size: clamp(1rem, 0.95rem + 0.16vw, 1.1rem);
+}
+
+.project-card.featured-project-card .project-number {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 2.15rem;
+  min-height: 2.15rem;
+  border-radius: 999px;
+  background: #e9f3fb;
+}
+
+.case-study-facts {
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 230px), 1fr));
+  gap: 0.7rem;
+}
+
+.case-study-facts div {
+  padding: 0.65rem 0.75rem;
+  border: 1px solid #d7e3ee;
+  border-left: 3px solid var(--secondary-color);
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.72);
+}
+
+.project-card.supporting-project-card {
+  border-left-width: 3px;
+  background: #fbfcfe;
+  box-shadow: none;
+}
+
+.project-card.supporting-project-card .project-summary,
+.project-card.supporting-project-card .project-facts dd {
+  color: #3f5062;
+}
+
+.project-card.supporting-project-card .project-tags span {
+  background: #ffffff;
+}
+
 .project-card {
   display: flex;
   flex-direction: column;
@@ -2029,6 +2104,30 @@ section h3 {
   background: #1b2633;
 }
 
+[data-theme="dark"] .project-card.featured-project-card {
+  background: linear-gradient(180deg, #252525 0%, #202832 100%);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.24);
+}
+
+[data-theme="dark"] .project-card.featured-project-card .project-number {
+  background: #1b2633;
+}
+
+[data-theme="dark"] .case-study-facts div {
+  border-color: #385066;
+  border-left-color: var(--secondary-color);
+  background: rgba(27, 38, 51, 0.52);
+}
+
+[data-theme="dark"] .project-card.supporting-project-card {
+  background: #222222;
+}
+
+[data-theme="dark"] .project-card.supporting-project-card .project-summary,
+[data-theme="dark"] .project-card.supporting-project-card .project-facts dd {
+  color: #d6e5f2;
+}
+
 [data-theme="dark"] .experience-timeline .timeline-content {
   background: #252525;
   border-color: #385066;
@@ -2091,7 +2190,8 @@ section h3 {
 
   .projects-list,
   .publications-page .publications-list,
-  .project-index {
+  .project-index,
+  .featured-projects-grid {
     grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
   }
 
@@ -2113,6 +2213,10 @@ section h3 {
 
   .publications-page .publications-list,
   .project-index {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .featured-projects-grid {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 
