@@ -1,0 +1,9 @@
+* text=auto eol=lf
+
+# Keep shell and workflow files on LF to avoid Windows checkout churn.
+.github/**/*.yml text eol=lf
+.github/**/*.yaml text eol=lf
+*.js text eol=lf
+*.css text eol=lf
+*.html text eol=lf
+*.md text eol=lf
