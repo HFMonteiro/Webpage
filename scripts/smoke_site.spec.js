@@ -54,19 +54,19 @@ for (const testCase of cases) {
     expect(overflow).toBeFalsy();
 
     if (testCase.projects) {
-      await expect(page.locator('.featured-work')).toBeVisible();
-      await expect(page.locator('.additional-applied-work')).toBeVisible();
-      await expect(page.locator('.featured-project-card')).toHaveCount(3);
-      await expect(page.locator('.supporting-project-card')).toHaveCount(4);
-      await expect(page.locator('#episignal')).toBeVisible();
-      await expect(page.locator('#territorial-public-health-planning')).toBeVisible();
-      await expect(page.locator('#screening-programme-intelligence')).toBeVisible();
+      await expect(page.locator('.project-index')).toBeVisible();
+      await expect(page.locator('.project-card')).toHaveCount(6);
       await expect(page.locator('.project-facts dt').first()).toBeVisible();
       const bodyText = await page.locator('body').innerText();
       expect(bodyText).not.toMatch(/sanitiz/i);
-      expect(bodyText).toMatch(/EpiSignal/);
-      if (testCase.locale === 'pt') expect(bodyText).not.toMatch(/Contribution|Output|Selected projects|Workflow GovTech|Featured Work|Additional Applied Work/);
-      if (testCase.locale === 'en') expect(bodyText).toMatch(/Problem|Governance|Transferability/);
+      if (testCase.locale === 'pt') {
+        expect(bodyText).toMatch(/Alguns exemplos de trabalho em saúde pública/);
+        expect(bodyText).not.toMatch(/Contribution|Output|Selected projects|Featured Work|Additional Applied Work/);
+      }
+      if (testCase.locale === 'en') {
+        expect(bodyText).toMatch(/A selection of applied work across public health/);
+        expect(bodyText).toMatch(/Governance/);
+      }
 
       const contrastOk = await page.evaluate(({ contrastSource }) => {
         function rgb(value) {
@@ -97,14 +97,14 @@ for (const testCase of cases) {
     if (testCase.home) {
       const bodyText = await page.locator('body').innerText();
       if (testCase.locale === 'en') {
-        expect(bodyText).toMatch(/I help health systems turn fragmented data into governed, actionable intelligence/);
-        expect(bodyText).toMatch(/Surveillance & Signal Detection — EpiSignal/);
+        expect(bodyText).toMatch(/Public Health and Digital Health/);
+        expect(bodyText).toMatch(/View projects/);
       }
       if (testCase.locale === 'pt') {
-        expect(bodyText).toMatch(/Ajudo sistemas de saúde a transformar dados fragmentados/);
-        expect(bodyText).toMatch(/Vigilância e Deteção de Sinais — EpiSignal/);
+        expect(bodyText).toMatch(/Saúde Pública e Saúde Digital/);
+        expect(bodyText).toMatch(/Ver projetos/);
       }
-      await expect(page.locator('.overview-cards .card')).toHaveCount(3);
+      await expect(page.locator('.overview-cards .card')).toHaveCount(5);
     }
 
     if (testCase.speaking) {

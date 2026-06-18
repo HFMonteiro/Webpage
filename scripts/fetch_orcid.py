@@ -129,7 +129,7 @@ def generate_markdown(publications: List[dict], lang: str) -> str:
     if lang == "pt":
         header = "# Publicações"
         last_updated = f"*Última atualização: {datetime.datetime.now().strftime('%d/%m/%Y')}*"
-        note = "Esta lista é atualizada regularmente a partir do perfil ORCID."
+        note = "A lista é atualizada a partir do perfil ORCID."
         none_msg = "Nenhuma publicação encontrada."
     else:
         header = "# Publications"
@@ -150,7 +150,7 @@ def generate_html(publications: List[dict], lang: str) -> str:
     if lang == "pt":
         header = "Publicações"
         last_updated = f"Última atualização: {datetime.datetime.now().strftime('%d/%m/%Y')}"
-        note = "Esta lista é atualizada regularmente a partir do perfil ORCID."
+        note = "A lista é atualizada a partir do perfil ORCID."
         none_msg = "Nenhuma publicação encontrada."
     else:
         header = "Publications"

@@ -149,7 +149,7 @@ const projectExpectations = [
   },
   {
     file: 'pt/projetos.html',
-    intro: 'Uma seleção de trabalho aplicado em saúde pública, dados e transformação digital',
+    intro: 'Alguns exemplos de trabalho em saúde pública, dados e transformação digital',
     projects: ['Diagnóstico de Situação de Saúde e Planeamento Municipal', 'Dashboards de Programas de Rastreio', 'Boletins de Vigilância Digitais', 'Registos Sanitários de Piscinas', 'ICTUSnet e Coordenação de Percursos', 'Protótipos com IA, NLP e GIS']
   }
 ];

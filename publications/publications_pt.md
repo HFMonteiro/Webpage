@@ -2,7 +2,7 @@
 
 *Última atualização: 17/06/2026*
 
-Esta lista é atualizada regularmente a partir do perfil ORCID.
+A lista é atualizada a partir do perfil ORCID.
 
 - **Population-Based Cancer Screening analysis in Northern Portugal Using Process Mining** (2026) *Journal of Cancer Policy* [Link](https://doi.org/10.1016/j.jcpo.2026.100702)
 - **Enhancing information for action: A strategic tool for strengthening public health emergency management systems** (2025) *International Journal of Medical Informatics* [Link](https://doi.org/10.1016/j.ijmedinf.2025.105791)
