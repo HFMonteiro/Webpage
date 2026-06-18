@@ -84,7 +84,7 @@
         const currentTheme = localStorage.getItem('theme') || 'light';
 
         // Apply the theme
-        document.documentElement.setAttribute('data-theme', currentTheme);
+        applyTheme(currentTheme);
 
         // Update button aria-label based on current theme
         updateThemeButtonLabel(themeToggleBtn, currentTheme);
@@ -101,7 +101,7 @@
             }
 
             // Apply new theme
-            document.documentElement.setAttribute('data-theme', theme);
+            applyTheme(theme);
 
             // Save preference
             localStorage.setItem('theme', theme);
@@ -118,6 +118,22 @@
                 this.click();
             }
         });
+    }
+
+    function applyTheme(theme) {
+        document.documentElement.setAttribute('data-theme', theme);
+
+        if (theme === 'dark') {
+            document.body.style.backgroundColor = '#1a1a1a';
+            document.body.style.color = '#e8e8e8';
+            document.body.style.colorScheme = 'only dark';
+            document.body.style.forcedColorAdjust = 'none';
+        } else {
+            document.body.style.backgroundColor = '#ffffff';
+            document.body.style.color = '#111111';
+            document.body.style.colorScheme = 'only light';
+            document.body.style.forcedColorAdjust = 'none';
+        }
     }
 
     // Update theme button aria-label

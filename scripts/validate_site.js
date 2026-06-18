@@ -2,8 +2,8 @@ const fs = require('fs');
 const path = require('path');
 
 const root = process.cwd();
-const CSS_VERSION = '20260521-v2projects';
-const JS_VERSION = '20260521';
+const CSS_VERSION = '20260617-theme';
+const JS_VERSION = '20260617-theme';
 const CSS_HREF = `/assets/css/styles.css?v=${CSS_VERSION}`;
 const JS_SRC = `/assets/js/script.js?v=${JS_VERSION}`;
 let failures = 0;

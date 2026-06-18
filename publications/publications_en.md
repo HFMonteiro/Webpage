@@ -1,6 +1,6 @@
 # Publications
 
-*Last updated: June 05, 2026*
+*Last updated: June 17, 2026*
 
 This list is regularly updated from the ORCID profile.
 

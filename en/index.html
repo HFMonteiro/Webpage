@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -39,9 +39,9 @@
     <link rel="icon" type="image/png" href="/assets/img/favicon.png">
     
     <!-- Preload Critical Resources -->
-    <link rel="preload" href="/assets/css/styles.css?v=20260521-v2projects" as="style">
+    <link rel="preload" href="/assets/css/styles.css?v=20260617-theme" as="style">
     
-    <link rel="stylesheet" href="/assets/css/styles.css?v=20260521-v2projects">
+    <link rel="stylesheet" href="/assets/css/styles.css?v=20260617-theme">
     
     <!-- JSON-LD Structured Data -->
     <script type="application/ld+json">
@@ -127,20 +127,36 @@
 
     <main role="main" id="main">
         <section class="hero" aria-labelledby="welcome-heading">
-            <h2 id="welcome-heading">Public Health and Digital Health</h2>
-            <p class="hero-text">Professional work at the intersection of public health, digital transformation, data, and health governance.</p>
-            
-            <div class="hero-actions">
-                <!-- CV link removed -->
-                <a href="/en/about.html" class="btn btn-secondary">View profile</a>
+            <div class="hero-copy">
+                <h2 id="welcome-heading">Public Health and Digital Health</h2>
+                <p class="hero-text">Professional work at the intersection of public health, digital transformation, data, and health governance.</p>
+
+                <div class="hero-actions">
+                    <!-- CV link removed -->
+                    <a href="/en/projects.html" class="btn btn-primary">View projects</a>
+                    <a href="/en/about.html" class="btn btn-secondary">View profile</a>
+                </div>
             </div>
             
-            <img src="/assets/image.jpg" 
-                 alt="Hugo Monteiro - MD/MPH Digital Health Specialist" 
-                 class="profile-photo" 
-                 loading="lazy"
-                 width="200" 
-                 height="200">
+            <div class="hero-visual">
+                <img src="/assets/image.jpg"
+                     alt="Hugo Monteiro - MD/MPH Digital Health Specialist"
+                     class="profile-photo"
+                     loading="lazy"
+                     width="200"
+                     height="200">
+                <div class="epi-animation" aria-hidden="true">
+                    <span class="epi-sweep"></span>
+                    <span class="epi-node epi-node-a"></span>
+                    <span class="epi-node epi-node-b"></span>
+                    <span class="epi-node epi-node-c"></span>
+                    <span class="epi-node epi-node-d"></span>
+                    <span class="epi-bar epi-bar-a"></span>
+                    <span class="epi-bar epi-bar-b"></span>
+                    <span class="epi-bar epi-bar-c"></span>
+                    <span class="epi-bar epi-bar-d"></span>
+                </div>
+            </div>
         </section>
 
         <section class="overview-cards" aria-labelledby="overview-heading">
@@ -179,6 +195,16 @@
 
                 <article class="card">
                     <svg class="card-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <path d="M3 3v18h18"></path>
+                        <path d="M7 15l4-4 3 3 5-6"></path>
+                    </svg>
+                    <h3>Projects</h3>
+                    <p>Applied work across public health planning, data products, digital processes, and governed AI prototypes.</p>
+                    <a href="/en/projects.html" class="card-link">Explore projects</a>
+                </article>
+
+                <article class="card">
+                    <svg class="card-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                         <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
                         <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
                     </svg>
@@ -204,7 +230,7 @@
         </svg>
     </button>
 
-    <script src="/assets/js/script.js?v=20260521" defer></script>
+    <script src="/assets/js/script.js?v=20260617-theme" defer></script>
 </body>
 </html>
 

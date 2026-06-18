@@ -6,7 +6,7 @@
     
     <!-- SEO Meta Tags -->
     <title>Hugo Monteiro - MD/MPH | Especialista em Saúde Digital</title>
-    <meta name="description" content="Hugo Monteiro é um médico português com MPH dedicado à transformação digital da saúde e ao melhoramento da prestação de cuidados através de soluções tecnológicas inovadoras.">
+    <meta name="description" content="Hugo Monteiro é um médico português com MPH dedicado à transformação digital da saúde e à melhoria da prestação de cuidados com soluções tecnológicas inovadoras.">
     <meta name="author" content="Hugo Monteiro">
     
     <!-- Internationalization -->
@@ -18,7 +18,7 @@
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:title" content="Hugo Monteiro - MD/MPH | Especialista em Saúde Digital">
-    <meta property="og:description" content="Médico português com MPH dedicado à transformação digital da saúde e ao melhoramento da prestação de cuidados através de soluções tecnológicas inovadoras.">
+    <meta property="og:description" content="Médico português com MPH dedicado à transformação digital da saúde e à melhoria da prestação de cuidados com soluções tecnológicas inovadoras.">
     <meta property="og:image" content="https://www.hfmonteiro.com/assets/img/favicon.png">
     <meta property="og:url" content="https://www.hfmonteiro.com/pt/">
     <meta property="og:locale" content="pt_PT">
@@ -27,7 +27,7 @@
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Hugo Monteiro - MD/MPH | Especialista em Saúde Digital">
-    <meta name="twitter:description" content="Médico português com MPH dedicado à transformação digital da saúde e ao melhoramento da prestação de cuidados através de soluções tecnológicas inovadoras.">
+    <meta name="twitter:description" content="Médico português com MPH dedicado à transformação digital da saúde e à melhoria da prestação de cuidados com soluções tecnológicas inovadoras.">
     <meta name="twitter:image" content="https://www.hfmonteiro.com/assets/img/favicon.png">
     
     <!-- Security headers should be sent via HTTP; keeping referrer policy here -->
@@ -38,9 +38,9 @@
     <link rel="icon" type="image/png" href="/assets/img/favicon.png">
     
     <!-- Preload Critical Resources -->
-    <link rel="preload" href="/assets/css/styles.css?v=20260521-v2projects" as="style">
+    <link rel="preload" href="/assets/css/styles.css?v=20260617-theme" as="style">
     
-    <link rel="stylesheet" href="/assets/css/styles.css?v=20260521-v2projects">
+    <link rel="stylesheet" href="/assets/css/styles.css?v=20260617-theme">
     
     <!-- JSON-LD Structured Data -->
     <script type="application/ld+json">
@@ -51,7 +51,7 @@
         "givenName": "Hugo",
         "familyName": "Monteiro",
         "jobTitle": ["Médico", "Médico de Saúde Pública", "Especialista em Saúde Digital"],
-        "description": "MD/MPH dedicado à transformação digital da saúde e ao melhoramento da prestação de cuidados",
+        "description": "MD/MPH dedicado à transformação digital da saúde e à melhoria da prestação de cuidados",
         "url": "https://www.hfmonteiro.com",
         "sameAs": [
             "https://www.linkedin.com/in/hugo-monteiro/",
@@ -114,19 +114,35 @@
 
     <main role="main" id="main">
         <section class="hero" aria-labelledby="welcome-heading">
-            <h2 id="welcome-heading">Saúde Pública e Saúde Digital</h2>
-            <p class="hero-text">Trabalho profissional na interseção entre saúde pública, transformação digital, dados e governação em saúde.</p>
-            
-            <div class="hero-actions">
-                <a href="/pt/sobre.html" class="btn btn-secondary">Ver perfil</a>
+            <div class="hero-copy">
+                <h2 id="welcome-heading">Saúde Pública e Saúde Digital</h2>
+                <p class="hero-text">Trabalho profissional na interseção entre saúde pública, transformação digital, dados e governança em saúde.</p>
+
+                <div class="hero-actions">
+                    <a href="/pt/projetos.html" class="btn btn-primary">Ver projetos</a>
+                    <a href="/pt/sobre.html" class="btn btn-secondary">Ver perfil</a>
+                </div>
             </div>
             
-            <img src="/assets/image.jpg" 
-                 alt="Hugo Monteiro - MD/MPH Especialista em Saúde Digital" 
-                 class="profile-photo" 
-                 loading="lazy"
-                 width="200" 
-                 height="200">
+            <div class="hero-visual">
+                <img src="/assets/image.jpg"
+                     alt="Hugo Monteiro - MD/MPH Especialista em Saúde Digital"
+                     class="profile-photo"
+                     loading="lazy"
+                     width="200"
+                     height="200">
+                <div class="epi-animation" aria-hidden="true">
+                    <span class="epi-sweep"></span>
+                    <span class="epi-node epi-node-a"></span>
+                    <span class="epi-node epi-node-b"></span>
+                    <span class="epi-node epi-node-c"></span>
+                    <span class="epi-node epi-node-d"></span>
+                    <span class="epi-bar epi-bar-a"></span>
+                    <span class="epi-bar epi-bar-b"></span>
+                    <span class="epi-bar epi-bar-c"></span>
+                    <span class="epi-bar epi-bar-d"></span>
+                </div>
+            </div>
         </section>
 
         <section class="overview-cards" aria-labelledby="overview-heading">
@@ -165,11 +181,21 @@
 
                 <article class="card">
                     <svg class="card-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <path d="M3 3v18h18"></path>
+                        <path d="M7 15l4-4 3 3 5-6"></path>
+                    </svg>
+                    <h3>Projetos</h3>
+                    <p>Trabalho aplicado em planeamento de saúde pública, produtos de dados, processos digitais e protótipos de IA com governança.</p>
+                    <a href="/pt/projetos.html" class="card-link">Explorar projetos</a>
+                </article>
+
+                <article class="card">
+                    <svg class="card-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                         <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
                         <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
                     </svg>
                     <h3>Publicações</h3>
-                    <p>Publicações de investigação atualizadas regularmente a partir do perfil ORCID, cobrindo saúde digital e saúde pública.</p>
+                    <p>Publicações de investigação atualizadas regularmente a partir do perfil ORCID, sobre saúde digital e saúde pública.</p>
                     <a href="/pt/publicacoes.html" class="card-link">Ver publicações</a>
                 </article>
             </div>
@@ -184,12 +210,12 @@
         </p>
     </footer>
     <!-- Scroll to Top Button -->
-    <button id="scroll-to-top" class="scroll-to-top" aria-label="Scroll to top" title="Back to top">
+    <button id="scroll-to-top" class="scroll-to-top" aria-label="Voltar ao topo" title="Voltar ao topo">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
             <polyline points="18 15 12 9 6 15"></polyline>
         </svg>
     </button>
 
-    <script src="/assets/js/script.js?v=20260521" defer></script>
+    <script src="/assets/js/script.js?v=20260617-theme" defer></script>
 </body>
 </html>
