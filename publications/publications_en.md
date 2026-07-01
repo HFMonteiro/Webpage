@@ -1,9 +1,10 @@
 # Publications
 
-*Last updated: June 17, 2026*
+*Last updated: July 01, 2026*
 
 This list is regularly updated from the ORCID profile.
 
+- **Monitoring Colorectal Cancer Screening at Scale: Conformance Checking and Bottleneck Detection in Northern Portugal** (2026) *Journal of Primary Care & Community Health* [Link](https://doi.org/10.1177/21501319261458040)
 - **Population-Based Cancer Screening analysis in Northern Portugal Using Process Mining** (2026) *Journal of Cancer Policy* [Link](https://doi.org/10.1016/j.jcpo.2026.100702)
 - **Enhancing information for action: A strategic tool for strengthening public health emergency management systems** (2025) *International Journal of Medical Informatics* [Link](https://doi.org/10.1016/j.ijmedinf.2025.105791)
 - **Managing Data in Screening Programs: Challenges and Solutions** (2025) *Acta Médica Portuguesa* [Link](https://doi.org/10.20344/amp.23363)
