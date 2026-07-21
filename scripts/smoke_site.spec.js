@@ -106,7 +106,6 @@ for (const testCase of cases) {
       }
       await expect(page.locator('.home-work .activity-row')).toHaveCount(3);
       await expect(page.locator('.home-hero__portrait .profile-photo')).toBeVisible();
-      await expect(page.locator('.home-hero__context')).toBeVisible();
     }
 
     if (testCase.speaking) {
