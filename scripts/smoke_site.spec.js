@@ -60,11 +60,11 @@ for (const testCase of cases) {
       const bodyText = await page.locator('body').innerText();
       expect(bodyText).not.toMatch(/sanitiz/i);
       if (testCase.locale === 'pt') {
-        expect(bodyText).toMatch(/Alguns exemplos de trabalho em saúde pública/);
+        expect(bodyText).toMatch(/Exemplos de trabalho em saúde pública/);
         expect(bodyText).not.toMatch(/Contribution|Output|Selected projects|Featured Work|Additional Applied Work/);
       }
       if (testCase.locale === 'en') {
-        expect(bodyText).toMatch(/A selection of applied work across public health/);
+        expect(bodyText).toMatch(/Examples of work across public health/);
         expect(bodyText).toMatch(/Governance/);
       }
 
@@ -97,11 +97,11 @@ for (const testCase of cases) {
     if (testCase.home) {
       const bodyText = await page.locator('body').innerText();
       if (testCase.locale === 'en') {
-        expect(bodyText).toMatch(/Public Health and Digital Health/);
+        expect(bodyText).toMatch(/Public Health\s+and Digital Health/);
         expect(bodyText).toMatch(/View projects/);
       }
       if (testCase.locale === 'pt') {
-        expect(bodyText).toMatch(/Saúde Pública e Saúde Digital/);
+        expect(bodyText).toMatch(/Saúde Pública\s+e Saúde Digital/);
         expect(bodyText).toMatch(/Ver projetos/);
       }
       await expect(page.locator('.home-work .activity-row')).toHaveCount(3);
