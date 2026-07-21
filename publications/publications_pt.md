@@ -1,6 +1,6 @@
 # Publicações
 
-*Última atualização: 01/07/2026*
+*Última atualização: 21/07/2026*
 
 A lista é atualizada a partir do perfil ORCID.
 

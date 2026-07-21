@@ -2,8 +2,8 @@ const fs = require('fs');
 const path = require('path');
 
 const root = process.cwd();
-const CSS_VERSION = '20260617-theme';
-const JS_VERSION = '20260617-theme';
+const CSS_VERSION = '20260718-v2-6';
+const JS_VERSION = '20260718-v2-6';
 const CSS_HREF = `/assets/css/styles.css?v=${CSS_VERSION}`;
 const JS_SRC = `/assets/js/script.js?v=${JS_VERSION}`;
 let failures = 0;
@@ -64,6 +64,8 @@ const pages = [
 check(exists('index.html'), 'root redirect page exists');
 check(exists('assets/css/styles.css'), 'global stylesheet exists');
 check(exists('assets/js/script.js'), 'global script exists');
+check(exists('assets/vendor/phosphor/phosphor.css'), 'Phosphor icon stylesheet exists');
+check(exists('assets/vendor/phosphor/Phosphor.woff2'), 'Phosphor icon font exists');
 check(exists('assets/img/projects-header.svg'), 'projects header asset exists');
 check(exists('assets/img/projects-og.png'), 'projects social preview PNG exists');
 check(exists('sitemap.xml'), 'sitemap exists');
@@ -79,6 +81,7 @@ check(css.includes('[data-theme="light"] body'), 'explicit light body override e
 check(css.includes('[data-theme="dark"] body'), 'explicit dark body override exists');
 check(css.lastIndexOf('[data-theme="light"] body') > css.lastIndexOf('[data-theme="dark"] body'), 'explicit light override follows dark body rules');
 check(js.includes('initializeThemeToggle'), 'theme toggle initializer exists');
+check(js.includes('initializePageTransitions'), 'page transition initializer exists');
 check(!js.includes('initializePublicationFilters'), 'publication filter initializer has been removed');
 check(!css.includes('.publication-tools'), 'publication filter CSS has been removed');
 check(!css.includes('project-card__top'), 'stale project-card__top selector is absent');
@@ -128,28 +131,27 @@ for (const file of ['en/projects.html', 'pt/projetos.html']) {
 
 const enHome = read('en/index.html');
 const ptHome = read('pt/index.html');
-check(enHome.includes('Public Health and Digital Health'), 'English homepage uses clean v2 hero');
-check(ptHome.includes('Saúde Pública e Saúde Digital'), 'Portuguese homepage uses clean v2 hero');
-for (const term of ['About', 'Research', 'Experience', 'Publications']) {
-  check(enHome.includes(`<h3>${term}</h3>`), `English homepage includes simple card: ${term}`);
-}
-for (const term of ['Sobre', 'Investigação', 'Experiência', 'Publicações']) {
-  check(ptHome.includes(`<h3>${term}</h3>`), `Portuguese homepage includes simple card: ${term}`);
-}
-check((enHome.match(/class="card-icon"/g) || []).length >= 4, 'English homepage simple cards include decorative icons');
-check((ptHome.match(/class="card-icon"/g) || []).length >= 4, 'Portuguese homepage simple cards include decorative icons');
+check((enHome.match(/class="home-hero__title-line"/g) || []).length === 2 && enHome.includes('Public Health') && enHome.includes('and Digital Health'), 'English homepage uses clean v2 hero');
+check((ptHome.match(/class="home-hero__title-line"/g) || []).length === 2, 'Portuguese homepage uses clean v2 hero');
+check(enHome.includes('class="home-work"'), 'English homepage includes applied work section');
+check(ptHome.includes('class="home-work"'), 'Portuguese homepage includes applied work section');
+check((enHome.match(/class="activity-row"/g) || []).length === 3, 'English homepage has three contextual activity rows');
+check((ptHome.match(/class="activity-row"/g) || []).length === 3, 'Portuguese homepage has three contextual activity rows');
+check(enHome.includes('ph-map-pin-area') && enHome.includes('ph-monitor') && enHome.includes('ph-broadcast'), 'English homepage uses contextual Phosphor icons');
+check(ptHome.includes('ph-map-pin-area') && ptHome.includes('ph-monitor') && ptHome.includes('ph-broadcast'), 'Portuguese homepage uses contextual Phosphor icons');
+check(!enHome.includes('epi-animation') && !ptHome.includes('epi-animation'), 'homepages remove decorative chart animation');
 check(!enHome.includes('/en/speaking-training.html'), 'English homepage nav excludes speaking/training');
 check(!ptHome.includes('/pt/formacao-palestras.html'), 'Portuguese homepage nav excludes speaking/training');
 
 const projectExpectations = [
   {
     file: 'en/projects.html',
-    intro: 'A selection of applied work across public health, data and digital transformation',
+    intro: 'Examples of work across public health, data and digital transformation',
     projects: ['Health Situation Diagnosis and Municipal Health Planning', 'Screening Programme Dashboards', 'Digital Surveillance Bulletins', 'Sanitary Pool Records', 'ICTUSnet and Pathway Coordination', 'AI, NLP and GIS Prototypes']
   },
   {
     file: 'pt/projetos.html',
-    intro: 'Alguns exemplos de trabalho em saúde pública, dados e transformação digital',
+    intro: 'Cada exemplo resume o problema',
     projects: ['Diagnóstico de Situação de Saúde e Planeamento Municipal', 'Dashboards de Programas de Rastreio', 'Boletins de Vigilância Digitais', 'Registos Sanitários de Piscinas', 'ICTUSnet e Coordenação de Percursos', 'Protótipos com IA, NLP e GIS']
   }
 ];

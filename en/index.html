@@ -6,7 +6,7 @@
     
     <!-- SEO Meta Tags -->
     <title>Hugo Monteiro - MD/MPH | Digital Health Specialist</title>
-    <meta name="description" content="Hugo Monteiro is a Portuguese MD/MPH dedicated to digital health transformation and improving healthcare delivery through innovative technology solutions.">
+    <meta name="description" content="Hugo Monteiro is a Portuguese public health physician working across health data, digital transformation, policy and service delivery.">
     
     <meta name="author" content="Hugo Monteiro">
     
@@ -19,7 +19,7 @@
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:title" content="Hugo Monteiro - MD/MPH | Digital Health Specialist">
-    <meta property="og:description" content="Portuguese MD/MPH dedicated to digital health transformation and improving healthcare delivery through innovative technology solutions.">
+    <meta property="og:description" content="Portuguese public health physician working across health data, digital transformation, policy and service delivery.">
     <meta property="og:image" content="https://www.hfmonteiro.com/assets/img/favicon.png">
     <meta property="og:url" content="https://www.hfmonteiro.com/en/">
     <meta property="og:locale" content="en_US">
@@ -28,7 +28,7 @@
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Hugo Monteiro - MD/MPH | Digital Health Specialist">
-    <meta name="twitter:description" content="Portuguese MD/MPH dedicated to digital health transformation and improving healthcare delivery through innovative technology solutions.">
+    <meta name="twitter:description" content="Portuguese public health physician working across health data, digital transformation, policy and service delivery.">
     <meta name="twitter:image" content="https://www.hfmonteiro.com/assets/img/favicon.png">
     
     <!-- Security headers should be sent via HTTP; keeping referrer policy here -->
@@ -39,9 +39,10 @@
     <link rel="icon" type="image/png" href="/assets/img/favicon.png">
     
     <!-- Preload Critical Resources -->
-    <link rel="preload" href="/assets/css/styles.css?v=20260617-theme" as="style">
+    <link rel="preload" href="/assets/css/styles.css?v=20260718-v2-6" as="style">
     
-    <link rel="stylesheet" href="/assets/css/styles.css?v=20260617-theme">
+    <link rel="stylesheet" href="/assets/css/styles.css?v=20260718-v2-6">
+    <link rel="stylesheet" href="/assets/vendor/phosphor/phosphor.css?v=20260718-v2-6">
     
     <!-- JSON-LD Structured Data -->
     <script type="application/ld+json">
@@ -52,7 +53,7 @@
         "givenName": "Hugo",
         "familyName": "Monteiro",
         "jobTitle": ["Medical Doctor", "Public Health Physician", "Digital Health Specialist"],
-        "description": "MD/MPH dedicated to digital health transformation and improving healthcare delivery",
+        "description": "Portuguese public health physician working across health data, digital transformation, policy and service delivery",
         "url": "https://www.hfmonteiro.com",
         "sameAs": [
             "https://www.linkedin.com/in/hugo-monteiro/",
@@ -87,7 +88,7 @@
     }
     </script>
 </head>
-<body>
+<body class="home-page">
     <a href="#main" class="skip-link">Skip to main content</a>
     
     <header>
@@ -126,92 +127,52 @@
     </nav>
 
     <main role="main" id="main">
-        <section class="hero" aria-labelledby="welcome-heading">
-            <div class="hero-copy">
-                <h2 id="welcome-heading">Public Health and Digital Health</h2>
-                <p class="hero-text">Professional work at the intersection of public health, digital transformation, data, and health governance.</p>
-
-                <div class="hero-actions">
-                    <!-- CV link removed -->
-                    <a href="/en/projects.html" class="btn btn-primary">View projects</a>
-                    <a href="/en/about.html" class="btn btn-secondary">View profile</a>
-                </div>
+        <section class="home-hero" aria-labelledby="welcome-heading">
+            <div class="home-hero__copy">
+                <h2 id="welcome-heading"><span class="home-hero__title-line">Public Health</span><span class="home-hero__title-line">and Digital Health</span></h2>
+                <p>Health data, digital transformation and governance applied to practical problems in health services.</p>
+                <a href="/en/projects.html" class="btn btn-primary home-hero__cta">View projects <i class="ph ph-arrow-right" aria-hidden="true"></i></a>
+                <p class="home-hero__context"><i class="ph ph-shield-check" aria-hidden="true"></i> Governed AI</p>
             </div>
-            
-            <div class="hero-visual">
+
+            <div class="home-hero__portrait">
                 <img src="/assets/image.jpg"
-                     alt="Hugo Monteiro - MD/MPH Digital Health Specialist"
+                     alt="Professional portrait of Hugo Monteiro"
                      class="profile-photo"
-                     loading="lazy"
-                     width="200"
-                     height="200">
-                <div class="epi-animation" aria-hidden="true">
-                    <span class="epi-sweep"></span>
-                    <span class="epi-node epi-node-a"></span>
-                    <span class="epi-node epi-node-b"></span>
-                    <span class="epi-node epi-node-c"></span>
-                    <span class="epi-node epi-node-d"></span>
-                    <span class="epi-bar epi-bar-a"></span>
-                    <span class="epi-bar epi-bar-b"></span>
-                    <span class="epi-bar epi-bar-c"></span>
-                    <span class="epi-bar epi-bar-d"></span>
-                </div>
+                     loading="eager"
+                     fetchpriority="high"
+                     width="400"
+                     height="400">
             </div>
         </section>
 
-        <section class="overview-cards" aria-labelledby="overview-heading">
-            <h2 id="overview-heading" class="sr-only">Professional Overview</h2>
-            
-            <div class="cards-grid">
-                <article class="card">
-                    <svg class="card-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
-                        <circle cx="12" cy="7" r="4"></circle>
-                    </svg>
-                    <h3>About</h3>
-                    <p>Professional profile across public health, digital health, health policy, and data-informed solutions.</p>
-                    <a href="/en/about.html" class="card-link">Learn more</a>
-                </article>
-
-                <article class="card">
-                    <svg class="card-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                        <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
-                        <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
-                    </svg>
-                    <h3>Research</h3>
-                    <p>Digital health systems, screening programs, health information systems, and data visualization in healthcare.</p>
-                    <a href="/en/research.html" class="card-link">View research</a>
-                </article>
-
-                <article class="card">
-                    <svg class="card-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                        <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
-                        <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
-                    </svg>
-                    <h3>Experience</h3>
-                    <p>Current roles include Public Health Physician, Programs Coordinator, WHO/Europe Consultant, and Industry Fellow.</p>
-                    <a href="/en/experience.html" class="card-link">See experience</a>
-                </article>
-
-                <article class="card">
-                    <svg class="card-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                        <path d="M3 3v18h18"></path>
-                        <path d="M7 15l4-4 3 3 5-6"></path>
-                    </svg>
-                    <h3>Projects</h3>
-                    <p>Applied work across public health planning, data products, digital processes, and governed AI prototypes.</p>
-                    <a href="/en/projects.html" class="card-link">Explore projects</a>
-                </article>
-
-                <article class="card">
-                    <svg class="card-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                        <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
-                        <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
-                    </svg>
-                    <h3>Publications</h3>
-                    <p>Research publications regularly updated from the ORCID profile, covering digital health and public health topics.</p>
-                    <a href="/en/publications.html" class="card-link">View publications</a>
-                </article>
+        <section class="home-work" aria-labelledby="work-heading">
+            <h2 id="work-heading">Applied work</h2>
+            <div class="activity-list">
+                <a class="activity-row" href="/en/projects.html#planning">
+                    <span class="activity-icon"><i class="ph ph-map-pin-area" aria-hidden="true"></i></span>
+                    <span class="activity-copy">
+                        <strong>Health Situation Diagnosis and Municipal Health Planning</strong>
+                        <span>Organising population evidence to support local priorities and planning decisions.</span>
+                    </span>
+                    <i class="ph ph-arrow-right activity-arrow" aria-hidden="true"></i>
+                </a>
+                <a class="activity-row" href="/en/projects.html#screening">
+                    <span class="activity-icon"><i class="ph ph-monitor" aria-hidden="true"></i></span>
+                    <span class="activity-copy">
+                        <strong>Screening Programme Dashboards</strong>
+                        <span>Clearer monitoring to support the management of screening programmes.</span>
+                    </span>
+                    <i class="ph ph-arrow-right activity-arrow" aria-hidden="true"></i>
+                </a>
+                <a class="activity-row" href="/en/projects.html#surveillance">
+                    <span class="activity-icon"><i class="ph ph-broadcast" aria-hidden="true"></i></span>
+                    <span class="activity-copy">
+                        <strong>Digital Surveillance Bulletins</strong>
+                        <span>Consistent production of periodic information for public health communication.</span>
+                    </span>
+                    <i class="ph ph-arrow-right activity-arrow" aria-hidden="true"></i>
+                </a>
             </div>
         </section>
     </main>
@@ -230,7 +191,7 @@
         </svg>
     </button>
 
-    <script src="/assets/js/script.js?v=20260617-theme" defer></script>
+    <script src="/assets/js/script.js?v=20260718-v2-6" defer></script>
 </body>
 </html>
 

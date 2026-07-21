@@ -3,6 +3,8 @@
 
 (function() {
     'use strict';
+
+    document.documentElement.classList.add('motion-ready');
     
     // Configuration
     const CONFIG = {
@@ -42,6 +44,9 @@
         try {
             // Set current year in footer
             setCurrentYear();
+
+            // Initialize subtle entry and page-to-page transitions
+            initializePageTransitions();
 
             // Initialize theme toggle
             initializeThemeToggle();
@@ -161,6 +166,51 @@
             yearElement.setAttribute('aria-label', `Copyright ${currentYear}`);
         }
     }
+
+    function initializePageTransitions() {
+        const root = document.documentElement;
+        const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+        const showPage = function() {
+            root.classList.remove('page-leaving');
+            window.requestAnimationFrame(function() {
+                root.classList.add('page-ready');
+            });
+        };
+
+        showPage();
+        window.addEventListener('pageshow', showPage);
+
+        if (prefersReducedMotion) {
+            return;
+        }
+
+        document.addEventListener('click', function(event) {
+            if (event.defaultPrevented || event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) {
+                return;
+            }
+
+            const link = event.target.closest('a[href]');
+            if (!link || link.hasAttribute('download') || link.target === '_blank') {
+                return;
+            }
+
+            const destination = new URL(link.href, window.location.href);
+            const sameDocumentHash = destination.pathname === window.location.pathname && destination.search === window.location.search && destination.hash;
+
+            if (destination.origin !== window.location.origin || sameDocumentHash || root.classList.contains('page-leaving')) {
+                return;
+            }
+
+            event.preventDefault();
+            root.classList.remove('page-ready');
+            root.classList.add('page-leaving');
+
+            window.setTimeout(function() {
+                window.location.assign(destination.href);
+            }, 180);
+        });
+    }
     
     // Enhanced smooth scrolling with accessibility
     function initializeSmoothScrolling() {
@@ -203,6 +253,19 @@
     
     // Initialize scroll-triggered animations
     function initializeScrollAnimations() {
+        const targets = document.querySelectorAll('main section:not(.home-hero):not(.home-work), .activity-row');
+        const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+        targets.forEach((target, index) => {
+            target.style.setProperty('--animation-delay', `${Math.min(index, 4) * 70}ms`);
+            target.classList.add('reveal-target');
+        });
+
+        if (prefersReducedMotion) {
+            targets.forEach(target => target.classList.add('is-visible'));
+            return;
+        }
+
         if ('IntersectionObserver' in window) {
             const observerOptions = {
                 threshold: 0.1,
@@ -212,18 +275,15 @@
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
-                        entry.target.classList.add('animate-in');
+                        entry.target.classList.add('is-visible');
                         observer.unobserve(entry.target);
                     }
                 });
             }, observerOptions);
             
-            // Observe sections for animation
-            const sections = document.querySelectorAll('main section');
-            sections.forEach((section, index) => {
-                section.style.setProperty('--animation-delay', `${index * CONFIG.animationDelay}ms`);
-                observer.observe(section);
-            });
+            targets.forEach(target => observer.observe(target));
+        } else {
+            targets.forEach(target => target.classList.add('is-visible'));
         }
     }
     
@@ -261,10 +321,8 @@
             };
             
             img.onerror = function() {
-                console.warn('Failed to load profile image, using fallback');
-                profileImage.style.opacity = '1';
-                profileImage.src = 'data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200"><rect width="200" height="200" fill="%234a90e2"/><text x="100" y="110" text-anchor="middle" fill="white" font-size="60" font-family="Arial">HM</text></svg>';
-                profileImage.alt = 'Hugo Monteiro - Professional Photo (placeholder)';
+                profileImage.style.display = 'none';
+                profileImage.closest('.home-hero__portrait, .bio-image')?.classList.add('image-unavailable');
             };
             
             img.src = profileImage.src;

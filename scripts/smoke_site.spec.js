@@ -104,7 +104,9 @@ for (const testCase of cases) {
         expect(bodyText).toMatch(/Saúde Pública e Saúde Digital/);
         expect(bodyText).toMatch(/Ver projetos/);
       }
-      await expect(page.locator('.overview-cards .card')).toHaveCount(5);
+      await expect(page.locator('.home-work .activity-row')).toHaveCount(3);
+      await expect(page.locator('.home-hero__portrait .profile-photo')).toBeVisible();
+      await expect(page.locator('.home-hero__context')).toBeVisible();
     }
 
     if (testCase.speaking) {
