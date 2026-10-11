@@ -44,6 +44,8 @@ function localTargetExists(url) {
 }
 
 const pages = [
+  { file: 'pt/noticias.html', lang: 'pt-PT', alternate: '/en/news.html' },
+  { file: 'en/news.html', lang: 'en', alternate: '/pt/noticias.html' },
   { file: 'en/index.html', lang: 'en', alternate: '/pt/' },
   { file: 'en/about.html', lang: 'en', alternate: '/pt/sobre.html' },
   { file: 'en/research.html', lang: 'en', alternate: '/pt/investigacao.html' },

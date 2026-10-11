@@ -134,4 +134,18 @@
     <xhtml:link rel="alternate" hreflang="pt-PT" href="https://www.hfmonteiro.com/pt/contacto.html" />
   </url>
 
+  <url>
+    <loc>https://www.hfmonteiro.com/pt/noticias.html</loc>
+    <lastmod>2026-10-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="pt-PT" href="https://www.hfmonteiro.com/pt/noticias.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.hfmonteiro.com/en/news.html" />
+  </url>
+  <url>
+    <loc>https://www.hfmonteiro.com/en/news.html</loc>
+    <lastmod>2026-10-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="pt-PT" href="https://www.hfmonteiro.com/pt/noticias.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.hfmonteiro.com/en/news.html" />
+  </url>
 </urlset>

@@ -1,0 +1,11 @@
+/* Reuse portfolio colours, typography and page transitions. */
+.page-content.news-page { max-width: 860px; margin-inline: auto; }
+.page-content.news-page > section.news-post { max-width: 760px; margin-inline: auto; }
+.news-kicker { color: var(--text-muted); font-size: .85rem; letter-spacing: .04em; }
+.news-post h3 { font-size: clamp(1.5rem, 3vw, 2rem); line-height: 1.3; margin-bottom: 1.5rem; }
+.news-post p { margin-bottom: 1.25rem; }
+.news-embed { border-top: 1px solid var(--border-color); margin-top: 2rem; padding-top: 1.5rem; }
+.news-embed__note { font-size: .9rem; color: var(--text-light); }
+.news-embed .btn { white-space: normal; text-align: center; max-width: 100%; }
+.news-embed iframe { display: block; width: 100%; height: 720px; border: 1px solid var(--border-color); border-radius: var(--border-radius); margin-top: 1rem; }
+@media (max-width: 600px) { .news-embed iframe { height: 600px; } }

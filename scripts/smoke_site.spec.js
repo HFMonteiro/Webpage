@@ -2,6 +2,30 @@ const { test, expect } = require('@playwright/test');
 
 const baseURL = process.env.SITE_BASE_URL || 'http://127.0.0.1:4173';
 
+for (const locale of ['pt', 'en']) {
+  test(`${locale} news navigation and optional LinkedIn privacy`, async ({ page }) => {
+    await page.setViewportSize({ width: 390, height: 844 });
+    await page.goto(`${baseURL}/${locale}/`);
+    await page.getByRole('link', { name: locale === 'pt' ? 'Notícias' : 'News', exact: true }).click();
+    await expect(page.locator('#main')).toBeVisible();
+    await expect(page.locator('#main')).toContainText('Big Data analysis techniques applied to cancer screening programs');
+    await expect(page.locator('iframe')).toHaveCount(0);
+    await page.setViewportSize({ width: 1440, height: 950 });
+    expect(await page.locator('.news-post').evaluate(el => el.getBoundingClientRect().width)).toBeLessThanOrEqual(760);
+    await page.setViewportSize({ width: 390, height: 844 });
+    expect(await page.evaluate(() => document.documentElement.scrollWidth > innerWidth + 1)).toBeFalsy();
+    const theme = await page.locator('html').getAttribute('data-theme');
+    await page.locator('#theme-toggle').click();
+    await expect(page.locator('html')).not.toHaveAttribute('data-theme', theme || 'light');
+    await page.locator('[data-linkedin-load]').click();
+    await expect(page.locator('iframe')).toHaveCount(1);
+    await expect(page.locator('iframe')).toHaveAttribute('src', 'https://www.linkedin.com/embed/feed/update/urn:li:activity:7510770567529144320');
+    await page.locator('.lang-switcher a').filter({ hasText: locale === 'pt' ? 'EN' : 'PT' }).click();
+    await expect(page).toHaveURL(new RegExp(locale === 'pt' ? '/en/news.html' : '/pt/noticias.html'));
+    await expect(page.locator('iframe')).toHaveCount(0);
+  });
+}
+
 const cases = [
   { name: 'PT projects mobile light', path: '/pt/projetos.html', viewport: { width: 797, height: 958 }, theme: 'light', projects: true, locale: 'pt' },
   { name: 'PT projects mobile dark', path: '/pt/projetos.html', viewport: { width: 797, height: 958 }, theme: 'dark', projects: true, locale: 'pt' },
