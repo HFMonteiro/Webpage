@@ -44,6 +44,12 @@ function localTargetExists(url) {
 }
 
 const pages = [
+  { file: 'pt/process-mining-saude.html', lang: 'pt-PT', alternate: '/en/process-mining-healthcare.html' },
+  { file: 'en/process-mining-healthcare.html', lang: 'en', alternate: '/pt/process-mining-saude.html' },
+  { file: 'pt/formacao-palestras.html', lang: 'pt-PT', alternate: '/en/speaking-training.html' },
+  { file: 'en/speaking-training.html', lang: 'en', alternate: '/pt/formacao-palestras.html' },
+  { file: 'pt/legal.html', lang: 'pt-PT', alternate: '/en/legal.html' },
+  { file: 'en/legal.html', lang: 'en', alternate: '/pt/legal.html' },
   { file: 'pt/noticias.html', lang: 'pt-PT', alternate: '/en/news.html' },
   { file: 'en/news.html', lang: 'en', alternate: '/pt/noticias.html' },
   { file: 'en/index.html', lang: 'en', alternate: '/pt/' },
@@ -91,8 +97,8 @@ check(!css.includes('project-evidence'), 'stale project-evidence selector is abs
 check(!css.includes('.featured-project-card'), 'heavy featured project card CSS is absent');
 check(!css.includes('.supporting-project-card'), 'heavy supporting project card CSS is absent');
 check(!css.includes('.request-checklist'), 'heavy request checklist CSS is absent');
-check(!sitemap.includes('/en/speaking-training.html'), 'sitemap excludes English speaking/training page');
-check(!sitemap.includes('/pt/formacao-palestras.html'), 'sitemap excludes Portuguese speaking/training page');
+check(sitemap.includes('/en/speaking-training.html'), 'sitemap includes English training page');
+check(sitemap.includes('/pt/formacao-palestras.html'), 'sitemap includes Portuguese training page');
 
 for (const page of pages) {
   check(exists(page.file), `${page.file} exists`);
@@ -137,37 +143,39 @@ check((enHome.match(/class="home-hero__title-line"/g) || []).length === 2 && enH
 check((ptHome.match(/class="home-hero__title-line"/g) || []).length === 2, 'Portuguese homepage uses clean v2 hero');
 check(enHome.includes('class="home-work"'), 'English homepage includes applied work section');
 check(ptHome.includes('class="home-work"'), 'Portuguese homepage includes applied work section');
-check((enHome.match(/class="activity-row"/g) || []).length === 3, 'English homepage has three contextual activity rows');
-check((ptHome.match(/class="activity-row"/g) || []).length === 3, 'Portuguese homepage has three contextual activity rows');
-check(enHome.includes('ph-map-pin-area') && enHome.includes('ph-monitor') && enHome.includes('ph-broadcast'), 'English homepage uses contextual Phosphor icons');
-check(ptHome.includes('ph-map-pin-area') && ptHome.includes('ph-monitor') && ptHome.includes('ph-broadcast'), 'Portuguese homepage uses contextual Phosphor icons');
+check((enHome.match(/class="activity-row"/g) || []).length === 4, 'English homepage has four current project links');
+check((ptHome.match(/class="activity-row"/g) || []).length === 4, 'Portuguese homepage has four current project links');
+for (const icon of ['ph-hospital','ph-map-pin-area','ph-map-trifold','ph-git-branch']) {
+  check(enHome.includes(icon) && ptHome.includes(icon), `homepages use the contextual icon ${icon}`);
+}
 check(!enHome.includes('epi-animation') && !ptHome.includes('epi-animation'), 'homepages remove decorative chart animation');
-check(!enHome.includes('/en/speaking-training.html'), 'English homepage nav excludes speaking/training');
-check(!ptHome.includes('/pt/formacao-palestras.html'), 'Portuguese homepage nav excludes speaking/training');
+check(enHome.includes('/en/speaking-training.html'), 'English homepage links to training');
+check(ptHome.includes('/pt/formacao-palestras.html'), 'Portuguese homepage links to training');
 
 const projectExpectations = [
   {
     file: 'en/projects.html',
-    intro: 'Examples of work across public health, data and digital transformation',
-    projects: ['Health Situation Diagnosis and Municipal Health Planning', 'Screening Programme Dashboards', 'Digital Surveillance Bulletins', 'Sanitary Pool Records', 'ICTUSnet and Pathway Coordination', 'AI, NLP and GIS Prototypes']
+    intro: 'Hospital Simulator',
+    projects: ['Hospital Simulator', 'WebPLS Gaia', 'Mapping &amp; Power BI', 'PMTool']
   },
   {
     file: 'pt/projetos.html',
-    intro: 'Cada exemplo resume o problema',
-    projects: ['Diagnóstico de Situação de Saúde e Planeamento Municipal', 'Dashboards de Programas de Rastreio', 'Boletins de Vigilância Digitais', 'Registos Sanitários de Piscinas', 'ICTUSnet e Coordenação de Percursos', 'Protótipos com IA, NLP e GIS']
+    intro: 'Do planeamento em saúde à simulação hospitalar',
+    projects: ['Hospital Simulator', 'WebPLS Gaia', 'Mapping &amp; Power BI', 'PMTool']
   }
 ];
 
 for (const expectation of projectExpectations) {
   const html = read(expectation.file);
   check(html.includes(expectation.intro), `${expectation.file} keeps clean v2 projects intro`);
-  check(html.includes('class="project-index"'), `${expectation.file} uses simple project index`);
-  check((html.match(/class="project-card"/g) || []).length === 6, `${expectation.file} has six simple project cards`);
+  check(html.includes('class="gallery"'), `${expectation.file} uses project gallery`);
+  check((html.match(/data-project="/g) || []).length === 4, `${expectation.file} has four interactive project cards`);
+  check(html.includes('id="project-dialog"'), `${expectation.file} provides project details dialog`);
   check(!html.includes('featured-project-card'), `${expectation.file} has no heavy featured cards`);
   check(!html.includes('supporting-project-card'), `${expectation.file} has no heavy supporting cards`);
   check(!html.includes('case-study-grid'), `${expectation.file} has no long case-study grid`);
   check(!html.includes('Featured Work') && !html.includes('Trabalho em Destaque'), `${expectation.file} has no heavy featured section heading`);
-  check(!html.includes('/en/speaking-training.html') && !html.includes('/pt/formacao-palestras.html'), `${expectation.file} nav excludes speaking/training`);
+  check(html.includes(expectation.file.startsWith('pt/') ? '/pt/formacao-palestras.html' : '/en/speaking-training.html'), `${expectation.file} links to training`);
   for (const term of expectation.projects) check(html.includes(term), `${expectation.file} includes simple project: ${term}`);
 }
 

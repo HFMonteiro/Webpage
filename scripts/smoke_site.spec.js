@@ -3,9 +3,57 @@ const { test, expect } = require('@playwright/test');
 const baseURL = process.env.SITE_BASE_URL || 'http://127.0.0.1:4173';
 
 for (const locale of ['pt', 'en']) {
+  test(`${locale} tablet menu and touch-friendly dialog controls`, async ({ page }) => {
+    await page.setViewportSize({ width: 981, height: 780 });
+    await page.goto(`${baseURL}/${locale}/${locale === 'pt' ? 'projetos' : 'projects'}.html`);
+    await expect(page.locator('#navigation-toggle')).toBeVisible();
+    const nav = await page.locator('nav').boundingBox();
+    expect(nav.height).toBeLessThanOrEqual(64);
+    await page.setViewportSize({ width: 320, height: 780 });
+    await page.locator('[data-project="hospital"]').click();
+    const close = await page.locator('#close').boundingBox();
+    expect(close.height).toBeGreaterThanOrEqual(44);
+    expect(close.width).toBeGreaterThanOrEqual(44);
+    await page.locator('#close').press('Escape');
+    await expect(page.locator('[data-project="hospital"]')).toBeFocused();
+    await page.goto(`${baseURL}/${locale}/${locale === 'pt' ? 'formacao-palestras' : 'speaking-training'}.html`);
+    await page.locator('[data-participate]').first().click();
+    const trainingClose = await page.locator('#close-dialog').boundingBox();
+    expect(trainingClose.height).toBeGreaterThanOrEqual(44);
+    expect(trainingClose.width).toBeGreaterThanOrEqual(44);
+  });
+}
+
+for (const locale of ['pt', 'en']) {
+  test(`${locale} compact navigation and direct email contact`, async ({ page }) => {
+    await page.setViewportSize({ width: 390, height: 844 });
+    const route = locale === 'pt' ? '/pt/contacto.html' : '/en/contact.html';
+    await page.goto(baseURL + route);
+    const toggle = page.locator('#navigation-toggle');
+    await expect(toggle).toHaveAttribute('aria-expanded', 'false');
+    await expect(page.locator('#navigation-links')).toBeHidden();
+    await expect(page.locator('#theme-toggle')).toBeVisible();
+    await expect(page.locator('.lang-switcher')).toBeVisible();
+    await toggle.press('Enter');
+    await expect(toggle).toHaveAttribute('aria-expanded', 'true');
+    await page.locator('#navigation-links a').first().focus();
+    await page.keyboard.press('Escape');
+    await expect(toggle).toBeFocused();
+    await expect(toggle).toHaveAttribute('aria-expanded', 'false');
+    await expect(page.locator('.direct-contact a.email-action')).toHaveAttribute('href', 'mailto:hugo.filipe.b.monteiro@gmail.com');
+    await page.locator('[data-copy-email]').click();
+    await expect(page.locator('#email-copy-status')).toHaveText(locale === 'pt' ? 'Email copiado.' : 'Email copied.');
+    await page.setViewportSize({ width: 1280, height: 900 });
+    await expect(toggle).toBeHidden();
+    await expect(page.locator('#navigation-links')).toBeVisible();
+  });
+}
+
+for (const locale of ['pt', 'en']) {
   test(`${locale} news navigation and optional LinkedIn privacy`, async ({ page }) => {
     await page.setViewportSize({ width: 390, height: 844 });
     await page.goto(`${baseURL}/${locale}/`);
+    await page.locator('#navigation-toggle').click();
     await page.getByRole('link', { name: locale === 'pt' ? 'Notícias' : 'News', exact: true }).click();
     await expect(page.locator('#main')).toBeVisible();
     await expect(page.locator('#main')).toContainText('Big Data analysis techniques applied to cancer screening programs');
@@ -78,44 +126,17 @@ for (const testCase of cases) {
     expect(overflow).toBeFalsy();
 
     if (testCase.projects) {
-      await expect(page.locator('.project-index')).toBeVisible();
-      await expect(page.locator('.project-card')).toHaveCount(6);
-      await expect(page.locator('.project-facts dt').first()).toBeVisible();
-      const bodyText = await page.locator('body').innerText();
-      expect(bodyText).not.toMatch(/sanitiz/i);
-      if (testCase.locale === 'pt') {
-        expect(bodyText).toMatch(/Exemplos de trabalho em saúde pública/);
-        expect(bodyText).not.toMatch(/Contribution|Output|Selected projects|Featured Work|Additional Applied Work/);
+      await expect(page.locator('.gallery')).toBeVisible();
+      await expect(page.locator('[data-project]')).toHaveCount(4);
+      for (const key of ['hospital', 'webpls', 'mapping', 'pmtool']) {
+        await page.locator('[data-project="' + key + '"]').click();
+        await expect(page.locator('#project-dialog')).toBeVisible();
+        await expect(page.locator('#detail-title')).not.toBeEmpty();
+        await expect(page.locator('#detail-image')).toBeVisible();
+        await page.locator('#close').press('Escape');
+        await expect(page.locator('#project-dialog')).not.toBeVisible();
+        await expect(page.locator('[data-project="' + key + '"]')).toBeFocused();
       }
-      if (testCase.locale === 'en') {
-        expect(bodyText).toMatch(/Examples of work across public health/);
-        expect(bodyText).toMatch(/Governance/);
-      }
-
-      const contrastOk = await page.evaluate(({ contrastSource }) => {
-        function rgb(value) {
-          const match = value.match(/rgba?\((\d+),\s*(\d+),\s*(\d+)/);
-          return match ? [Number(match[1]), Number(match[2]), Number(match[3])] : [0, 0, 0];
-        }
-        function lum(color) {
-          return color.map((channel) => {
-            const c = channel / 255;
-            return c <= 0.03928 ? c / 12.92 : ((c + 0.055) / 1.055) ** 2.4;
-          }).reduce((sum, value, index) => sum + value * [0.2126, 0.7152, 0.0722][index], 0);
-        }
-        function ratio(a, b) {
-          const l1 = lum(a);
-          const l2 = lum(b);
-          return (Math.max(l1, l2) + 0.05) / (Math.min(l1, l2) + 0.05);
-        }
-        return Array.from(document.querySelectorAll('.project-number, .project-facts dt')).every((el) => {
-          const fg = rgb(getComputedStyle(el).color);
-          const card = el.closest('.project-card') || document.body;
-          const bg = rgb(getComputedStyle(card).backgroundColor || getComputedStyle(document.body).backgroundColor);
-          return ratio(fg, bg) >= contrastSource;
-        });
-      }, { contrastSource: 4.5 });
-      expect(contrastOk).toBeTruthy();
     }
 
     if (testCase.home) {
@@ -128,14 +149,23 @@ for (const testCase of cases) {
         expect(bodyText).toMatch(/Saúde Pública\s+e Saúde Digital/);
         expect(bodyText).toMatch(/Ver projetos/);
       }
-      await expect(page.locator('.home-work .activity-row')).toHaveCount(3);
+      await expect(page.locator('.home-work .activity-row')).toHaveCount(4);
+      for (const key of ['hospital','webpls','mapping','pmtool']) {
+        await expect(page.locator('.home-work a[href$="#project-' + key + '"]')).toHaveCount(1);
+      }
       await expect(page.locator('.home-hero__portrait .profile-photo')).toBeVisible();
     }
 
     if (testCase.speaking) {
       const bodyText = await page.locator('body').innerText();
-      expect(bodyText).toMatch(/Public health intelligence systems/);
-      expect(bodyText).toMatch(/Request guidance/);
+      expect(bodyText).toMatch(/AI training/);
+      expect(bodyText).toMatch(/Price on request/);
+      expect(bodyText).not.toMatch(/masterclass|500 participants|2 hours/i);
+      await page.locator('[data-participate]').first().click();
+      await expect(page.locator('#participation-dialog')).toBeVisible();
+      await expect(page.locator('#participation-email')).toHaveAttribute('href', /^mailto:/);
+      await page.locator('#close-dialog').press('Escape');
+      await expect(page.locator('#participation-dialog')).not.toBeVisible();
     }
 
     if (testCase.publications) {

@@ -1,0 +1,127 @@
+/* Integrated projects, training and legal pages. The main site owns navigation,
+   theme persistence and page transitions; styles here stay inside the content. */
+main.portfolio-page{--bg:#fff;--text:#142335;--muted:#596a7e;--line:#dce4ee;--accent:#0d47a1;--soft:#f3f6fa;--shadow:0 20px 50px #12345a12;width:min(1180px,calc(100% - 40px));max-width:1180px;margin:0 auto;padding:0;font-size:16px;line-height:1.65;color:var(--text)}
+html[data-theme=dark] main.portfolio-page{--bg:#1a1a1a;--text:#edf3fb;--muted:#b1bfd0;--line:#385066;--accent:#9bc2ff;--soft:#242e38;--shadow:0 20px 50px #0004}
+.portfolio-page section{margin:0;padding:0;border:0;min-width:0}
+.portfolio-page header{background:none;color:var(--text);margin:0;padding:0;box-shadow:none;text-align:left}
+.portfolio-page h2,.portfolio-page h3,.portfolio-page h4{margin:0;padding:0;border:0;color:var(--text);font-weight:600;letter-spacing:-.025em;line-height:1.25;text-shadow:none}
+.portfolio-page h2::after,.portfolio-page h3::after,.portfolio-page h4::after{display:none}
+.portfolio-page p{margin:0;color:var(--muted);text-align:left;overflow-wrap:break-word}
+.portfolio-page a{color:var(--accent);text-underline-offset:5px}
+.portfolio-page button{font:inherit;cursor:pointer;touch-action:manipulation}
+.portfolio-page button:focus-visible,.portfolio-page a:focus-visible,.portfolio-page summary:focus-visible{outline:3px solid #b77c00;outline-offset:5px}
+.portfolio-page .section-label,.portfolio-page .section-index{font-size:12px;color:var(--muted);margin-bottom:14px}
+.portfolio-page #title,.portfolio-page #workshop-title{font-size:clamp(34px,4.3vw,56px);line-height:1.12;letter-spacing:-.045em}
+.portfolio-page #title span,.portfolio-page #workshop-title span{color:var(--accent)}
+.portfolio-projects .intro{display:flex;align-items:flex-end;justify-content:space-between;gap:45px;padding:52px 0 40px}
+.portfolio-projects .lead{font-size:15px;max-width:310px;font-weight:400;line-height:1.65}
+.portfolio-page .gallery{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px}
+.portfolio-page .project{min-width:0;animation:portfolio-arrive .6s var(--delay) both cubic-bezier(.16,1,.3,1)}
+.portfolio-page .card{position:relative;display:flex;flex-direction:column;text-align:left;width:100%;height:100%;border:1px solid var(--line);border-radius:12px;padding:0;margin:0;background:var(--bg);color:var(--text);overflow:hidden;box-shadow:none;transition:transform .3s,box-shadow .3s,border-color .3s}
+.portfolio-page .card:hover,.portfolio-page .card:focus-visible{transform:translateY(-5px);box-shadow:var(--shadow);border-color:var(--accent)}
+.portfolio-page .image-wrap{display:block;position:relative;overflow:hidden;aspect-ratio:1.65;background:#0c1925}
+.portfolio-page .image-wrap img{display:block;width:100%;height:100%;max-width:none;object-fit:cover;object-position:center;margin:0;border:0;border-radius:0;transition:transform .6s}
+.portfolio-page .image-wrap.hospital img{object-position:65% 67%}
+.portfolio-page .card:hover img,.portfolio-page .card:focus-visible img{transform:scale(1.045)}
+.portfolio-page .image-action{position:absolute;right:14px;bottom:14px;background:#fff;color:#142335;border-radius:30px;padding:6px 12px;font-size:11px;font-weight:600;opacity:0;transition:opacity .25s}
+.portfolio-page .card:hover .image-action,.portfolio-page .card:focus-visible .image-action{opacity:1}
+.portfolio-page .card-body{display:flex;flex:1;flex-direction:column;padding:23px}
+.portfolio-page .category{font-size:12px;color:var(--muted);margin-bottom:11px}
+.portfolio-page .card strong{font-size:24px;font-weight:600;line-height:1.2;letter-spacing:-.025em;color:var(--text)}
+.portfolio-page .description{display:block;color:var(--muted);font-size:15px;line-height:1.7;margin:15px 0 26px}
+.portfolio-page .card-foot{display:flex;justify-content:space-between;margin-top:auto;border-top:1px solid var(--line);padding-top:14px;font-size:13px;color:var(--accent);font-weight:600}
+.portfolio-page .card-foot span{font-size:20px;line-height:1}
+.portfolio-page .other-projects{padding:42px 0;border-top:1px solid var(--line);margin-top:44px}
+.portfolio-page .other-projects h3,.portfolio-page .training-bridge h3{font-size:clamp(27px,3vw,36px);line-height:1.2}
+.portfolio-page .other-grid{display:grid;grid-template-columns:1fr 1fr;gap:42px;margin-top:32px}
+.portfolio-page .other-grid article{min-width:0;padding:24px 0 0;border-top:1px solid var(--line)}
+.portfolio-page .project-mark{color:var(--accent);font-size:12px}
+.portfolio-page .other-grid h4{font-size:21px;margin:12px 0}
+.portfolio-page .other-grid p{font-size:15px;max-width:510px}
+.portfolio-page .training-bridge{display:flex;align-items:center;justify-content:space-between;gap:36px;border-top:1px solid var(--line);padding:42px 0 55px}
+.portfolio-page .training-bridge p:not(.section-label){font-size:15px;margin-top:18px;max-width:560px}
+.portfolio-page .bridge-link{display:inline-flex;align-items:center;gap:20px;font-size:14px;font-weight:600;max-width:330px}
+.portfolio-page .training-bridge>*{min-width:0}
+.portfolio-page dialog{width:min(1010px,calc(100% - 40px));max-height:calc(100dvh - 40px);margin:auto;padding:0;border:1px solid var(--line);border-radius:14px;background:var(--bg);color:var(--text);box-shadow:0 35px 120px #0005;overflow:auto;overscroll-behavior:contain}
+.portfolio-page [id]{scroll-margin-top:180px}
+.portfolio-page dialog[open]{animation:portfolio-detail .25s ease both}
+.portfolio-page dialog::backdrop{background:#071322b8;backdrop-filter:blur(6px)}
+.portfolio-page dialog .reveal-target{opacity:1;transform:none;transition:none}
+.portfolio-page .dialog-toolbar{position:sticky;top:0;z-index:1;display:flex;align-items:center;justify-content:space-between;gap:15px;background:var(--bg);padding:15px 23px;border-bottom:1px solid var(--line);font-size:12px;color:var(--muted)}
+.portfolio-page #close{display:flex;align-items:center;justify-content:center;min-width:44px;min-height:44px;gap:16px;background:none;color:var(--text);border:1px solid var(--line);border-radius:25px;padding:7px 14px;font-size:12px}
+.portfolio-page #close span{font-size:21px;line-height:1}
+.portfolio-page .detail-image{background:#0c1925;display:grid;place-items:center}
+.portfolio-page .detail-image img{display:block;width:100%;max-height:52vh;object-fit:contain;border:0;border-radius:0;margin:0}
+.portfolio-page .detail-body{padding:30px 42px 38px}
+.portfolio-page #detail-title{font-size:36px;line-height:1.15;letter-spacing:-.035em}
+.portfolio-page .detail-intro{font-size:18px;line-height:1.6;margin-top:16px;max-width:780px}
+.portfolio-page .detail-columns{display:grid;grid-template-columns:1fr 1fr;gap:35px;margin-top:29px}
+.portfolio-page .detail-columns h4{font-size:15px;margin-bottom:7px}
+.portfolio-page .detail-columns p{font-size:15px}
+.portfolio-page .public-link{display:inline-flex;align-items:center;gap:25px;border-radius:5px;background:var(--accent);color:var(--bg);font-size:14px;text-decoration:none;padding:11px 17px;margin-top:22px}
+.portfolio-page .public-link[hidden]{display:none}
+body.modal-open{overflow:hidden}
+.portfolio-training .hero{display:grid;grid-template-columns:minmax(0,1fr) 310px;gap:70px;padding:60px 0;align-items:center}
+.portfolio-training .hero>*{min-width:0}
+.portfolio-training #workshop-title{font-size:clamp(36px,4.8vw,64px)}
+.portfolio-training .intro{max-width:575px;font-size:19px;line-height:1.6;margin-top:25px}
+.portfolio-training .audience{margin-top:16px;font-size:14px}
+.portfolio-page .hero-actions{display:flex;align-items:center;gap:25px;margin-top:30px;flex-wrap:wrap}
+.portfolio-page .button{display:inline-flex;align-items:center;justify-content:center;gap:18px;padding:14px 23px;border-radius:5px;text-decoration:none;border:0;font-size:15px;font-weight:600;line-height:1.5;transition:transform .18s}
+.portfolio-page .primary{background:var(--accent);color:var(--bg)}
+.portfolio-page .button:hover{transform:translateY(-2px)}
+.portfolio-page .text-link{font-size:14px;font-weight:600}
+.portfolio-page .edition{border-left:1px solid var(--line);padding-left:30px}
+.portfolio-page .edition-title{font-size:14px;color:var(--text)}
+.portfolio-page .price{font-size:32px;line-height:1.2;letter-spacing:-.02em;color:var(--text);margin-top:10px}
+.portfolio-page .price span{display:block;font-size:12px;letter-spacing:0;color:var(--muted);margin-top:7px}
+.portfolio-page .edition-note{font-size:14px;line-height:1.7}
+.portfolio-page .section{border-top:1px solid var(--line);padding:52px 0;display:grid;grid-template-columns:.8fr 1.2fr;gap:65px;scroll-margin-top:120px}
+.portfolio-page .section>*{min-width:0}
+.portfolio-page .section-heading h3,.portfolio-page .closing h3{font-size:clamp(27px,3vw,36px);line-height:1.2;letter-spacing:-.035em}
+.portfolio-page .section-heading>p:last-child:not(.section-index){font-size:15px;max-width:340px;margin-top:20px}
+.portfolio-page .outcome-list article{display:flex;gap:20px;padding:0 0 24px}
+.portfolio-page .outcome-list article:last-child{padding-bottom:0}
+.portfolio-page svg{width:24px;height:24px;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;flex:none}
+.portfolio-page .outcome-list svg{color:var(--accent);margin-top:5px}
+.portfolio-page .outcome-list h4,.portfolio-page .agenda h4{font-size:18px;line-height:1.4}
+.portfolio-page .outcome-list p,.portfolio-page .agenda p{font-size:15px;margin-top:6px}
+.portfolio-page .agenda{list-style:none;padding:0;margin:0}
+.portfolio-page .agenda li{display:block;padding:21px 0;border-top:1px solid var(--line);margin:0}
+.portfolio-page .agenda li:first-child{padding-top:0;border:0}
+.portfolio-page .agenda li:last-child{padding-bottom:0}
+.portfolio-page .materials ul{padding:0;margin:0;list-style:none}
+.portfolio-page .materials li{border-bottom:1px solid var(--line);padding:11px 0;font-size:16px;margin:0}
+.portfolio-page .materials li:first-child{padding-top:0}
+.portfolio-page .qualifications,.portfolio-page .trainer-credential{color:var(--accent);font-weight:600}
+.portfolio-page .instructor-lead{font-size:22px;line-height:1.45;color:var(--text);margin-bottom:18px}
+.portfolio-page .instructor p:not(.instructor-lead){font-size:16px;margin-bottom:16px}
+.portfolio-page .faq details{border-bottom:1px solid var(--line);padding:17px 0}
+.portfolio-page .faq details:first-child{padding-top:0}
+.portfolio-page .faq summary{cursor:pointer;font-size:16px;font-weight:600;padding-right:16px}
+.portfolio-page .faq p{font-size:15px;padding-top:12px;line-height:1.7}
+.portfolio-page .closing{border-top:1px solid var(--line);padding:52px 0 60px;display:flex;align-items:center;justify-content:space-between;gap:30px}
+.portfolio-page .closing>.button{flex-shrink:0;white-space:nowrap}
+.portfolio-page .closing h3{color:var(--accent)}
+.portfolio-page .closing p{font-size:15px;margin-top:16px}
+.portfolio-page .back-to-projects{font-size:14px;margin-top:20px}
+.portfolio-page #participation-dialog{padding:42px;width:min(510px,calc(100% - 32px))}
+.portfolio-page #dialog-title{font-size:30px;margin:0 0 20px}
+.portfolio-page #participation-dialog p{font-size:16px}
+.portfolio-page .dialog-note{margin:18px 0 25px;font-size:13px!important}
+.portfolio-page .close{position:absolute;right:14px;top:9px;min-width:44px;min-height:44px;border:0;background:none;color:var(--text);font-size:28px;line-height:1.5;width:44px}
+.portfolio-page .email-fallback{font-size:12px!important;margin-top:22px;overflow-wrap:anywhere}
+main.portfolio-legal{max-width:860px;padding:50px 0}
+.portfolio-page .legal-header{padding-bottom:30px}
+.portfolio-page .legal-header h2{font-size:clamp(33px,4vw,48px)}
+.portfolio-page .legal-header p{margin-top:18px;font-size:16px;max-width:680px}
+.portfolio-legal>section{padding:28px 0;border-top:1px solid var(--line);scroll-margin-top:140px}
+.portfolio-legal>section h3{font-size:23px;margin-bottom:13px}
+.portfolio-legal>section p{font-size:16px}
+.portfolio-legal p+p{margin-top:13px}
+.portfolio-legal a{overflow-wrap:anywhere}
+@keyframes portfolio-arrive{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+@keyframes portfolio-detail{from{opacity:0;transform:translateY(12px) scale(.985)}to{opacity:1;transform:none}}
+@media(max-width:950px){.portfolio-training .hero{gap:35px;grid-template-columns:minmax(0,1fr) 270px}.portfolio-page .section{gap:35px}.portfolio-projects .intro{gap:28px}.portfolio-projects .lead{max-width:235px}}
+@media(max-width:700px){main.portfolio-page{width:calc(100% - 16px)}.portfolio-projects .intro{display:block;padding:35px 0 30px}.portfolio-projects .lead{max-width:none;margin-top:22px}.portfolio-page .gallery{grid-template-columns:1fr}.portfolio-page .image-wrap{aspect-ratio:1.8}.portfolio-page .other-grid{grid-template-columns:1fr;gap:22px}.portfolio-page .training-bridge{flex-direction:column;align-items:flex-start;gap:24px;padding:32px 0 40px}.portfolio-page .detail-body{padding:25px}.portfolio-page #detail-title{font-size:29px}.portfolio-page .detail-intro{font-size:16px}.portfolio-page .detail-columns{grid-template-columns:1fr;gap:23px}.portfolio-page .dialog-toolbar{padding:12px 15px}.portfolio-page .dialog-toolbar>span{font-size:11px}.portfolio-page .detail-image img{max-height:42vh}.portfolio-page dialog{width:calc(100% - 24px);max-height:calc(100dvh - 24px)}.portfolio-training .hero{grid-template-columns:1fr;gap:30px;padding:35px 0}.portfolio-training .intro{font-size:17px;margin-top:22px}.portfolio-page .edition{padding:24px 0 0;border-left:0;border-top:1px solid var(--line)}.portfolio-page .section{grid-template-columns:1fr;gap:28px;padding:38px 0;scroll-margin-top:180px}.portfolio-page .section-index{margin-bottom:12px}.portfolio-page .closing{align-items:flex-start;flex-direction:column;padding:38px 0 45px}.portfolio-page #participation-dialog{padding:34px 25px}.portfolio-legal>section{scroll-margin-top:200px}}
+@media(prefers-reduced-motion:reduce){.portfolio-page *,.portfolio-page *::before,.portfolio-page *::after{animation:none!important;transition:none!important}.portfolio-page .card:hover,.portfolio-page .card:focus-visible,.portfolio-page .card:hover img,.portfolio-page .card:focus-visible img,.portfolio-page .button:hover{transform:none}}

@@ -3,16 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Projects - Hugo Monteiro | Public Health, Digital Health and Applied AI Work</title>
-    <meta name="description" content="Selected public-facing project themes by Hugo Monteiro across public health planning, screening dashboards, surveillance reporting, GovTech, interoperability, and applied AI.">
+    <title>Projects | Hugo Monteiro</title>
+    <meta name="description" content="Projects by Hugo Monteiro: Hospital Simulator, WebPLS Gaia, Mapping and Power BI, PMTool, local AI OCR and report automation.">
     <meta name="author" content="Hugo Monteiro">
     <link rel="canonical" href="https://www.hfmonteiro.com/en/projects.html">
     <link rel="alternate" hreflang="en" href="https://www.hfmonteiro.com/en/projects.html">
     <link rel="alternate" hreflang="pt-PT" href="https://www.hfmonteiro.com/pt/projetos.html">
     <link rel="alternate" hreflang="x-default" href="https://www.hfmonteiro.com/en/projects.html">
     <meta property="og:type" content="website">
-    <meta property="og:title" content="Projects - Hugo Monteiro | Public Health, Digital Health and Applied AI Work">
-    <meta property="og:description" content="Selected public-facing project themes by Hugo Monteiro across public health planning, screening dashboards, surveillance reporting, GovTech, interoperability, and applied AI.">
+    <meta property="og:title" content="Projects | Hugo Monteiro">
+    <meta property="og:description" content="Projects by Hugo Monteiro: Hospital Simulator, WebPLS Gaia, Mapping and Power BI, PMTool, local AI OCR and report automation.">
     <meta property="og:image" content="https://www.hfmonteiro.com/assets/img/projects-og.png">
     <meta property="og:image:type" content="image/png">
     <meta property="og:image:width" content="1200">
@@ -21,8 +21,8 @@
     <meta property="og:locale" content="en_US">
     <meta property="og:locale:alternate" content="pt_PT">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Projects - Hugo Monteiro | Public Health, Digital Health and Applied AI Work">
-    <meta name="twitter:description" content="Selected public-facing project themes by Hugo Monteiro across public health planning, screening dashboards, surveillance reporting, GovTech, interoperability, and applied AI.">
+    <meta name="twitter:title" content="Projects | Hugo Monteiro">
+    <meta name="twitter:description" content="Projects by Hugo Monteiro: Hospital Simulator, WebPLS Gaia, Mapping and Power BI, PMTool, local AI OCR and report automation.">
     <meta name="twitter:image" content="https://www.hfmonteiro.com/assets/img/projects-og.png">
     <meta name="referrer" content="strict-origin-when-cross-origin">
     <link rel="icon" type="image/svg+xml" href="/assets/img/favicon.svg">
@@ -30,12 +30,16 @@
     <link rel="preload" href="/assets/css/styles.css?v=20260718-v2-6" as="style">
     <link rel="preload" href="/assets/js/script.js?v=20260718-v2-6" as="script">
     <link rel="stylesheet" href="/assets/css/styles.css?v=20260718-v2-6">
+    <link rel="stylesheet" href="/assets/css/portfolio-pages.css?v=20261030-integration-2">
+    <link rel="stylesheet" href="/assets/css/site-controls.css?v=20261030-2">
+    <script src="/assets/js/site-controls.js?v=20261030-2" defer></script>
+    <link rel="stylesheet" href="/assets/css/editorial.css?v=20261030-1">
 </head>
 <body>
     <a href="#main" class="skip-link">Skip to main content</a>
     <header>
         <h1>Hugo Monteiro</h1>
-        <p class="subtitle">MD/MPH/PhD | Digital Health Specialist</p>
+        <p class="subtitle">MD/MPH/PhD | Public Health and Digital Health</p>
     </header>
 
     <nav role="navigation" aria-label="Main navigation">
@@ -44,6 +48,7 @@
         <a href="/en/research.html">Research</a>
         <a href="/en/experience.html">Experience</a>
         <a href="/en/projects.html" aria-current="page">Projects</a>
+        <a href="/en/speaking-training.html">Training</a>
         <a href="/en/news.html">News</a>
         <a href="/en/publications.html">Publications</a>
         <a href="/en/contact.html">Contact</a>
@@ -58,177 +63,53 @@
         </div>
     </nav>
 
-    <main role="main" id="main" class="projects-main">
-        <article class="page-content projects-page">
-            <header class="page-header projects-hero">
-                <div>
-                    <p class="eyebrow">Selected projects</p>
-                    <h2>Projects</h2>
-                    <p class="lead">Applied work across public health, data, digital processes and responsible AI.</p>
-                </div>
-            </header>
+    <main role="main" id="main" class="portfolio-page portfolio-projects">
 
-            <section class="projects-intro">
-                    <p>Examples of work across public health, data and digital transformation, described at an aggregate level without sensitive information. Each one summarises the problem, contribution and practical result.</p>
-                <div class="project-themes" aria-label="Project themes">
-                    <span>Public health planning</span>
-                    <span>Data and BI</span>
-                    <span>Digital processes</span>
-                    <span>Governed AI</span>
-                </div>
-            </section>
+    <section class="intro" aria-labelledby="title">
+      <div><p class="section-label">Projects</p><h2 id="title">Healthcare, data<br><span>and practical tools.</span></h2></div>
+      <p class="lead">From public health planning to hospital simulation: tools I develop to analyse information and improve processes.</p>
+    </section>
+    <section id="projects" class="gallery" aria-label="Featured projects">
+      <article class="project" style="--delay:0ms">
+        <button class="card" type="button" id="project-hospital" data-project="hospital" aria-haspopup="dialog" aria-label="Explore Hospital Simulator">
+          <span class="image-wrap hospital"><img src="/assets/img/projects/hospital.png" alt="Hospital Planner showing an isometric hospital layout" width="1600" height="900"><span class="image-action" aria-hidden="true">Explore</span></span>
+          <span class="card-body"><span class="category">Simulation · Prototype</span><strong>Hospital Simulator</strong><span class="description">Explore hospital spaces, resources and response scenarios through visual simulation.</span><span class="card-foot">Take a closer look <span aria-hidden="true">↗</span></span></span>
+        </button>
+      </article>
+      <article class="project" id="planning" style="--delay:100ms">
+        <button class="card" type="button" id="project-webpls" data-project="webpls" aria-haspopup="dialog" aria-label="Explore WebPLS Gaia">
+          <span class="image-wrap"><img src="/assets/img/projects/webpls.jpg" alt="WebPLS Gaia e Espinho’s public page of objectives and strategic priorities" width="1265" height="712"><span class="image-action" aria-hidden="true">Explore</span></span>
+          <span class="card-body"><span class="category">Health planning · Public portal</span><strong>WebPLS Gaia</strong><span class="description">Connect the local health assessment with strategic priorities, programmes and monitoring.</span><span class="card-foot">Take a closer look <span aria-hidden="true">↗</span></span></span>
+        </button>
+      </article>
+      <article class="project" style="--delay:200ms">
+        <button class="card" type="button" id="project-mapping" data-project="mapping" aria-haspopup="dialog" aria-label="Explore Mapping and Power BI">
+          <span class="image-wrap"><img src="/assets/img/projects/mapping.png" alt="WebGIS Portugal showing healthcare facilities and Local Health Unit boundaries" width="1280" height="800"><span class="image-action" aria-hidden="true">Explore</span></span>
+          <span class="card-body"><span class="category">Data · Geographic analysis</span><strong>Mapping &amp; Power BI</strong><span class="description">Maps, healthcare facilities and indicators to understand how services are distributed across a territory.</span><span class="card-foot">Take a closer look <span aria-hidden="true">↗</span></span></span>
+        </button>
+      </article>
+      <article class="project" id="screening" style="--delay:300ms">
+        <button class="card" type="button" id="project-pmtool" data-project="pmtool" aria-haspopup="dialog" aria-label="Explore PMTool">
+          <span class="image-wrap"><img src="/assets/img/projects/pmtool.png" alt="PMTool conformance analysis of a screening pathway using synthetic data" width="1600" height="1200" loading="lazy"><span class="image-action" aria-hidden="true">Explore</span></span>
+          <span class="card-body"><span class="category">Process mining · Process analysis</span><strong>PMTool</strong><span class="description">Understand how processes unfold: common pathways, waiting times and deviations from a reference model.</span><span class="card-foot">Take a closer look <span aria-hidden="true">↗</span></span></span>
+        </button>
+      </article>
+    </section>
+    <section class="other-projects" id="surveillance" aria-labelledby="other-title">
+      <div><p class="section-label">Other projects</p><h3 id="other-title">Documents and reports,<br>with less manual work.</h3></div>
+      <div class="other-grid">
+        <article><span class="project-mark" aria-hidden="true">01 / OCR</span><h4>OCR reader with local AI</h4><p>Extract information from PDF laboratory reports, check values against the original document and prepare data for analysis. The AI runs on the computer; the user remains responsible for review.</p></article>
+        <article><span class="project-mark" aria-hidden="true">02 / Reports</span><h4>Report automation</h4><p>Bring information from documents, spreadsheets and emails into a structured database. Validate fields, flag items for review and generate reports from that information.</p></article>
+      </div>
+    </section>
+    <section class="training-bridge" aria-labelledby="training-title"><div><p class="section-label">Training &amp; consulting</p><h3 id="training-title">Bring these ideas<br>to your team.</h3><p>Training in AI for healthcare, alongside support with data analysis and administrative process improvement.</p></div><a class="bridge-link" href="/en/speaking-training.html">Explore training and request a quotation <span aria-hidden="true">↗</span></a></section>
 
-            <section class="project-index" aria-label="Selected projects">
-                <article class="project-card" id="planning">
-                    <div class="project-card__head">
-                        <span class="project-number">01</span>
-                        <p class="project-meta">Public health planning</p>
-                    </div>
-                    <h4>Health Situation Diagnosis and Municipal Health Planning</h4>
-                    <p class="project-summary">Population evidence structured to support local priorities and public-health planning decisions.</p>
-                    <dl class="project-facts">
-                        <div>
-                            <dt>Focus</dt>
-                            <dd>Indicators, territory, health needs and operational interpretation for public decision-making.</dd>
-                        </div>
-                        <div>
-                            <dt>Result</dt>
-                            <dd>A clearer working basis for local discussion without exposing personal or sensitive information.</dd>
-                        </div>
-                    </dl>
-                    <div class="project-tags">
-                        <span>Public health</span>
-                        <span>Planning</span>
-                        <span>Indicators</span>
-                    </div>
-                </article>
-                <article class="project-card" id="screening">
-                    <div class="project-card__head">
-                        <span class="project-number">02</span>
-                        <p class="project-meta">Programme monitoring</p>
-                    </div>
-                    <h4>Screening Programme Dashboards</h4>
-                    <p class="project-summary">Monitoring views that make screening programmes easier to follow, prioritise and manage.</p>
-                    <dl class="project-facts">
-                        <div>
-                            <dt>Focus</dt>
-                            <dd>Prioritisation, exceptions, monitoring cadence and rapid performance interpretation.</dd>
-                        </div>
-                        <div>
-                            <dt>Result</dt>
-                            <dd>Less reliance on ad hoc analysis and better operational visibility.</dd>
-                        </div>
-                    </dl>
-                    <div class="project-tags">
-                        <span>Dashboards</span>
-                        <span>Screening</span>
-                        <span>Data</span>
-                    </div>
-                </article>
-                <article class="project-card" id="surveillance">
-                    <div class="project-card__head">
-                        <span class="project-number">03</span>
-                        <p class="project-meta">Surveillance and reporting</p>
-                    </div>
-                    <h4>Digital Surveillance Bulletins</h4>
-                    <p class="project-summary">More consistent production of public-health bulletins and recurring communication products.</p>
-                    <dl class="project-facts">
-                        <div>
-                            <dt>Focus</dt>
-                            <dd>Data preparation, repeatable routines and clear public-health communication.</dd>
-                        </div>
-                        <div>
-                            <dt>Result</dt>
-                            <dd>Reduced manual work and greater consistency across periodic publications.</dd>
-                        </div>
-                    </dl>
-                    <div class="project-tags">
-                        <span>Surveillance</span>
-                        <span>Automation</span>
-                        <span>Reporting</span>
-                    </div>
-                </article>
-                <article class="project-card">
-                    <div class="project-card__head">
-                        <span class="project-number">04</span>
-                        <p class="project-meta">Administrative digitalisation</p>
-                    </div>
-                    <h4>Sanitary Pool Records</h4>
-                    <p class="project-summary">Moving paper-based administrative processes into records that are easier to consult and audit.</p>
-                    <dl class="project-facts">
-                        <div>
-                            <dt>Focus</dt>
-                            <dd>Administrative requirements, traceability, team adoption and document clarity.</dd>
-                        </div>
-                        <div>
-                            <dt>Result</dt>
-                            <dd>A more transparent workflow with less friction in record management.</dd>
-                        </div>
-                    </dl>
-                    <div class="project-tags">
-                        <span>GovTech</span>
-                        <span>Records</span>
-                        <span>Process</span>
-                    </div>
-                </article>
-                <article class="project-card">
-                    <div class="project-card__head">
-                        <span class="project-number">05</span>
-                        <p class="project-meta">Care pathways</p>
-                    </div>
-                    <h4>ICTUSnet and Pathway Coordination</h4>
-                    <p class="project-summary">Collaborative work around stroke pathways, shared information and coordination between teams.</p>
-                    <dl class="project-facts">
-                        <div>
-                            <dt>Focus</dt>
-                            <dd>Interoperability, response times, data quality and coordination across teams and organisations.</dd>
-                        </div>
-                        <div>
-                            <dt>Result</dt>
-                            <dd>A clearer shared frame for clinical, operational and technology decisions.</dd>
-                        </div>
-                    </dl>
-                    <div class="project-tags">
-                        <span>Pathways</span>
-                        <span>Interoperability</span>
-                        <span>Collaboration</span>
-                    </div>
-                </article>
-                <article class="project-card">
-                    <div class="project-card__head">
-                        <span class="project-number">06</span>
-                        <p class="project-meta">Applied AI and data science</p>
-                    </div>
-                    <h4>AI, NLP and GIS Prototypes</h4>
-                    <p class="project-summary">Practical exploration of AI, text processing and geospatial analysis in public-health problems.</p>
-                    <dl class="project-facts">
-                        <div>
-                            <dt>Focus</dt>
-                            <dd>Technical feasibility, operational usefulness, privacy, governance and human review.</dd>
-                        </div>
-                        <div>
-                            <dt>Result</dt>
-                            <dd>Clearer criteria for deciding which ideas should move from prototype to implementation.</dd>
-                        </div>
-                    </dl>
-                    <div class="project-tags">
-                        <span>AI</span>
-                        <span>NLP</span>
-                        <span>GIS</span>
-                        <span>Governance</span>
-                    </div>
-                </article>
-            </section>
+<dialog id="project-dialog" aria-labelledby="detail-title">
+    <div class="dialog-toolbar"><span id="detail-category"></span><button id="close" type="button" aria-label="Close details">Close <span aria-hidden="true">×</span></button></div>
+    <div class="detail-image"><img id="detail-image" src="/assets/img/projects/hospital.png" alt=""></div>
+    <div class="detail-body"><p class="section-label" id="detail-status"></p><h3 id="detail-title"></h3><p class="detail-intro" id="detail-intro"></p><div class="detail-columns"><section><h4>The project</h4><p id="detail-context"></p></section><section><h4>What you can do</h4><p id="detail-features"></p></section></div><a id="detail-link" class="public-link" href="https://webplsulsge.vercel.app/objetivos-eixos.html" target="_blank" rel="noopener" hidden>Visit WebPLS <span aria-hidden="true">↗</span></a></div>
+  </dialog>
 
-            <section class="projects-method">
-                <h3>Working principles</h3>
-                <div class="method-grid">
-                    <div><h4>Decision clarity</h4><p>Start with who decides, at what cadence, and which indicator changes action.</p></div>
-                    <div><h4>Realistic maintenance</h4><p>Prefer solutions teams can update, explain and audit after launch.</p></div>
-                    <div><h4>Visible governance</h4><p>Treat privacy, traceability and human accountability as design requirements.</p></div>
-                </div>
-            </section>
-        </article>
     </main>
 
     <footer>
@@ -242,5 +123,6 @@
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="18 15 12 9 6 15"></polyline></svg>
     </button>
     <script src="/assets/js/script.js?v=20260718-v2-6" defer></script>
+    <script src="/assets/js/projects.js?v=20261030-integration" defer></script>
 </body>
 </html>

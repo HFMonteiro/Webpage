@@ -7,7 +7,8 @@
     "validate": "node scripts/validate_site.js",
     "serve": "python3 -m http.server 4173",
     "smoke": "playwright test scripts/smoke_site.spec.js --reporter=list",
-    "test": "npm run validate"
+    "test:integration": "node --test scripts/portfolio_integration.test.cjs scripts/process_mining_model.test.cjs",
+    "test": "npm run validate && npm run test:integration"
   },
   "devDependencies": {
     "@playwright/test": "^1.60.0"

@@ -6,6 +6,7 @@ Sitemap: https://www.hfmonteiro.com/sitemap.xml
 Disallow: /index_backup.html
 Disallow: /*.tmp
 Disallow: /*.log
+Disallow: /mockups/
 
 # Crawl-delay for polite crawling
 Crawl-delay: 1

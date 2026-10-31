@@ -1,0 +1,12 @@
+/* Shared editorial hierarchy; feature-page layouts and the homepage remain intact. */
+body>header h1,body.home-page>header h1{font-size:32px;font-weight:600;line-height:1.2;letter-spacing:-.025em}
+body>header .subtitle,body.home-page>header .subtitle{font-size:14px;font-weight:400;line-height:1.5;text-wrap:balance}
+main .page-header,main.portfolio-page .legal-header{background:transparent;box-shadow:none;text-align:left;padding:0 0 28px;margin:0 0 32px;border-bottom:1px solid var(--border-color)}
+main .page-header h2,main.portfolio-page .legal-header h2{font-size:clamp(32px,3.6vw,48px);font-weight:600;line-height:1.15;letter-spacing:-.035em;color:var(--text-color);margin:0;padding:0;border:0;text-shadow:none}
+main .page-header h2::after,main.portfolio-page .legal-header h2::after{display:none}
+main .page-header .lead,main.portfolio-page .legal-header>p{max-width:68ch;font-size:16px;font-weight:400;line-height:1.65;color:#596a7e;margin:14px 0 0;padding:0}
+main.portfolio-page #title,main.portfolio-page #workshop-title{font-size:clamp(32px,3.6vw,48px);font-weight:600;line-height:1.15;letter-spacing:-.035em}
+main.portfolio-page .lead,main.portfolio-page .hero-copy>.intro{font-size:16px;font-weight:400;line-height:1.65}
+html[data-theme=dark] main .page-header .lead,html[data-theme=dark] main.portfolio-page .legal-header>p{color:#b1bfd0}
+@media(max-width:980px){body>header h1,body.home-page>header h1{font-size:26px}body>header .subtitle,body.home-page>header .subtitle{font-size:12px}}
+@media(max-width:700px){main .page-header,main.portfolio-page .legal-header{padding-bottom:22px;margin-bottom:24px}}
