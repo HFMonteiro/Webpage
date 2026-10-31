@@ -11,21 +11,21 @@ for (const locale of ['pt', 'en']) {
     expect(nav.height).toBeLessThanOrEqual(64);
     await page.setViewportSize({ width: 320, height: 780 });
     await page.locator('[data-project="hospital"]').click();
-    const close = await page.locator('#close').boundingBox();
-    expect(close.height).toBeGreaterThanOrEqual(44);
-    expect(close.width).toBeGreaterThanOrEqual(44);
+    // The dialog scales during entry; measure its settled, usable touch target.
+    await expect.poll(async () => (await page.locator('#close').boundingBox()).height).toBeGreaterThanOrEqual(44);
+    await expect.poll(async () => (await page.locator('#close').boundingBox()).width).toBeGreaterThanOrEqual(44);
     await page.locator('#close').press('Escape');
     await expect(page.locator('[data-project="hospital"]')).toBeFocused();
     await page.goto(`${baseURL}/${locale}/${locale === 'pt' ? 'formacao-palestras' : 'speaking-training'}.html`);
     await page.locator('[data-participate]').first().click();
-    const trainingClose = await page.locator('#close-dialog').boundingBox();
-    expect(trainingClose.height).toBeGreaterThanOrEqual(44);
-    expect(trainingClose.width).toBeGreaterThanOrEqual(44);
+    await expect.poll(async () => (await page.locator('#close-dialog').boundingBox()).height).toBeGreaterThanOrEqual(44);
+    await expect.poll(async () => (await page.locator('#close-dialog').boundingBox()).width).toBeGreaterThanOrEqual(44);
   });
 }
 
 for (const locale of ['pt', 'en']) {
-  test(`${locale} compact navigation and direct email contact`, async ({ page }) => {
+  test(`${locale} compact navigation and direct email contact`, async ({ page, context }) => {
+    await context.grantPermissions(['clipboard-read', 'clipboard-write']);
     await page.setViewportSize({ width: 390, height: 844 });
     const route = locale === 'pt' ? '/pt/contacto.html' : '/en/contact.html';
     await page.goto(baseURL + route);
@@ -43,6 +43,7 @@ for (const locale of ['pt', 'en']) {
     await expect(page.locator('.direct-contact a.email-action')).toHaveAttribute('href', 'mailto:hugo.filipe.b.monteiro@gmail.com');
     await page.locator('[data-copy-email]').click();
     await expect(page.locator('#email-copy-status')).toHaveText(locale === 'pt' ? 'Email copiado.' : 'Email copied.');
+    expect(await page.evaluate(() => navigator.clipboard.readText())).toBe('hugo.filipe.b.monteiro@gmail.com');
     await page.setViewportSize({ width: 1280, height: 900 });
     await expect(toggle).toBeHidden();
     await expect(page.locator('#navigation-links')).toBeVisible();
@@ -59,7 +60,9 @@ for (const locale of ['pt', 'en']) {
     await expect(page.locator('#main')).toContainText('Big Data analysis techniques applied to cancer screening programs');
     await expect(page.locator('iframe')).toHaveCount(0);
     await page.setViewportSize({ width: 1440, height: 950 });
-    expect(await page.locator('.news-post').evaluate(el => el.getBoundingClientRect().width)).toBeLessThanOrEqual(760);
+    const widths = await page.locator('.news-post').evaluateAll(posts => posts.map(el => el.getBoundingClientRect().width));
+    expect(widths.length).toBeGreaterThanOrEqual(2);
+    for (const width of widths) expect(width).toBeLessThanOrEqual(760);
     await page.setViewportSize({ width: 390, height: 844 });
     expect(await page.evaluate(() => document.documentElement.scrollWidth > innerWidth + 1)).toBeFalsy();
     const theme = await page.locator('html').getAttribute('data-theme');
