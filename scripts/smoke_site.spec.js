@@ -19,7 +19,7 @@ for (const locale of ['pt', 'en']) {
     await page.setViewportSize({ width: 981, height: 780 });
     await page.goto(`${baseURL}/${locale}/${locale === 'pt' ? 'projetos' : 'projects'}.html`);
     await expect(page.locator('#navigation-toggle')).toBeVisible();
-    const nav = await page.locator('nav').boundingBox();
+    const nav = await page.locator('body > nav').boundingBox();
     expect(nav.height).toBeLessThanOrEqual(64);
     await page.setViewportSize({ width: 320, height: 780 });
     await page.locator('[data-project="hospital"]').click();
