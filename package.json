@@ -7,7 +7,7 @@
     "validate": "node scripts/validate_site.js",
     "serve": "python3 -m http.server 4173",
     "smoke": "playwright test scripts/smoke_site.spec.js --reporter=list",
-    "test:integration": "node --test scripts/portfolio_integration.test.cjs scripts/process_mining_model.test.cjs",
+    "test:integration": "node --test scripts/portfolio_integration.test.cjs scripts/process_mining_model.test.cjs scripts/navigation_structure.test.cjs",
     "test": "npm run validate && npm run test:integration"
   },
   "devDependencies": {

@@ -16,7 +16,7 @@ html[data-theme=dark] main.portfolio-page{--bg:#1a1a1a;--text:#edf3fb;--muted:#b
 .portfolio-projects .intro{display:flex;align-items:flex-end;justify-content:space-between;gap:45px;padding:52px 0 40px}
 .portfolio-projects .lead{font-size:15px;max-width:310px;font-weight:400;line-height:1.65}
 .portfolio-page .gallery{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px}
-.portfolio-page .project{min-width:0;animation:portfolio-arrive .6s var(--delay) both cubic-bezier(.16,1,.3,1)}
+.portfolio-page .project{min-width:0;display:flex;flex-direction:column;animation:portfolio-arrive .6s var(--delay) both cubic-bezier(.16,1,.3,1)}
 .portfolio-page .card{position:relative;display:flex;flex-direction:column;text-align:left;width:100%;height:100%;border:1px solid var(--line);border-radius:12px;padding:0;margin:0;background:var(--bg);color:var(--text);overflow:hidden;box-shadow:none;transition:transform .3s,box-shadow .3s,border-color .3s}
 .portfolio-page .card:hover,.portfolio-page .card:focus-visible{transform:translateY(-5px);box-shadow:var(--shadow);border-color:var(--accent)}
 .portfolio-page .image-wrap{display:block;position:relative;overflow:hidden;aspect-ratio:1.65;background:#0c1925}
@@ -36,6 +36,17 @@ html[data-theme=dark] main.portfolio-page{--bg:#1a1a1a;--text:#edf3fb;--muted:#b
 .portfolio-page .other-grid{display:grid;grid-template-columns:1fr 1fr;gap:42px;margin-top:32px}
 .portfolio-page .other-grid article{min-width:0;padding:24px 0 0;border-top:1px solid var(--line)}
 .portfolio-page .project-mark{color:var(--accent);font-size:12px}
+.portfolio-page .project .card{height:auto;flex:1}
+.portfolio-page .project-website{display:inline-flex;align-items:center;align-self:flex-start;gap:12px;min-height:44px;margin-top:8px;font-size:14px;font-weight:600;line-height:1.5}
+.portfolio-page .side-projects{display:grid;grid-template-columns:minmax(180px,1fr) minmax(0,2fr);align-items:center;gap:32px;padding:30px 0 40px;border-top:1px solid var(--line)}
+.portfolio-page .side-projects h3{font-size:20px;margin-bottom:8px}
+.portfolio-page .side-projects p{font-size:14px}
+.portfolio-page .side-project-link{display:flex;align-items:center;justify-content:space-between;gap:24px;min-width:0;min-height:220px;padding:28px;border:1px solid var(--line);border-radius:8px;text-decoration:none;color:#fff;background-color:#10283e;background-image:linear-gradient(90deg,#071d32f5 0%,#071d32d9 45%,#071d3222 85%),url('/assets/img/projects/orbit-banner.webp');background-size:cover;background-position:center 48%;transition:border-color .2s}
+.portfolio-page .side-project-link:hover{border-color:var(--accent)}
+.portfolio-page .side-project-link strong{display:block;font-size:28px;color:#fff;margin-bottom:12px}
+.portfolio-page .side-project-link>span:first-child{min-width:0;max-width:58%}
+.portfolio-page .side-project-link strong+span{display:block;color:#eef4ff;font-size:15px;line-height:1.65}
+@media(max-width:700px){.portfolio-page .side-projects{grid-template-columns:1fr;gap:18px;padding:26px 0 34px}.portfolio-page .side-project-link{padding:16px;gap:16px}}
 .portfolio-page .other-grid h4{font-size:21px;margin:12px 0}
 .portfolio-page .other-grid p{font-size:15px;max-width:510px}
 .portfolio-page .training-bridge{display:flex;align-items:center;justify-content:space-between;gap:36px;border-top:1px solid var(--line);padding:42px 0 55px}

@@ -30,27 +30,23 @@
     <link rel="preload" href="/assets/css/styles.css?v=20260718-v2-6" as="style">
     <link rel="preload" href="/assets/js/script.js?v=20260718-v2-6" as="script">
     <link rel="stylesheet" href="/assets/css/styles.css?v=20260718-v2-6">
-    <link rel="stylesheet" href="/assets/css/portfolio-pages.css?v=20261030-integration-2">
-    <link rel="stylesheet" href="/assets/css/site-controls.css?v=20261030-2">
-    <script src="/assets/js/site-controls.js?v=20261030-2" defer></script>
+    <link rel="stylesheet" href="/assets/css/portfolio-pages.css?v=20261102-banner">
+    <link rel="stylesheet" href="/assets/css/site-controls.css?v=20261102-structure">
+    <script src="/assets/js/site-controls.js?v=20261102-structure" defer></script>
     <link rel="stylesheet" href="/assets/css/editorial.css?v=20261030-1">
 </head>
 <body>
     <a href="#main" class="skip-link">Skip to main content</a>
     <header>
-        <h1>Hugo Monteiro</h1>
+        <h1><a class="site-home" href="/en/">Hugo Monteiro</a></h1>
         <p class="subtitle">MD/MPH/PhD | Public Health and Digital Health</p>
     </header>
 
     <nav role="navigation" aria-label="Main navigation">
-        <a href="/en/">Home</a>
-        <a href="/en/about.html">About</a>
+        <a href="/en/about.html">Profile</a>
         <a href="/en/research.html">Research</a>
-        <a href="/en/experience.html">Experience</a>
-        <a href="/en/projects.html" aria-current="page">Projects</a>
+        <a href="/en/projects.html" class="active" aria-current="page">Projects</a>
         <a href="/en/speaking-training.html">Training</a>
-        <a href="/en/news.html">News</a>
-        <a href="/en/publications.html">Publications</a>
         <a href="/en/contact.html">Contact</a>
         <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark/light theme" title="Toggle dark/light theme">
             <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
@@ -64,6 +60,7 @@
     </nav>
 
     <main role="main" id="main" class="portfolio-page portfolio-projects">
+        <nav class="section-nav" aria-label="In this section"><a href="/en/projects.html#projetos">Professional</a><a href="/en/projects.html#side-projects">Personal</a></nav>
 
     <section class="intro" aria-labelledby="title">
       <div><p class="section-label">Projects</p><h2 id="title">Healthcare, data<br><span>and practical tools.</span></h2></div>
@@ -81,6 +78,7 @@
           <span class="image-wrap"><img src="/assets/img/projects/webpls.jpg" alt="WebPLS Gaia e Espinho’s public page of objectives and strategic priorities" width="1265" height="712"><span class="image-action" aria-hidden="true">Explore</span></span>
           <span class="card-body"><span class="category">Health planning · Public portal</span><strong>WebPLS Gaia</strong><span class="description">Connect the local health assessment with strategic priorities, programmes and monitoring.</span><span class="card-foot">Take a closer look <span aria-hidden="true">↗</span></span></span>
         </button>
+        <a class="project-website" href="https://webplsulsge.vercel.app/" target="_blank" rel="noopener">Visit the WebPLS Gaia website <span aria-hidden="true">↗</span></a>
       </article>
       <article class="project" style="--delay:200ms">
         <button class="card" type="button" id="project-mapping" data-project="mapping" aria-haspopup="dialog" aria-label="Explore Mapping and Power BI">
@@ -104,6 +102,11 @@
     </section>
     <section class="training-bridge" aria-labelledby="training-title"><div><p class="section-label">Training &amp; consulting</p><h3 id="training-title">Bring these ideas<br>to your team.</h3><p>Training in AI for healthcare, alongside support with data analysis and administrative process improvement.</p></div><a class="bridge-link" href="/en/speaking-training.html">Explore training and request a quotation <span aria-hidden="true">↗</span></a></section>
 
+    <section class="side-projects" id="side-projects" aria-labelledby="side-projects-title">
+      <div><h3 id="side-projects-title">Side projects</h3><p>Other ideas taking shape.</p></div>
+      <a class="side-project-link" href="https://orbitviva.com/" target="_blank" rel="noopener"><span><strong>Orbit</strong><span>A circular calendar to see the year, plan the week and organise the day.</span></span><span aria-hidden="true">↗</span></a>
+    </section>
+
 <dialog id="project-dialog" aria-labelledby="detail-title">
     <div class="dialog-toolbar"><span id="detail-category"></span><button id="close" type="button" aria-label="Close details">Close <span aria-hidden="true">×</span></button></div>
     <div class="detail-image"><img id="detail-image" src="/assets/img/projects/hospital.png" alt=""></div>
@@ -116,6 +119,8 @@
         <p>&copy; <span id="current-year"></span> Hugo Monteiro. 
             <a href="https://orcid.org/0000-0002-6060-3335" target="_blank" rel="noopener" class="orcid-link">ORCID</a> | 
             <a href="https://www.linkedin.com/in/hugo-monteiro/" target="_blank" rel="noopener">LinkedIn</a> | 
+            <a href="/en/news.html">News</a> |
+            <a href="/en/publications.html">Publications</a> |
             <a href="/en/legal.html">Legal</a>
         </p>
     </footer>

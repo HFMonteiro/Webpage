@@ -25,6 +25,9 @@ for (const [file,alternate,kind] of routes) test(`${file}: integrated page uses 
   const nav = html.match(/<nav[\s\S]*?<\/nav>/)[0];
   assert.ok(nav.includes(file.startsWith('pt/') ? '/pt/formacao-palestras.html' : '/en/speaking-training.html'));
   if(kind==='projects'){
+    assert.match(html,/<a class="project-website" href="https:\/\/webplsulsge\.vercel\.app\/" target="_blank" rel="noopener"/,'WebPLS website must be accessible directly from the gallery');
+    assert.ok(html.includes('class="side-projects"'),'Personal projects must remain separate from the professional gallery');
+    assert.ok(html.includes(file.startsWith('pt/')?'href="https://orbitviva.com/pt/"':'href="https://orbitviva.com/"'),'Orbit must link to its public landing in the matching language');
     assert.equal((html.match(/data-project="/g)||[]).length,4);
     assert.match(html,/id="project-dialog"/);
     for(const key of ['hospital','webpls','mapping','pmtool']) assert.ok(html.includes(`data-project="${key}"`));

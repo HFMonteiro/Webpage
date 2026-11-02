@@ -3,6 +3,18 @@ const { test, expect } = require('@playwright/test');
 const baseURL = process.env.SITE_BASE_URL || 'http://127.0.0.1:4173';
 
 for (const locale of ['pt', 'en']) {
+  test(`${locale} secondary navigation focus and news anchor stay visible`, async ({ page }) => {
+    await page.setViewportSize({ width: 390, height: 844 });
+    await page.goto(`${baseURL}/${locale}/${locale === 'pt' ? 'sobre' : 'about'}.html`);
+    await page.locator('.section-nav a').first().focus();
+    await page.keyboard.press('Tab');
+    await expect(page.locator('.section-nav a').nth(1)).toHaveCSS('outline-color', 'rgb(183, 124, 0)');
+    await page.goto(`${baseURL}/${locale}/${locale === 'pt' ? 'noticias' : 'news'}.html#phd-heading`);
+    await expect.poll(() => page.evaluate(() => document.querySelector('#phd-heading').getBoundingClientRect().top - document.querySelector('body > nav').getBoundingClientRect().bottom)).toBeGreaterThanOrEqual(0);
+  });
+}
+
+for (const locale of ['pt', 'en']) {
   test(`${locale} tablet menu and touch-friendly dialog controls`, async ({ page }) => {
     await page.setViewportSize({ width: 981, height: 780 });
     await page.goto(`${baseURL}/${locale}/${locale === 'pt' ? 'projetos' : 'projects'}.html`);
@@ -54,8 +66,8 @@ for (const locale of ['pt', 'en']) {
   test(`${locale} news navigation and optional LinkedIn privacy`, async ({ page }) => {
     await page.setViewportSize({ width: 390, height: 844 });
     await page.goto(`${baseURL}/${locale}/`);
-    await page.locator('#navigation-toggle').click();
-    await page.getByRole('link', { name: locale === 'pt' ? 'Notícias' : 'News', exact: true }).click();
+    await expect(page.locator('#navigation-links > a')).toHaveCount(5);
+    await page.locator('footer').getByRole('link', { name: locale === 'pt' ? 'Notícias' : 'News', exact: true }).click();
     await expect(page.locator('#main')).toBeVisible();
     await expect(page.locator('#main')).toContainText('Big Data analysis techniques applied to cancer screening programs');
     await expect(page.locator('iframe')).toHaveCount(0);

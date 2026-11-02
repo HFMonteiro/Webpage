@@ -87,28 +87,25 @@
         ]
     }
     </script>
-    <link rel="stylesheet" href="/assets/css/site-controls.css?v=20261030-2">
-    <script src="/assets/js/site-controls.js?v=20261030-2" defer></script>
+    <link rel="stylesheet" href="/assets/css/site-controls.css?v=20261102-structure">
+    <script src="/assets/js/site-controls.js?v=20261102-structure" defer></script>
     <link rel="stylesheet" href="/assets/css/editorial.css?v=20261030-1">
 </head>
 <body class="home-page">
     <a href="#main" class="skip-link">Skip to main content</a>
     
     <header>
-        <h1>Hugo Monteiro</h1>
+        <h1><a class="site-home" href="/en/">Hugo Monteiro</a></h1>
         <p class="subtitle">MD/MPH/PhD | Public Health and Digital Health</p>
     </header>
 
     <nav role="navigation" aria-label="Main navigation">
-        <a href="/en/" aria-current="page">Home</a>
-        <a href="/en/about.html">About</a>
+        <a href="/en/about.html">Profile</a>
         <a href="/en/research.html">Research</a>
-        <a href="/en/experience.html">Experience</a>
-                <a href="/en/projects.html">Projects</a>
+        <a href="/en/projects.html">Projects</a>
         <a href="/en/speaking-training.html">Training</a>
-        <a href="/en/news.html">News</a>
-        <a href="/en/publications.html">Publications</a>
-        <a href="/en/contact.html">Contact</a>        <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark/light theme" title="Toggle theme">
+        <a href="/en/contact.html">Contact</a>
+        <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark/light theme" title="Toggle theme">
             <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                 <circle cx="12" cy="12" r="5"></circle>
                 <line x1="12" y1="1" x2="12" y2="3"></line>
@@ -187,12 +184,21 @@
                 </a>
             </div>
         </section>
+        <section class="home-news" aria-labelledby="home-news-title">
+            <div class="home-news-heading"><h2 id="home-news-title">Latest updates</h2><a href="/en/news.html">All news <span aria-hidden="true">↗</span></a></div>
+            <div class="home-news-list">
+                <article><time datetime="2026-10-30">30 October 2026</time><h3><a href="/en/process-mining-healthcare.html">Beyond the totals: understanding the patient pathway</a></h3><p>Explore pathways, waiting times and repeat bookings in an interactive process mining example.</p></article>
+                <article><time datetime="2026-10-11">11 October 2026</time><h3><a href="/en/news.html#phd-heading">PhD completed in Health Data Science</a></h3><p>Research into data analysis applied to cancer screening programmes.</p></article>
+            </div>
+        </section>
     </main>
 
     <footer>
         <p>&copy; <span id="current-year"></span> Hugo Monteiro. 
            <a href="https://orcid.org/0000-0002-6060-3335" target="_blank" rel="noopener" class="orcid-link">ORCID</a> | 
            <a href="https://www.linkedin.com/in/hugo-monteiro/" target="_blank" rel="noopener">LinkedIn</a> | 
+            <a href="/en/news.html">News</a> |
+            <a href="/en/publications.html">Publications</a> |
            <a href="/en/legal.html">Legal</a>
         </p>
     </footer>
