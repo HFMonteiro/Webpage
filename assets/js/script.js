@@ -169,47 +169,13 @@
 
     function initializePageTransitions() {
         const root = document.documentElement;
-        const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
         const showPage = function() {
             root.classList.remove('page-leaving');
-            window.requestAnimationFrame(function() {
-                root.classList.add('page-ready');
-            });
+            root.classList.add('page-ready');
         };
 
         showPage();
         window.addEventListener('pageshow', showPage);
-
-        if (prefersReducedMotion) {
-            return;
-        }
-
-        document.addEventListener('click', function(event) {
-            if (event.defaultPrevented || event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) {
-                return;
-            }
-
-            const link = event.target.closest('a[href]');
-            if (!link || link.hasAttribute('download') || link.target === '_blank') {
-                return;
-            }
-
-            const destination = new URL(link.href, window.location.href);
-            const sameDocumentHash = destination.pathname === window.location.pathname && destination.search === window.location.search && destination.hash;
-
-            if (destination.origin !== window.location.origin || sameDocumentHash || root.classList.contains('page-leaving')) {
-                return;
-            }
-
-            event.preventDefault();
-            root.classList.remove('page-ready');
-            root.classList.add('page-leaving');
-
-            window.setTimeout(function() {
-                window.location.assign(destination.href);
-            }, 180);
-        });
     }
     
     // Enhanced smooth scrolling with accessibility
@@ -253,37 +219,51 @@
     
     // Initialize scroll-triggered animations
     function initializeScrollAnimations() {
-        const targets = document.querySelectorAll('main section:not(.home-hero):not(.home-work), .activity-row');
-        const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        const targets = Array.from(document.querySelectorAll(
+            'main > section, main .home-work > h2, main .activity-row, main .gallery .project, main article'
+        )).filter(target => {
+            if (target.closest('dialog')) return false;
+            if (target.parentElement === document.querySelector('main') && target.matches('section')) {
+                return !target.querySelector('section, .activity-row, .gallery .project, article');
+            }
+            return true;
+        });
+        const motionPreference = window.matchMedia('(prefers-reduced-motion: reduce)');
 
         targets.forEach((target, index) => {
-            target.style.setProperty('--animation-delay', `${Math.min(index, 4) * 70}ms`);
+            target.style.setProperty('--animation-delay', `${Math.min(index, 4) * 25}ms`);
             target.classList.add('reveal-target');
         });
 
-        if (prefersReducedMotion) {
-            targets.forEach(target => target.classList.add('is-visible'));
+        const revealAll = () => targets.forEach(target => target.classList.add('is-visible'));
+        const syncMotionPreference = () => {
+            document.documentElement.classList.toggle('reduced-motion', motionPreference.matches);
+            if (motionPreference.matches) revealAll();
+        };
+        syncMotionPreference();
+        motionPreference.addEventListener?.('change', syncMotionPreference);
+        document.addEventListener('focusin', event => {
+            const target = event.target.closest('.reveal-target');
+            if (target) target.classList.add('is-visible');
+        });
+
+        if (motionPreference.matches || !('IntersectionObserver' in window)) {
+            revealAll();
             return;
         }
 
-        if ('IntersectionObserver' in window) {
-            const observerOptions = {
-                threshold: 0.1,
-                rootMargin: '0px 0px -50px 0px'
-            };
-            
-            const observer = new IntersectionObserver((entries) => {
+        try {
+            const observer = new IntersectionObserver(entries => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
                         entry.target.classList.add('is-visible');
                         observer.unobserve(entry.target);
                     }
                 });
-            }, observerOptions);
-            
+            }, { threshold: 0.08, rootMargin: '0px 0px -32px 0px' });
             targets.forEach(target => observer.observe(target));
-        } else {
-            targets.forEach(target => target.classList.add('is-visible'));
+        } catch (error) {
+            targets.forEach(target => target.classList.remove('reveal-target', 'is-visible'));
         }
     }
     

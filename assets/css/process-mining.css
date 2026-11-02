@@ -31,7 +31,8 @@ main.pm-article{margin:0;background:var(--bg);color:var(--text);font:16px/1.6 sy
 .pm-article .metrics>span+span{border-left:1px solid var(--line);padding-left:25px}
 .pm-article .map{height:230px;position:relative;margin:12px 0 10px}
 .pm-article .map svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
-.pm-article .connector{fill:none;stroke:var(--blue);stroke-width:3;vector-effect:non-scaling-stroke;transition:stroke .2s,opacity .2s,stroke-width .2s}
+.pm-article .connector{fill:none;stroke:var(--blue);stroke-width:3;vector-effect:non-scaling-stroke;transition:stroke .2s,opacity .2s,stroke-width .2s;animation:pm-path-highlight .36s ease-out both}
+@keyframes pm-path-highlight{from{stroke-opacity:.45}to{stroke-opacity:1}}
 .pm-article .connector.repeat{stroke:var(--orange)}
 .pm-article .connector.quiet{stroke:var(--line);opacity:.65}
 .pm-article .node{position:absolute;top:130px;left:var(--x);width:16%;min-height:64px;padding:12px 8px;border:1px solid #9fb3cf;border-radius:4px;background:var(--bg);color:var(--text);font-size:16px;font-weight:600;line-height:1.3;transition:background .2s,border-color .2s}

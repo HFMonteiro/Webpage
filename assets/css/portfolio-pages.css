@@ -16,13 +16,13 @@ html[data-theme=dark] main.portfolio-page{--bg:#1a1a1a;--text:#edf3fb;--muted:#b
 .portfolio-projects .intro{display:flex;align-items:flex-end;justify-content:space-between;gap:45px;padding:52px 0 40px}
 .portfolio-projects .lead{font-size:15px;max-width:310px;font-weight:400;line-height:1.65}
 .portfolio-page .gallery{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px}
-.portfolio-page .project{min-width:0;display:flex;flex-direction:column;animation:portfolio-arrive .6s var(--delay) both cubic-bezier(.16,1,.3,1)}
-.portfolio-page .card{position:relative;display:flex;flex-direction:column;text-align:left;width:100%;height:100%;border:1px solid var(--line);border-radius:12px;padding:0;margin:0;background:var(--bg);color:var(--text);overflow:hidden;box-shadow:none;transition:transform .3s,box-shadow .3s,border-color .3s}
-.portfolio-page .card:hover,.portfolio-page .card:focus-visible{transform:translateY(-5px);box-shadow:var(--shadow);border-color:var(--accent)}
+.portfolio-page .project{min-width:0;display:flex;flex-direction:column}
+.portfolio-page .card{position:relative;display:flex;flex-direction:column;text-align:left;width:100%;height:100%;border:1px solid var(--line);border-radius:12px;padding:0;margin:0;background:var(--bg);color:var(--text);overflow:hidden;box-shadow:none;transition:transform .22s,box-shadow .22s,border-color .22s}
+.portfolio-page .card:focus-visible{box-shadow:var(--shadow);border-color:var(--accent)}
+@media(hover:hover) and (pointer:fine){.portfolio-page .card:hover{transform:translateY(-3px);box-shadow:var(--shadow);border-color:var(--accent)}}
 .portfolio-page .image-wrap{display:block;position:relative;overflow:hidden;aspect-ratio:1.65;background:#0c1925}
-.portfolio-page .image-wrap img{display:block;width:100%;height:100%;max-width:none;object-fit:cover;object-position:center;margin:0;border:0;border-radius:0;transition:transform .6s}
+.portfolio-page .image-wrap img{display:block;width:100%;height:100%;max-width:none;object-fit:cover;object-position:center;margin:0;border:0;border-radius:0}
 .portfolio-page .image-wrap.hospital img{object-position:65% 67%}
-.portfolio-page .card:hover img,.portfolio-page .card:focus-visible img{transform:scale(1.045)}
 .portfolio-page .image-action{position:absolute;right:14px;bottom:14px;background:#fff;color:#142335;border-radius:30px;padding:6px 12px;font-size:11px;font-weight:600;opacity:0;transition:opacity .25s}
 .portfolio-page .card:hover .image-action,.portfolio-page .card:focus-visible .image-action{opacity:1}
 .portfolio-page .card-body{display:flex;flex:1;flex-direction:column;padding:23px}
@@ -55,7 +55,7 @@ html[data-theme=dark] main.portfolio-page{--bg:#1a1a1a;--text:#edf3fb;--muted:#b
 .portfolio-page .training-bridge>*{min-width:0}
 .portfolio-page dialog{width:min(1010px,calc(100% - 40px));max-height:calc(100dvh - 40px);margin:auto;padding:0;border:1px solid var(--line);border-radius:14px;background:var(--bg);color:var(--text);box-shadow:0 35px 120px #0005;overflow:auto;overscroll-behavior:contain}
 .portfolio-page [id]{scroll-margin-top:180px}
-.portfolio-page dialog[open]{animation:portfolio-detail .25s ease both}
+.portfolio-page dialog[open]{animation:portfolio-detail .18s ease-out both}
 .portfolio-page dialog::backdrop{background:#071322b8;backdrop-filter:blur(6px)}
 .portfolio-page dialog .reveal-target{opacity:1;transform:none;transition:none}
 .portfolio-page .dialog-toolbar{position:sticky;top:0;z-index:1;display:flex;align-items:center;justify-content:space-between;gap:15px;background:var(--bg);padding:15px 23px;border-bottom:1px solid var(--line);font-size:12px;color:var(--muted)}
@@ -131,8 +131,8 @@ main.portfolio-legal{max-width:860px;padding:50px 0}
 .portfolio-legal>section p{font-size:16px}
 .portfolio-legal p+p{margin-top:13px}
 .portfolio-legal a{overflow-wrap:anywhere}
-@keyframes portfolio-arrive{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
-@keyframes portfolio-detail{from{opacity:0;transform:translateY(12px) scale(.985)}to{opacity:1;transform:none}}
+@keyframes portfolio-detail{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+@media(prefers-reduced-motion:reduce){.portfolio-page dialog[open]{animation:none}.portfolio-page .card{transition:none}}
 @media(max-width:950px){.portfolio-training .hero{gap:35px;grid-template-columns:minmax(0,1fr) 270px}.portfolio-page .section{gap:35px}.portfolio-projects .intro{gap:28px}.portfolio-projects .lead{max-width:235px}}
 @media(max-width:700px){main.portfolio-page{width:calc(100% - 16px)}.portfolio-projects .intro{display:block;padding:35px 0 30px}.portfolio-projects .lead{max-width:none;margin-top:22px}.portfolio-page .gallery{grid-template-columns:1fr}.portfolio-page .image-wrap{aspect-ratio:1.8}.portfolio-page .other-grid{grid-template-columns:1fr;gap:22px}.portfolio-page .training-bridge{flex-direction:column;align-items:flex-start;gap:24px;padding:32px 0 40px}.portfolio-page .detail-body{padding:25px}.portfolio-page #detail-title{font-size:29px}.portfolio-page .detail-intro{font-size:16px}.portfolio-page .detail-columns{grid-template-columns:1fr;gap:23px}.portfolio-page .dialog-toolbar{padding:12px 15px}.portfolio-page .dialog-toolbar>span{font-size:11px}.portfolio-page .detail-image img{max-height:42vh}.portfolio-page dialog{width:calc(100% - 24px);max-height:calc(100dvh - 24px)}.portfolio-training .hero{grid-template-columns:1fr;gap:30px;padding:35px 0}.portfolio-training .intro{font-size:17px;margin-top:22px}.portfolio-page .edition{padding:24px 0 0;border-left:0;border-top:1px solid var(--line)}.portfolio-page .section{grid-template-columns:1fr;gap:28px;padding:38px 0;scroll-margin-top:180px}.portfolio-page .section-index{margin-bottom:12px}.portfolio-page .closing{align-items:flex-start;flex-direction:column;padding:38px 0 45px}.portfolio-page #participation-dialog{padding:34px 25px}.portfolio-legal>section{scroll-margin-top:200px}}
 @media(prefers-reduced-motion:reduce){.portfolio-page *,.portfolio-page *::before,.portfolio-page *::after{animation:none!important;transition:none!important}.portfolio-page .card:hover,.portfolio-page .card:focus-visible,.portfolio-page .card:hover img,.portfolio-page .card:focus-visible img,.portfolio-page .button:hover{transform:none}}
